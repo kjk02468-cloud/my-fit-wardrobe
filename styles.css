@@ -49,3 +49,5 @@ footer{background:#eae5df;border-top:1px solid #e1d9d0;display:flex;align-items:
 .styling-summary{margin-top:20px;padding-top:16px;border-top:1px solid #ddd5c9}.styling-summary h4{font-size:13px;margin:0 0 10px}.styling-summary ul{padding-left:16px;margin:0;color:#635649;font-size:12px;line-height:1.9}.styling-summary li+li{margin-top:8px}.reference-kind{display:block;min-height:35px;font-size:10px;color:#8b745c;line-height:1.7;padding:4px 0}.reference-grid img{height:240px}
 
 .published-closet-status{margin:0 0 12px;padding:14px 17px;border:1px solid #d8d0c4;background:#f1ede5;color:#655a4b;font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+
+.product-media[data-ai-photo="true"]{background:#f7f5f1}.product-media[data-ai-photo="true"] img{object-fit:contain}
