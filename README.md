@@ -1,2 +1,11 @@
-# my-fit-wardrobe
-MY FIT — personal wardrobe and outfit styling. Browser-local data, hosted on GitHub Pages.
+# MY FIT
+
+개인 옷장 · 코디 추천 · 착장 기록을 제공하는 정적 웹 앱입니다.
+
+공개 사이트: https://kjk02468-cloud.github.io/my-fit-wardrobe/
+
+의류와 사진, 착장 기록은 방문자의 브라우저 IndexedDB에 저장합니다. 로그인 및 서버 동기화는 제공하지 않습니다. 기존 옷장은 `내 옷장 → 백업 불러오기`로 가져올 수 있습니다.
+
+GitHub Pages에서 배포하며 Vercel 및 Supabase에 연결하지 않습니다. 코디 추천은 등록한 아이템 속성과 선택한 외출 조건을 비교하는 규칙 기반 방식입니다. 날씨 조회에만 Open-Meteo를 사용합니다.
+
+참고 사진은 상품·컬렉션 자료이며 각 사진의 출처는 앱에서 확인할 수 있습니다. 사진 저작권은 각 권리자에게 있습니다. 이 저장소에는 개인 옷장 백업과 비밀 키를 포함하지 않습니다.
