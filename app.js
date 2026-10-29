@@ -27,7 +27,10 @@
  const itemImage = item => safeImg(item?.image)||'';
  const additionalImages = item => Array.isArray(item?.additionalImages) ? item.additionalImages.map(safeImg).filter(Boolean).slice(0,8) : [];
  const photoLabel=(item,index)=>String(item?.photoLabels?.[index]||(index===0?'대표':`상세 ${index}`)).slice(0,24);
- function aiPhotoFields(o){return {aiEdited:Boolean(o?.aiEdited)&&Boolean(safeImg(o?.image)),aiEditVersion:Math.max(0,Math.min(100,Number(o?.aiEditVersion)||0)),aiEditNote:String(o?.aiEditNote||'').slice(0,300)}}
+ function aiPhotoFields(o){
+  const edited=o?.aiEdited===true||(o?.aiEdited===undefined&&String(o?.photoLabels?.[0]||'').startsWith('AI 보정'));
+  return {aiEdited:edited&&Boolean(safeImg(o?.image)),aiEditVersion:Math.max(0,Math.min(100,Number(o?.aiEditVersion)||0)),aiEditNote:String(o?.aiEditNote||(edited?'원본 상품 사진을 바탕으로 AI로 정리한 이미지예요. 세부 형태와 색감은 원본 사진과 비교해 주세요.':'')).slice(0,300)};
+ }
  const sourceUrl=value=>{try{const u=new URL(String(value||''));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}};
  function itemPhotos(item){return [itemImage(item)?{src:itemImage(item),label:photoLabel(item,0)}:null,...additionalImages(item).map((src,index)=>({src,label:photoLabel(item,index+1)}))].filter(Boolean)}
  function openItemDetail(itemId){if(!itemById(itemId))return;detailItemId=itemId;detailPhotoIndex=0;renderItemDetail();openModal('item-detail-modal')}
@@ -228,10 +231,10 @@
   try{
    const manifest=await publishedJson('./published-closet.json');
    if(manifest.schemaVersion!==1||!/^\d{4}-[a-f0-9]{16}$/.test(manifest.revision||'')||!/^\.\/data\/wardrobe-[a-f0-9]{16}\.json$/.test(manifest.dataFile||''))throw new Error('Invalid published wardrobe manifest');
-   const payload=cache?.revision===manifest.revision?cache:await publishedJson(manifest.dataFile,45000);
+   const payload=cache?.formatVersion===2&&cache.revision===manifest.revision?cache:await publishedJson(manifest.dataFile,45000);
    if(payload.revision!==manifest.revision||!Array.isArray(payload.items)||payload.items.length>500)throw new Error('Invalid published wardrobe collection');
    publishedItems=payload.items.map(normalizeItem).filter(Boolean);publishedStatus='live';
-   if(cache?.revision!==manifest.revision){try{await dbReq('meta','put',{id:'published-closet-cache',revision:manifest.revision,items:publishedItems})}catch(error){console.warn('Published wardrobe could not be cached')}}
+   if(cache?.formatVersion!==2||cache.revision!==manifest.revision){try{await dbReq('meta','put',{id:'published-closet-cache',formatVersion:2,revision:manifest.revision,items:publishedItems})}catch(error){console.warn('Published wardrobe could not be cached')}}
   }catch(error){
    if(Array.isArray(cache?.items)){publishedItems=cache.items.map(normalizeItem).filter(Boolean);publishedStatus='cached'}else{publishedItems=[];publishedStatus='unavailable'}
    console.warn('Published wardrobe refresh unavailable');
