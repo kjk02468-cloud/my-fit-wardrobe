@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=20261029-public-closet-1" />
 </head>
 <body>
  <header class="site-header">
@@ -74,9 +74,10 @@
   <section class="view-panel internal-page" data-view="closet" hidden aria-label="내 옷장">
    <div class="page-intro"><span class="eyebrow">YOUR OWN EDITED COLLECTION</span><div class="page-intro-row"><div><h1>MY WARDROBE</h1><p>쇼핑몰처럼 한눈에 보는, 오직 나만의 남성복 컬렉션.</p></div><button type="button" id="closet-add" class="button-primary">＋ 새 아이템 등록</button></div></div>
    <div class="closet-toolbar"><div class="filter-row" id="closet-filters"></div><label class="search-field"><span>⌕</span><input id="closet-search" type="search" placeholder="브랜드, 아이템, 색상 검색" autocomplete="off" aria-label="아이템 검색" /></label></div>
+   <p id="published-closet-status" class="published-closet-status" role="status">공개 옷장을 불러오는 중이에요…</p>
    <p id="photo-policy-summary" class="photo-policy-summary" role="status">공식 이미지 사용 · 출처 확인 중</p><div class="collection-info"><span id="closet-count">0 ITEMS IN YOUR CLOSET</span><button type="button" id="export-data">↧ 내 데이터 백업</button></div>
    <div class="product-grid catalog-grid" id="catalog-grid"></div>
-   <div class="note-line">등록한 사진과 착장 기록은 이 브라우저에 저장됩니다. 다른 기기로 옮기려면 데이터 백업을 이용하세요.</div>
+   <div class="note-line">게시된 공개 옷장은 모든 기기에서 자동으로 불러옵니다. 직접 추가·수정·삭제한 내용과 착장 기록은 현재 기기에 저장돼요.</div>
   </section>
   <section class="view-panel internal-page stylist-page" data-view="stylist" hidden aria-label="AI 코디">
    <div class="page-intro"><span class="eyebrow">PERSONAL STYLING LAB</span><div class="page-intro-row"><div><h1>STYLE, MADE FOR YOU.</h1><p>날씨·목적지·외출 이유를 입력하고 내 옷으로 가능한 조합을 확인해 보세요.</p></div><span class="rounded-stamp">01 — YOUR INPUT<br/>02 — THE SELECTION<br/>03 — OUTFIT BOARD</span></div></div>
@@ -120,6 +121,6 @@
   </div>
  </div>
  <div id="toast" class="toast" role="status" aria-live="polite"></div>
- <script src="./app.js" defer></script>
+ <script src="./app.js?v=20261029-public-closet-1" defer></script>
 </body>
 </html>
