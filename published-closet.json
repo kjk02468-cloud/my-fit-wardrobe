@@ -1,8 +1,17 @@
 {
-  "schemaVersion": 1,
-  "revision": "2026-4cec97a1453ea2c3",
-  "dataFile": "./data/wardrobe-4cec97a1453ea2c3.json",
-  "itemCount": 19,
-  "photoCount": 80,
-  "updatedAt": "2026-10-29T07:28:06.696Z"
+  "schemaVersion": 2,
+  "revision": "2026-806e2b0266bb4297",
+  "dataFiles": [
+    {
+      "path": "./data/wardrobe-4cec97a1453ea2c3.json",
+      "revision": "2026-4cec97a1453ea2c3"
+    },
+    {
+      "path": "./data/wardrobe-806e2b0266bb4297.json",
+      "revision": "2026-806e2b0266bb4297"
+    }
+  ],
+  "itemCount": 25,
+  "photoCount": 106,
+  "updatedAt": "2026-11-02T12:44:06.410750+00:00"
 }
