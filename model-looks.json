@@ -1,0 +1,235 @@
+{
+  "schemaVersion": 1,
+  "looks": [
+    {
+      "id": "denim",
+      "image": "./assets/model-look-denim-v1.webp",
+      "title": "흑청 데님 스트리트",
+      "note": "리버서블 자켓의 데님 면 + 블랙 후드 + 와이드 흑청 데님 + 발렌시아가 트랙.",
+      "purposes": [
+        "casual",
+        "date",
+        "travel"
+      ],
+      "pieces": [
+        {
+          "id": "item-20261102-balenciaga-reversible",
+          "name": "발렌시아가 x 언더아머 리버서블 데님·바람막이 자켓",
+          "brand": "BALENCIAGA x Under Armour",
+          "cat": "outer",
+          "color": "charcoal",
+          "imageKey": "1817afc5",
+          "viewLabel": "AI 보정 · 데님 면",
+          "viewImageKey": "1817afc5"
+        },
+        {
+          "id": "item-mvnm5zvx-2egc7m",
+          "name": "우영미 블랙 후드 티셔츠 (105)",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "top",
+          "color": "black",
+          "imageKey": "a02369f5"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261025-02-track",
+          "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+          "brand": "BALENCIAGA / 발렌시아가",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "5d391492"
+        }
+      ]
+    },
+    {
+      "id": "beige",
+      "image": "./assets/model-look-beige-v1.webp",
+      "title": "베이지 셋업 믹스",
+      "note": "우영미 베이지 더블 재킷과 팬츠에 블랙 후드·브라운 스웨이드 로퍼를 연결했어요.",
+      "purposes": [
+        "casual",
+        "date",
+        "office"
+      ],
+      "pieces": [
+        {
+          "id": "item-20261029-14-beigejacket",
+          "name": "우영미 23SS 베이지 더블 재킷",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "beige",
+          "imageKey": "a7e3f41b"
+        },
+        {
+          "id": "item-mvnm5zvx-2egc7m",
+          "name": "우영미 블랙 후드 티셔츠 (105)",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "top",
+          "color": "black",
+          "imageKey": "a02369f5"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ]
+    },
+    {
+      "id": "brown",
+      "image": "./assets/model-look-brown-v1.webp",
+      "title": "블랙 블레이저와 브라운 데님",
+      "note": "우영미 블랙 투 버튼 블레이저 + 블랙 후드 + HE:COMMENDS 브라운 데님 + 닥터마틴 1461.",
+      "purposes": [
+        "casual",
+        "date",
+        "office"
+      ],
+      "pieces": [
+        {
+          "id": "item-20261102-woo-black-blazer",
+          "name": "우영미 블랙 투 버튼 울 트윌 블레이저",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "aed54376"
+        },
+        {
+          "id": "item-mvnm5zvx-2egc7m",
+          "name": "우영미 블랙 후드 티셔츠 (105)",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "top",
+          "color": "black",
+          "imageKey": "a02369f5"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ]
+    },
+    {
+      "id": "shirt",
+      "image": "./assets/model-look-shirt-v1.webp",
+      "title": "화이트 셔츠와 그레이 슬랙스",
+      "note": "우영미 블랙 투 버튼 블레이저 + 화이트 포켓 셔츠 + 그레이 슬랙스 + 닥터마틴 1461.",
+      "purposes": [
+        "casual",
+        "date",
+        "office",
+        "formal"
+      ],
+      "pieces": [
+        {
+          "id": "item-20261102-woo-black-blazer",
+          "name": "우영미 블랙 투 버튼 울 트윌 블레이저",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "aed54376"
+        },
+        {
+          "id": "item-20261102-white-shirt",
+          "name": "화이트 포켓 셔츠 (브랜드 미상)",
+          "brand": "",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "5ded0982"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ]
+    },
+    {
+      "id": "wind",
+      "image": "./assets/model-look-wind-v1.webp",
+      "title": "바람막이와 화이트 셔츠",
+      "note": "리버서블 자켓의 바람막이 면 + 화이트 포켓 셔츠 + 와이드 흑청 데님 + 발렌시아가 트랙.",
+      "purposes": [
+        "casual",
+        "date",
+        "travel"
+      ],
+      "pieces": [
+        {
+          "id": "item-20261102-balenciaga-reversible",
+          "name": "발렌시아가 x 언더아머 리버서블 데님·바람막이 자켓",
+          "brand": "BALENCIAGA x Under Armour",
+          "cat": "outer",
+          "color": "charcoal",
+          "imageKey": "1817afc5",
+          "viewLabel": "AI 보정 · 바람막이 면",
+          "viewImageKey": "21202fb4"
+        },
+        {
+          "id": "item-20261102-white-shirt",
+          "name": "화이트 포켓 셔츠 (브랜드 미상)",
+          "brand": "",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "5ded0982"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261025-02-track",
+          "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+          "brand": "BALENCIAGA / 발렌시아가",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "5d391492"
+        }
+      ]
+    }
+  ]
+}

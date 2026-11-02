@@ -5,8 +5,8 @@
  const $ = (selector, root=document) => root.querySelector(selector);
  const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
  const S = (value='') => String(value ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const categories = {all:'전체', top:'상의', bottom:'하의', outer:'아우터', shoes:'신발', bag:'가방', accessory:'액세서리'};
- const colors = {black:'블랙', brown:'브라운', beige:'베이지', cream:'크림', charcoal:'차콜', navy:'네이비', blue:'블루', white:'화이트', green:'그린', other:'기타'};
+ const categories = {all:'전체', top:'상의', bottom:'하의', outer:'아우터', shoes:'신발', bag:'가방', eyewear:'아이웨어', accessory:'액세서리'};
+ const colors = {black:'블랙', brown:'브라운', beige:'베이지', cream:'크림', charcoal:'차콜', navy:'네이비', blue:'블루', white:'화이트', green:'그린', silver:'실버', other:'기타'};
  const cityCoords = {'서울':[37.5665,126.9780],'성남':[37.4201,127.1266],'장성':[35.3018,126.7852],'부산':[35.1796,129.0756],'대전':[36.3504,127.3845]};
  const styleLabels = {casual:'데일리', date:'데이트', office:'비즈니스 캐주얼', formal:'포멀', travel:'주말 나들이'};
  const ownedItems = list => list.filter(item=>!item.isDemo);
@@ -15,6 +15,16 @@
  let toastTimeout, detailItemId = null, detailPhotoIndex = 0, tempItemAdditionalImages = [], tempItemPhotoLabels = [];
  let styleLibrary=[],referenceIndexes=new Map();
  const referenceEngine=typeof window!=='undefined'?window.MyFitReferences:null;
+ const modelEngine=typeof window!=='undefined'?window.MyFitModels:null;
+ let modelLibrary=[],recommendationMode='model';
+ const failedModelImages=new Set();
+ async function loadModelLooks(){
+  if(!modelEngine)return;
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),6000);
+  try{const response=await fetch('./model-looks.json?v=20261102-v1',{signal:controller.signal});if(!response.ok||Number(response.headers?.get('content-length'))>modelEngine.MAX_BYTES)throw Error('Model library unavailable');modelLibrary=modelEngine.parseLibrary(await response.text())}catch{modelLibrary=[];console.warn('Model photos unavailable; showing wardrobe combinations')}finally{clearTimeout(timer)}
+ }
+ const lookImage=item=>safeImg(item?.lookImage)||itemImage(item);
+ const lookName=item=>item.name+(item.lookSide?` · ${item.lookSide} 착용`:'');
  async function loadStyleReferences(){
   if(!referenceEngine)return;
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),6000);
@@ -40,7 +50,7 @@
  }
  const sourceUrl=value=>{try{const u=new URL(String(value||''));return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}};
  function itemPhotos(item){return [itemImage(item)?{src:itemImage(item),label:photoLabel(item,0)}:null,...additionalImages(item).map((src,index)=>({src,label:photoLabel(item,index+1)}))].filter(Boolean)}
- function openItemDetail(itemId){if(!itemById(itemId))return;detailItemId=itemId;detailPhotoIndex=0;renderItemDetail();openModal('item-detail-modal')}
+ function openItemDetail(itemId,photoIndex=0){const item=itemById(itemId);if(!item)return;detailItemId=itemId;detailPhotoIndex=Number.isInteger(photoIndex)&&photoIndex>=0&&photoIndex<itemPhotos(item).length?photoIndex:0;if(!$('#model-look-modal').hidden)closeModal('model-look-modal');renderItemDetail();openModal('item-detail-modal')}
  function renderItemDetail(){
   const item=itemById(detailItemId);if(!item)return;
   const photos=itemPhotos(item), selected=photos[detailPhotoIndex],isAiPhoto=Boolean(item.aiEdited&&(detailPhotoIndex===0||selected?.label.startsWith('AI 보정')));
@@ -68,9 +78,10 @@
   $('#feature-page').textContent=looks.length?`0${activeFeature+1} / 0${looks.length}`:'00 / 00';
   $('#feature-title').textContent=look?.title||'내 옷으로 시작하는 코디';
   $('#feature-subtitle').textContent=look?.description||'옷을 등록하면 내 옷장 안에서 조합을 찾아드려요.';
-  $('#hero-own-board').innerHTML=look?outfitBoard(look):'<div class="board-empty">내 옷을 등록해 주세요.</div>';
-  $('#feature-items').innerHTML=(look?.items||[]).filter(item=>itemImage(item)).map(item=>`<img loading="lazy" src="${S(itemImage(item))}" title="${S(item.name)}" alt="${S(item.name)}"/>`).join('');
-  const reasons=look?[`내 옷 ${ownedItems(items).length}개에서 선택`,look.missing.length?`${look.missing.map(cat=>categories[cat]).join(' · ')} 미등록 · 있는 옷만 조합`:'상의·하의·신발이 모두 있는 조합',`목적지 ${look.context.destination} · ${styleLabels[look.context.purpose]}`,'사진 속 제품은 모두 내 옷장 등록품']:['첫 옷을 추가해 보세요.'];
+  $('#hero-own-board').classList.toggle('has-model',Boolean(look?.model&&!failedModelImages.has(look.model.id)));
+  $('#hero-own-board').innerHTML=look?(modelPhoto(look)||outfitBoard(look)):'<div class="board-empty">내 옷을 등록해 주세요.</div>';
+  $('#feature-items').innerHTML=(look?.items||[]).filter(item=>lookImage(item)).map(item=>`<img loading="lazy" src="${S(lookImage(item))}" title="${S(lookName(item))}" alt="${S(lookName(item))}"/>`).join('');
+  const reasons=look?[`내 옷 ${ownedItems(items).length}개에서 선택`,look.missing.length?`${look.missing.map(cat=>categories[cat]).join(' · ')} 미등록 · 있는 옷만 조합`:'상의·하의·신발이 모두 있는 조합',`목적지 ${look.context.destination} · ${styleLabels[look.context.purpose]}`,look.model?'내 옷으로 만든 AI 예상 착장 · 실제 핏은 다를 수 있어요':'사진 속 제품은 모두 내 옷장 등록품']:['첫 옷을 추가해 보세요.'];
   $('#feature-reasons').innerHTML=reasons.map((reason,index)=>`<div><span>${['◈','＋','⌖','♡'][index]}</span><p>${S(reason)}</p></div>`).join('');
   $('#feature-prev').disabled=!look;$('#feature-next').disabled=!look;$('#feature-like').disabled=!look;
   const saved=JSON.parse(localStorage.getItem('myfit-favourites')||'[]');const on=saved.includes(activeFeature);$('#feature-like').textContent=on?'♥':'♡';$('#feature-like').classList.toggle('saved',on);
@@ -126,9 +137,9 @@
  function itemScore(item,c){return itemRules(item,c).reduce((sum,rule)=>sum+rule.points,0)}
  function getContext(){const purpose=$('#stylist-purpose').value;const city=$('#city').value;const season=monthSeason();const mood=$('input[name=mood]:checked')?.value||'minimal';return {purpose,destination:$('#stylist-destination').value,city,mood,season,temperature:weather&&weather.city===city?weather.temp:null,code:weather&&weather.city===city?weather.code:null}}
  function combinationRules(chosen){
-  const rules=[],clothes=chosen.filter(i=>i.cat!=='accessory'&&i.cat!=='bag');const outer=chosen.find(i=>i.cat==='outer'),shoe=chosen.find(i=>i.cat==='shoes');
+  const rules=[],clothes=chosen.filter(i=>!['accessory','bag','eyewear'].includes(i.cat));const outer=chosen.find(i=>i.cat==='outer'),shoe=chosen.find(i=>i.cat==='shoes');
   if(outer&&shoe&&['smart','formal'].includes(outer.formality)&&['smart','formal'].includes(shoe.formality))rules.push({label:'아우터와 신발을 단정한 스타일로 연결',points:outer.formality===shoe.formality?6:4});
-  const palette=[...new Set(clothes.map(i=>i.color))];
+  const palette=[...new Set(clothes.map(i=>i.lookColor||i.color))];
   if(palette.length<=2&&clothes.length>1)rules.push({label:'주요 색을 두 가지 이내로 연결',points:3});
   if(chosen.some(i=>i.id==='item-20261029-14-beigejacket')&&chosen.some(i=>i.id==='item-20261029-15-beigepants'))rules.push({label:'우영미 베이지 셋업의 재킷과 팬츠 연결',points:4});
   if(palette.includes('brown')&&palette.includes('beige'))rules.push({label:'브라운과 베이지의 가까운 색 연결',points:3});
@@ -138,44 +149,49 @@
  function makeRecommendations(){
   const c=getContext(),own=ownedItems(items);if(!own.length)return [];
   const cool=c.temperature===null?c.season!=='summer':c.temperature<=22;
-  const cats=[...(cool||['formal','office'].includes(c.purpose)?['outer']:[]),'top','bottom','shoes','bag','accessory'];
-  let candidates=[{items:[],score:0}];
-  for(const cat of cats){
-   const pool=own.filter(i=>i.cat===cat).map(item=>({item,score:itemScore(item,c)})).sort((a,b)=>b.score-a.score||a.item.name.localeCompare(b.item.name)).slice(0,12);
+  const cats=[...(cool||['formal','office'].includes(c.purpose)?['outer']:[]),'top','bottom','shoes','bag','eyewear','accessory'];
+  const prepared=recommendationMode==='model'&&modelEngine?modelEngine.candidates(modelLibrary,own,c):[];
+  let candidates=prepared.length?prepared.map(r=>({...r,score:r.items.reduce((s,i)=>s+itemScore(i,c),0)})):[{items:[],score:0}];
+  for(const cat of prepared.length?[]:cats){
+   const pool=own.filter(i=>i.cat===cat).flatMap(item=>modelEngine?modelEngine.variants(item):[item]).map(item=>({item,score:itemScore(item,c)})).sort((a,b)=>b.score-a.score||a.item.name.localeCompare(b.item.name)).slice(0,12);
    if(!pool.length)continue;
    candidates=candidates.flatMap(base=>pool.map(p=>({items:[...base.items,p.item],score:base.score+p.score}))).sort((a,b)=>b.score-a.score).slice(0,96);
   }
   candidates=candidates.filter(r=>r.items.length).map(r=>{const referenceMatches=referenceEngine?referenceEngine.rank(r.items,styleLibrary):[],referenceBonus=referenceEngine?referenceEngine.bonus(referenceMatches):0;return {...r,referenceMatches,referenceBonus,score:r.score+combinationRules(r.items).reduce((s,x)=>s+x.points,0)+referenceBonus}});
   const selected=[];
-  while(candidates.length&&selected.length<3){
+  while(candidates.length&&selected.length<(prepared.length?6:3)){
    const adjusted=r=>r.score-(selected.length?Math.max(...selected.map(prev=>r.items.filter(i=>prev.items.some(p=>p.id===i.id)).length))*4:0);
    candidates.sort((a,b)=>adjusted(b)-adjusted(a)||b.score-a.score);
-   const usedOuters=new Set(selected.map(r=>r.items.find(i=>i.cat==='outer')?.id).filter(Boolean));
-   const freshOuterIndex=selected.length?candidates.findIndex(r=>{const outer=r.items.find(i=>i.cat==='outer');return outer&&!usedOuters.has(outer.id)}):-1;
+   const outerKey=item=>item?.id+'|'+(item?.lookView||'');
+   const usedOuters=new Set(selected.map(r=>outerKey(r.items.find(i=>i.cat==='outer'))));
+   const freshOuterIndex=selected.length?candidates.findIndex(r=>{const outer=r.items.find(i=>i.cat==='outer');return outer&&!usedOuters.has(outerKey(outer))}):-1;
    selected.push(candidates.splice(freshOuterIndex>=0?freshOuterIndex:0,1)[0]);
   }
   const distributed=referenceEngine?referenceEngine.distribute(selected.map(r=>r.referenceMatches)):[];
   return selected.map((r,index)=>{
    const chosen=r.items,missing=['top','bottom','shoes'].filter(cat=>!chosen.some(item=>item.cat===cat));
    const outer=chosen.find(i=>i.cat==='outer'),shoe=chosen.find(i=>i.cat==='shoes');
-   const title=outer?.name.includes('MA-1')?'블랙 봄버 캐주얼':outer?.color==='navy'&&shoe?.color==='black'?'네이비 레더와 블랙 슈즈':outer?.color==='beige'&&shoe?.color==='brown'?`베이지 ${outer.name.includes('코트')?'코트':'재킷'}와 브라운 로퍼`:outer?`${colors[outer.color]} 아우터 조합`:shoe?`${colors[shoe.color]} 슈즈 조합`:'보유 아이템 조합';
+   const model=r.model||(modelEngine?modelEngine.match(modelLibrary,chosen):null);
+   const title=model?.title||(outer?.lookSide?`리버서블 ${outer.lookSide} 코디`:outer?.name.includes('MA-1')?'블랙 봄버 캐주얼':outer?.color==='navy'&&shoe?.color==='black'?'네이비 레더와 블랙 슈즈':outer?.color==='beige'&&shoe?.color==='brown'?`베이지 ${outer.name.includes('코트')?'코트':'재킷'}와 브라운 로퍼`:outer?`${colors[outer.color]} 아우터 조합`:shoe?`${colors[shoe.color]} 슈즈 조합`:'보유 아이템 조합');
    const note=missing.length?`${missing.map(cat=>categories[cat]).join(' · ')}가 아직 등록되지 않아, 보유한 제품으로만 구성한 부분 코디예요.`:'등록한 상의·하의·신발을 함께 구성했어요.';
    const purposeNote=['office','formal'].includes(c.purpose)&&chosen.some(item=>item.cat==='top'&&item.formality==='casual')?' 현재 상의는 캐주얼해서 격식 있는 자리에는 추가 상의가 필요해요.':'';
    const temp=c.temperature!==null?`${Math.round(c.temperature)}°C 기준`:'기온 미조회 · 계절 기준';
-   return {id:'rec-'+index,number:index+1,title,description:note+purposeNote,items:chosen,missing,context:c,score:r.score,referenceMatches:distributed[index]||[],referenceBonus:r.referenceBonus,explain:`${temp} · 목적지 ${c.destination} · ${styleLabels[c.purpose]} · 내 옷만 사용`,combinationRules:[...combinationRules(chosen),...(r.referenceBonus?[{label:'참고 착장의 전체 아이템·색 조합 연결',points:r.referenceBonus}]:[])]};
+   return {id:'rec-'+index,number:index+1,title,model,description:(model?.note||note)+purposeNote,items:chosen,missing,context:c,score:r.score,referenceMatches:distributed[index]||[],referenceBonus:r.referenceBonus,explain:`${temp} · 목적지 ${c.destination} · ${styleLabels[c.purpose]} · 내 옷만 사용`,combinationRules:[...combinationRules(chosen),...(r.referenceBonus?[{label:'참고 착장의 전체 아이템·색 조합 연결',points:r.referenceBonus}]:[])]};
   });
  }
  function stylingSummary(rec){
-  const outer=rec.items.find(i=>i.cat==='outer'),shoe=rec.items.find(i=>i.cat==='shoes'),top=rec.items.find(i=>i.cat==='top');
+  const outer=rec.items.find(i=>i.cat==='outer'),shoe=rec.items.find(i=>i.cat==='shoes'),top=rec.items.find(i=>i.cat==='top'),bottom=rec.items.find(i=>i.cat==='bottom');
   const reasons=[];
-  if(outer?.color==='beige'&&shoe?.color==='brown')reasons.push(`베이지 ${outer.name.includes('코트')?'코트':'재킷'}와 브라운 로퍼를 따뜻한 계열로 연결하고, 블랙 후드가 가운데를 잡아줘요.`);
-  else if(outer?.color==='navy'&&shoe?.color==='black')reasons.push('네이비와 블랙의 어두운 톤을 이어 차분하게 입는 조합이에요. 가죽 자켓의 질감이 포인트가 돼요.');
-  else if(outer?.name.includes('MA-1')&&shoe?.formality==='casual')reasons.push('MA-1·후드·스니커즈의 캐주얼한 성격을 맞췄어요. 짧고 볼륨 있는 아우터와 두툼한 신발이 이어져요.');
-  else if(outer?.name.includes('블레이저')&&top?.name.includes('후드'))reasons.push('블레이저에 후드를 겹쳐 편한 스마트 캐주얼로 입는 조합이에요. 두 옷을 겹쳤을 때 어깨와 팔의 여유를 확인해 주세요.');
-  else if(outer&&shoe)reasons.push(`${colors[outer.color]} 아우터와 ${colors[shoe.color]} 신발의 색·등록 스타일을 함께 비교했어요.`);
-  if(outer&&shoe&&['smart','formal'].includes(outer.formality)&&['smart','formal'].includes(shoe.formality))reasons.push('아우터와 가죽 신발을 단정한 쪽으로 연결했어요. 후드와 볼캡은 캐주얼한 분위기를 더해줘요.');
-  else if(top?.color==='black'&&shoe?.color==='black')reasons.push('블랙 상의와 블랙 신발을 반복해 여러 아이템을 입어도 색이 흩어지지 않아요.');
-  else reasons.push(rec.context.mood==='minimal'?'선택한 미니멀 분위기에 맞춰 차분한 색 위주로 골랐어요.':'선택한 외출 목적과 옷에 등록된 스타일을 우선했어요.');
+  if(outer?.lookSide==='바람막이 면')reasons.push(`같은 리버서블 자켓의 바람막이 면을 바깥으로 입어요. 블랙·그레이 배색이 포인트예요.${shoe?.name.includes('트랙')?' 트랙 슈즈의 스포티한 디테일과 연결돼요.':''}`);
+  else if(outer?.lookSide==='데님 면')reasons.push(`같은 리버서블 자켓의 데님 면을 바깥으로 입어요. 흑청 워싱을 ${bottom?.name.includes('데님')?'데님 하의의 질감':'하의의 색감'}과 연결한 조합이에요.`);
+  else if(outer?.name.includes('블레이저')&&top?.color==='white'&&top?.name.includes('셔츠')&&!/티셔츠|후드/.test(top.name))reasons.push('블랙 블레이저에 화이트 셔츠를 넣어 얼굴 쪽을 밝히고, 차분한 하의와 가죽 신발로 마무리해요.');
+  else if(outer?.color==='beige'&&shoe?.color==='brown')reasons.push(`베이지 아우터와 브라운 신발을 가까운 색으로 연결했어요.${top?.color==='black'?' 블랙 상의가 중심을 잡아줘요.':''}`);
+  else if(outer?.name.includes('블레이저')&&top?.name.includes('후드'))reasons.push('블레이저에 후드를 겹쳐 편한 스마트 캐주얼로 입어요. 어깨와 팔에 겹쳐 입을 여유가 있는지 확인해 주세요.');
+  else if(outer&&shoe)reasons.push(`${colors[outer.lookColor||outer.color]} 아우터와 ${colors[shoe.color]} 신발의 색·등록 스타일을 함께 비교했어요.`);
+  if(top?.color==='white')reasons.push('화이트 상의가 어두운 아우터와 하의 사이에 대비를 만들어요. 셔츠 밑단을 가볍게 넣으면 허리선이 정리돼요.');
+  else if(bottom?.color==='brown')reasons.push('브라운 하의로 블랙 중심 조합에 따뜻한 색감을 더했어요.');
+  else if(top?.color==='black'&&shoe?.color==='black')reasons.push('블랙 상의와 블랙 신발을 반복해 색이 흩어지지 않게 했어요.');
+  else reasons.push('선택한 외출 목적과 옷에 등록된 스타일을 우선했어요.');
   return reasons.slice(0,2);
  }
  const stylingReferences=[
@@ -187,32 +203,46 @@
   {match:rec=>rec.items.some(i=>i.cat==='top'&&i.photoStatus==='brand'&&i.sourceUrl?.includes('/2371/')),src:'./assets/official-hoodie-look.webp',kind:'보유 제품 · WOOYOUNGMI 공식 착장',name:'블랙 후드 + 밝은 팬츠',source:'https://wooyoungmi.com/product/black/2371/',reason:'보유 후드와 밝은 팬츠의 대비를 참고하세요. 사진 속 하의와 신발은 보유품으로 추가하지 않았어요.'}
  ];
  function recommendationEvidence(rec){
-  const refs=styleLibrary.length?[]:stylingReferences.filter(ref=>ref.match(rec)).slice(0,1);
+  const refs=rec.model||styleLibrary.length?[]:stylingReferences.filter(ref=>ref.match(rec)).slice(0,1);
   return `<section class="styling-summary"><h4>이렇게 입어보세요</h4><ul>${stylingSummary(rec).map(reason=>`<li>${S(reason)}</li>`).join('')}</ul></section><details class="recommendation-reasons"><summary>선택 기준 자세히 보기 <small>규칙 점수 ${rec.score}</small></summary><p class="reason-method">등록한 계절·스타일·색상과 목적·분위기를 비교해요. 참고 착장의 종류·색과 확인 가능한 통이 가까우면 최대 6점을 더해요. 점수는 취향 만족 확률이 아니에요.</p><ul>${rec.items.map(item=>`<li><strong>${S(item.name)}</strong><span>${itemRules(item,rec.context).map(rule=>`${S(rule.label)} (${rule.points>0?'+':''}${rule.points})`).join(' · ')||'보유한 같은 카테고리에서 선택'}</span></li>`).join('')}${rec.combinationRules.map(rule=>`<li>${S(rule.label)} (+${rule.points})</li>`).join('')}</ul><p class="fine-print">${rec.number>1?'가능하면 다른 아우터를 골라 분위기를 나눴고, 앞선 추천과 겹치는 옷은 조합당 점수를 낮춰 골랐어요. ':''}체형·실제 핏·소재 두께는 분석하지 않았어요. ${rec.context.temperature===null?'날씨는 아직 조회하지 않았어요.':''}</p></details>${refs.length?`<section class="outfit-references" aria-label="착장 참고 사진"><h4>착장 참고 사진</h4><p>추천 조합 전체를 그대로 입은 사진은 아니에요. 보유 제품과 유사 스타일을 구분했으며, 사진 속 다른 옷은 내 옷장 등록품이 아닐 수 있어요.</p><div class="reference-grid">${refs.map(ref=>`<figure><span class="reference-kind">${S(ref.kind)}</span><a href="${S(ref.source)}" target="_blank" rel="noopener noreferrer"><img src="${S(ref.src)}" loading="lazy" alt="${S(ref.kind+' · '+ref.name)}"/><figcaption>${S(ref.name)} · 출처 보기 ↗</figcaption></a><p>${S(ref.reason)}</p></figure>`).join('')}</div></section>`:styleLibrary.length?'':'<p class="fine-print">이 조합의 착장 참고 사진은 아직 확인하지 못했어요.</p>'}`;
  }
 
  function referencePanel(rec){
+  if(rec.model)return '';
   const matches=rec.referenceMatches||[];
   if(!matches.length)return styleLibrary.length?'<p class="fine-print">두 가지 이상 구성과 색이 가까운 착장을 아직 찾지 못했어요. 내 옷 조합은 계속 추천해요.</p>':'';
   const key=rec.items.map(i=>i.id).join('|'),index=(referenceIndexes.get(key)||0)%matches.length,m=matches[index],ref=m.reference;
   return `<section class="reference-match" aria-label="조합으로 찾은 착장 참고"><div class="reference-match-heading"><h4>조합으로 찾은 참고 착장</h4><span>${m.matched.length} / ${m.total} 구성 가까움</span></div><p class="reference-publisher">${S(ref.publisher)} · ${S(ref.collection)}</p><a class="reference-photo" href="${S(ref.source)}" target="_blank" rel="noopener noreferrer"><img data-reference-image src="${S(ref.imageUrl)}" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="${S(ref.name+' · '+ref.framing)}"/><span class="reference-unavailable">사진을 불러오지 못했어요.<br/>출처에서 착장 보기 ↗</span></a><p class="reference-caption"><a href="${S(ref.source)}" target="_blank" rel="noopener noreferrer">${S(ref.name)} · 출처 보기 ↗</a><small>${S(ref.framing)} · 사진 ${S(ref.credit)}</small></p><div class="reference-match-tags">${m.matched.map(p=>`<span>${S(p.label)}</span>`).join('')}</div><p class="reference-difference">${S(m.differences.slice(0,2).join(' ')||'종류와 색 계열이 가까워요. 실제 제품·디테일·착용 핏은 다를 수 있어요.')}</p><p class="reference-disclosure">같은 제품을 모두 입은 사진은 아니에요. 사진 속 다른 옷은 내 옷장에 추가하지 않아요.</p>${matches.length>1?`<div class="reference-controls"><span>${index+1} / ${matches.length} 참고</span><button type="button" data-next-reference="${rec.number-1}" aria-label="LOOK ${rec.number} 다른 참고 착장 보기">다른 참고 보기 →</button></div>`:''}</section>`;
  }
 
+ function modelPhoto(rec){
+  if(!rec.model||failedModelImages.has(rec.model.id))return '';
+  return `<figure class="ai-model-figure"><button type="button" data-open-model="${S(rec.model.id)}" aria-label="${S(rec.title)} AI 예상 착장 크게 보기"><img data-model-image="${S(rec.model.id)}" src="${S(rec.model.image)}" loading="lazy" decoding="async" width="960" height="1440" alt="${S(rec.title)} · 내 옷으로 만든 AI 예상 착장"/><span class="ai-model-badge">AI 예상 착장</span><span class="ai-model-expand">크게 보기 ↗</span></button></figure>`;
+ }
+ function openModelLook(modelId){
+  const selected=modelEngine?.candidates(modelLibrary,ownedItems(items),getContext()).find(r=>r.model.id===modelId);if(!selected)return;
+  $('#model-look-title').textContent=selected.model.title;
+  $('#model-look-content').innerHTML=`<img class="model-detail-photo" data-model-image="${S(selected.model.id)}" src="${S(selected.model.image)}" alt="${S(selected.model.title)} · AI 예상 착장"/><p class="fine-print">보유 제품 사진을 조합해 만든 AI 모델컷이에요. 실제 착용 사진이 아니며 로고·색감·핏은 원본과 차이가 있을 수 있어요.</p>${outfitBoard(selected)}`;
+  openModal('model-look-modal');
+ }
  function outfitBoard(rec){
   const pieces=['outer','top','bottom','shoes'].map(cat=>{
    const item=rec.items.find(item=>item.cat===cat);
    if(!item)return cat==='outer'?'':`<div class="board-tile board-missing"><span>＋</span><strong>${categories[cat]} 미등록</strong><small>등록한 옷만 사용해요</small></div>`;
-   const image=itemImage(item);return `<button type="button" class="board-tile" data-view-item="${S(item.id)}" aria-label="${S(item.name)} 사진 보기">${image?`<img src="${S(image)}" alt="${S(item.name)}"/>`:`<span class="board-photo-pending">${item.photoStatus==='pending'?'공식 이미지 확인 필요':'사진 미등록'}</span>`}<small>${S(categories[item.cat])}</small><strong>${S(item.name)}</strong></button>`;
+   const image=lookImage(item);return `<button type="button" class="board-tile" data-view-photo="${Math.max(0,itemPhotos(item).findIndex(p=>p.src===image))}" data-view-item="${S(item.id)}" aria-label="${S(lookName(item))} 사진 보기">${image?`<img src="${S(image)}" alt="${S(lookName(item))}"/>`:`<span class="board-photo-pending">${item.photoStatus==='pending'?'공식 이미지 확인 필요':'사진 미등록'}</span>`}<small>${S(categories[item.cat])}</small><strong>${S(lookName(item))}</strong></button>`;
   });
-  for(const item of rec.items.filter(item=>['bag','accessory'].includes(item.cat))){pieces.push(`<button type="button" class="board-tile board-addon" data-view-item="${S(item.id)}" aria-label="${S(item.name)} 사진 보기">${itemImage(item)?`<img src="${S(itemImage(item))}" alt="${S(item.name)}"/>`:'<span class="board-photo-pending">사진 확인 필요</span>'}<small>${S(categories[item.cat])}</small><strong>${S(item.name)}</strong></button>`)}
+  for(const item of rec.items.filter(item=>['bag','eyewear','accessory'].includes(item.cat))){pieces.push(`<button type="button" class="board-tile board-addon" data-view-item="${S(item.id)}" aria-label="${S(lookName(item))} 사진 보기">${lookImage(item)?`<img src="${S(lookImage(item))}" alt="${S(lookName(item))}"/>`:'<span class="board-photo-pending">사진 확인 필요</span>'}<small>${S(categories[item.cat])}</small><strong>${S(lookName(item))}</strong></button>`)}
   return `<div class="own-outfit-board" aria-label="등록한 내 옷으로 구성한 코디">${pieces.join('')}</div>`;
  }
  function renderRecommendations(rebuild=true){
   if(rebuild||!recommendations.length)recommendations=makeRecommendations();
+  $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.recommendationMode===recommendationMode)));
+  $('#outfit-results').classList.toggle('model-results',recommendations.some(r=>r.model));
   $('#results-count').textContent=`${String(recommendations.length).padStart(2,'0')} LOOKS`;
   const c=getContext(),missing=['top','bottom','shoes'].filter(cat=>!ownedItems(items).some(item=>item.cat===cat));
-  $('#results-desc').textContent=`${c.temperature!==null?`${c.city} ${Math.round(c.temperature)}°C 실시간 조회 기준`:'기온 미조회 · 현재 계절 기준'} · 내 옷 ${ownedItems(items).length}개로만 추천합니다.${styleLibrary.length?` ${styleLibrary.length}개 참고 착장과 비교해요.`:''}${missing.length?` ${missing.map(cat=>categories[cat]).join(' · ')} 미등록으로 부분 코디를 보여드려요.`:''}`;
-  $('#outfit-results').innerHTML=recommendations.length?recommendations.map((rec,index)=>`<article class="outfit-card own-outfit-card"><div class="own-outfit-header"><span>LOOK 0${rec.number}</span><span>${rec.missing.length?'부분 코디':'내 옷 코디'}</span></div>${outfitBoard(rec)}<div class="outfit-card-body"><h3>${S(rec.title)}</h3><p>${S(rec.description)}</p><div class="outfit-item-names">${rec.items.map(item=>S(item.name)).join(' · ')}</div><div class="outfit-action-row"><button type="button" data-save-outfit="${index}">${rec.missing.length?'이 조합으로 기록하기':'이 착장으로 기록하기'} ↗</button></div><div class="fine-print">${S(rec.explain)}</div>${recommendationEvidence(rec)}${referencePanel(rec)}</div></article>`).join(''):`<div class="outfit-empty"><strong>YOUR STYLE STARTS HERE.</strong><p>내 옷을 등록하면 날씨와 목적에 맞춰 조합을 제안할게요.</p><button type="button" class="button-primary" data-add-item>첫 옷 등록하기 →</button></div>`;
+  const modelCount=recommendations.filter(r=>r.model).length;
+  $('#results-desc').textContent=`${c.temperature!==null?`${c.city} ${Math.round(c.temperature)}°C 기준`:'기온 미조회 · 현재 계절 기준'} · 내 옷 ${ownedItems(items).length}개. ${modelCount?`지금 보유한 옷·선택 조건에 맞는 AI 모델컷 ${modelCount}개예요. 실제 핏·디테일은 다를 수 있어요.`:recommendationMode==='model'?'현재 옷장·조건과 일치하는 모델컷이 없어 내 옷 조합으로 보여드려요.':'내 옷 전체에서 다양한 조합을 찾아요.'}${missing.length?` ${missing.map(cat=>categories[cat]).join(' · ')} 미등록.`:''}`;
+  $('#outfit-results').innerHTML=recommendations.length?recommendations.map((rec,index)=>`<article class="outfit-card own-outfit-card ${rec.model?'model-outfit-card':''}"><div class="own-outfit-header"><span>LOOK 0${rec.number}</span><span>${rec.model?'AI 모델 코디':rec.missing.length?'부분 코디':'내 옷 코디'}</span></div>${modelPhoto(rec)}${rec.model?`<p class="model-pieces-label">${failedModelImages.has(rec.model.id)?'모델컷을 불러오지 못해 제품 사진을 보여드려요.':'이 모델컷에 사용한 내 옷 · 눌러서 상세 보기'}</p>`:''}${outfitBoard(rec)}<div class="outfit-card-body"><h3>${S(rec.title)}</h3><p>${S(rec.description)}</p><div class="outfit-item-names">${rec.items.map(item=>S(lookName(item))).join(' · ')}</div><div class="outfit-action-row"><button type="button" data-save-outfit="${index}">${rec.missing.length?'이 조합으로 기록하기':'이 착장으로 기록하기'} ↗</button></div><div class="fine-print">${S(rec.explain)}</div>${recommendationEvidence(rec)}${referencePanel(rec)}</div></article>`).join(''):`<div class="outfit-empty"><strong>YOUR STYLE STARTS HERE.</strong><p>내 옷을 등록하면 날씨와 목적에 맞춰 조합을 제안할게요.</p><button type="button" class="button-primary" data-add-item>첫 옷 등록하기 →</button></div>`;
   renderFeatured();
  }
  async function refreshWeather(){const city=$('#city').value;const coords=cityCoords[city];const btn=$('#weather-refresh');btn.disabled=true;btn.textContent='조회 중…';$('#weather-source').textContent='확인 중';try{const uri=`https://api.open-meteo.com/v1/forecast?latitude=${coords[0]}&longitude=${coords[1]}&current=temperature_2m,apparent_temperature,precipitation,weather_code&timezone=Asia%2FSeoul&forecast_days=1`;const ctrl=new AbortController();const timeout=setTimeout(()=>ctrl.abort(),12000);let response;try{response=await fetch(uri,{signal:ctrl.signal})}finally{clearTimeout(timeout)}if(!response.ok)throw new Error('Forecast service unavailable');const data=await response.json();if(typeof data.current?.temperature_2m!=='number')throw new Error('No current temperature');weather={city,temp:data.current.temperature_2m,apparent:data.current.apparent_temperature,code:data.current.weather_code,rain:data.current.precipitation,observed:data.current.time};const rainy=[51,53,55,61,63,65,66,67,80,81,82,95,96,99].includes(weather.code);const cloudy=weather.code>=2;const icon=rainy?'☂':cloudy?'☁':'☼';const description=rainy?'비':cloudy?'구름':'맑음';$('#weather-big-icon').textContent=icon;$('#weather-main').textContent=`${city} ${Math.round(weather.temp)}°C · ${description}`;$('#weather-sub').textContent=`체감 ${Math.round(weather.apparent)}°C · 강수 ${weather.rain}mm` ;$('#weather-source').textContent='실시간';$('#weather-header-label').textContent=`${city} · ${Math.round(weather.temp)}°C · ${description}`;$('#hero-weather-label').textContent=`${city} · ${Math.round(weather.temp)}°C · ${description}`;toast(`${city}의 현재 날씨를 반영했어요.`);renderRecommendations(true)}catch(error){console.warn('Weather lookup failed',error);$('#weather-main').textContent='날씨 조회 실패';$('#weather-sub').textContent='인터넷 연결을 확인하고 다시 시도해주세요.';$('#weather-source').textContent='조회 실패';toast('날씨 데이터를 가져오지 못했어요. 계절 기준 추천은 계속 이용할 수 있어요.')}finally{btn.disabled=false;btn.textContent='날씨 조회 ↗'}}
@@ -281,12 +311,14 @@
 
  function renderEverything(){renderCloset();renderFeatured();renderLogs();renderRecommendations(true)}
  function registerActions(){
-  document.addEventListener('error',event=>{if(event.target.matches?.('[data-reference-image]'))event.target.closest('.reference-photo')?.classList.add('unavailable')},true);
+  document.addEventListener('error',event=>{if(event.target.matches?.('[data-reference-image]'))event.target.closest('.reference-photo')?.classList.add('unavailable');if(event.target.matches?.('[data-model-image]')){failedModelImages.add(event.target.dataset.modelImage);if(!$('#model-look-modal').hidden)closeModal('model-look-modal');renderRecommendations(false)}},true);
   document.addEventListener('click',event=>{
+   const mode=event.target.closest('[data-recommendation-mode]');if(mode){recommendationMode=mode.dataset.recommendationMode==='more'?'more':'model';renderRecommendations(true);return}
+   const model=event.target.closest('[data-open-model]');if(model){openModelLook(model.dataset.openModel);return}
    const nextRef=event.target.closest('[data-next-reference]');if(nextRef){const rec=recommendations[Number(nextRef.dataset.nextReference)];if(rec?.referenceMatches?.length){const key=rec.items.map(i=>i.id).join('|');if(referenceIndexes.size>64)referenceIndexes.clear();referenceIndexes.set(key,((referenceIndexes.get(key)||0)+1)%rec.referenceMatches.length);nextRef.closest('.reference-match').outerHTML=referencePanel(rec);$(`[data-next-reference="${rec.number-1}"]`)?.focus()}return}
    const route=event.target.closest('[data-route]');if(route){navigate(route.dataset.route);return}
    const filter=event.target.closest('[data-filter]');if(filter){if(filter.dataset.filterScope==='home-filters')activeHomeFilter=filter.dataset.filter;else activeClosetFilter=filter.dataset.filter;renderCloset();return}
-   const viewItem=event.target.closest('[data-view-item]');if(viewItem){openItemDetail(viewItem.dataset.viewItem);return}
+   const viewItem=event.target.closest('[data-view-item]');if(viewItem){openItemDetail(viewItem.dataset.viewItem,Number(viewItem.dataset.viewPhoto||0));return}
    const photo=event.target.closest('[data-item-photo]');if(photo){changeItemPhoto(Number(photo.dataset.itemPhoto));return}
    const removePhoto=event.target.closest('[data-remove-item-photo]');if(removePhoto){const index=Number(removePhoto.dataset.removeItemPhoto);tempItemAdditionalImages.splice(index,1);tempItemPhotoLabels.splice(index+1,1);renderAdditionalPhotos();return}
    const edit=event.target.closest('[data-edit-item]');if(edit){openItemModal(edit.dataset.editItem);return}
@@ -339,6 +371,6 @@
   $('#export-data').addEventListener('click',exportBackup);
   const importButton=document.createElement('button');importButton.id='import-data';importButton.type='button';importButton.textContent='↥ 백업 불러오기';const importInput=document.createElement('input');importInput.type='file';importInput.accept='.json,application/json';importInput.hidden=true;$('#export-data').before(importButton,importInput);importButton.addEventListener('click',()=>importInput.click());importInput.addEventListener('change',e=>{importBackup(e.target.files?.[0]);e.target.value=''});
  }
- async function init(){registerActions();const referencesReady=loadStyleReferences();await loadData();await loadPublishedCloset();await referencesReady;renderEverything();showRoute(location.hash.slice(1)||'home');}
+ async function init(){registerActions();const referencesReady=Promise.all([loadStyleReferences(),loadModelLooks()]);await loadData();await loadPublishedCloset();await referencesReady;renderEverything();showRoute(location.hash.slice(1)||'home');}
  init().catch(error=>{console.error(error);toast('화면을 준비하는 중 문제가 발생했어요. 페이지를 다시 열어주세요.')});
 })();
