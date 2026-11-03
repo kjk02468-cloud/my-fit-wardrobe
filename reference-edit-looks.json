@@ -1,0 +1,658 @@
+{
+  "schemaVersion": 1,
+  "figureView": "neck-down",
+  "looks": [
+    {
+      "id": "ref-edit-01",
+      "title": "집업을 짧게, 데님은 길게",
+      "group": "street",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "집업을 짧게 모으고 넓은 흑청 데님을 길게 내려, 바람막이의 소매 볼륨과 트랙의 두툼한 밑창을 한 실루엣으로 묶었어요. 가방은 손에 낮게 들어 시선을 아래까지 이어갑니다.",
+      "tip": "바람막이는 가슴 위까지 잠그고 밑단을 골반에 가볍게 걸치세요. 데님이 신발을 전부 덮지 않도록 한 번의 주름만 남기고, 쇼퍼는 손에 들어주세요.",
+      "anchors": [
+        "재킷 밑단을 골반 위에 모아 상체 길이를 줄이기",
+        "넓은 데님 밑단이 트랙 스니커즈 위에 한 번만 쌓이게",
+        "쇼퍼백은 어깨보다 손에 낮게 들어 세로선 만들기"
+      ],
+      "observation": "짧은 집업 위에 긴 데님을 두고, 아래쪽 신발과 큰 가방에 무게를 둔 착장입니다.",
+      "differences": "원본은 헤비 코튼 집업·로우라이즈 데님·먼데이 슈즈입니다. 보유 바람막이의 배색과 트랙의 더 큰 볼륨을 살려 재해석했어요.",
+      "pieces": [
+        {
+          "id": "item-20261102-balenciaga-reversible",
+          "name": "발렌시아가 x 언더아머 리버서블 데님·바람막이 자켓",
+          "brand": "BALENCIAGA x Under Armour",
+          "cat": "outer",
+          "color": "charcoal",
+          "imageKey": "1817afc5",
+          "viewLabel": "AI 보정 · 바람막이 면",
+          "viewImageKey": "21202fb4"
+        },
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261025-02-track",
+          "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+          "brand": "BALENCIAGA / 발렌시아가",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "5d391492"
+        },
+        {
+          "id": "item-20261103-bag",
+          "name": "블랙 레더룩 쇼퍼 토트백",
+          "brand": "브랜드 미상",
+          "cat": "bag",
+          "color": "black",
+          "imageKey": "31de7577"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-01-v1.webp",
+      "reference": {
+        "person": "더보이즈 주연",
+        "kind": "airport",
+        "publishedAt": "2025-03-07",
+        "publisher": "텐아시아",
+        "credit": "텐아시아 · 발렌시아가 공항패션 보도",
+        "profileUrl": "",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.tenasia.co.kr/article/2025030794564",
+        "imageUrl": "https://img.tenasia.co.kr/photo/202503/BF.39736964.1.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-02",
+      "title": "워싱의 농도로 만든 데님 온 데님",
+      "group": "street",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "데님 면의 둥근 소매와 워싱을 중심에 두고, 흑청 팬츠를 이어 입어 상하의 경계를 부드럽게 만들었어요. 어두운 긴팔을 좁게 드러내고 닥터마틴으로 끝을 단단하게 잡습니다.",
+      "tip": "재킷은 가슴 아래까지 열고 긴팔 밑단은 팬츠 안에 넣으세요. 소매를 걷지 말고 재킷의 둥근 볼륨을 유지하되, 바지는 구두가 보일 만큼만 내려 입으세요.",
+      "anchors": [
+        "리버서블의 데님 면과 흑청 팬츠의 워싱 농도 연결",
+        "지퍼를 조금 열어 어두운 이너가 세로로만 보이게",
+        "구두 위에는 작은 밑단 주름 하나만 남기기"
+      ],
+      "observation": "그레이 데님 재킷과 팬츠를 연결하고, 짙은 이너와 검정 신발로 중심을 잡은 패션위크 착장입니다.",
+      "differences": "원본은 Courrèges 데님 셋업과 블랙 슬리브리스입니다. 보유품은 서로 다른 워싱의 데님과 그레이 긴팔, 닥터마틴으로 바꿨어요. 선글라스는 포함하지 않았어요.",
+      "pieces": [
+        {
+          "id": "item-20261102-balenciaga-reversible",
+          "name": "발렌시아가 x 언더아머 리버서블 데님·바람막이 자켓",
+          "brand": "BALENCIAGA x Under Armour",
+          "cat": "outer",
+          "color": "charcoal",
+          "imageKey": "1817afc5",
+          "viewLabel": "AI 보정 · 데님 면",
+          "viewImageKey": "1817afc5"
+        },
+        {
+          "id": "item-20261103-woo",
+          "name": "우영미 22FW 백로고 긴팔 티셔츠 그레이",
+          "brand": "WOOYOUNGMI",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "c6d8e21c"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-02-v1.webp",
+      "reference": {
+        "person": "에이티즈 우영",
+        "kind": "show",
+        "publishedAt": "2024-09-25",
+        "publisher": "Teen Vogue",
+        "credit": "Claudio Lavenia / Getty Images · Teen Vogue",
+        "profileUrl": "",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.teenvogue.com/story/ateez-members-fashion-week-spring-summer-2025-see-photos",
+        "imageUrl": "https://assets.teenvogue.com/photos/66f47718e26440ca7b590c66/master/w_1600%2Cc_limit/2174382241"
+      }
+    },
+    {
+      "id": "ref-edit-03",
+      "title": "화이트 밑단 한 줄, 테크 팬츠의 곡선",
+      "group": "street",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "휴먼메이드 재킷의 짧고 가벼운 형태 아래 화이트 티셔츠를 얇게 남겨 층을 만들었어요. 언더마이카 팬츠의 곡선과 샥스의 실버 라인이 이어지도록 하체에 디테일을 모았습니다.",
+      "tip": "코치 재킷은 윗부분만 여미고 티셔츠를 2~3cm만 보이게 조절하세요. 팬츠 지퍼와 테이핑은 원래 형태를 유지하고, 밑단이 신발 전체를 삼키지 않게 정리하세요.",
+      "anchors": [
+        "코치 재킷 아래 흰 티셔츠를 2~3cm만 노출",
+        "트위스트 팬츠의 테이핑이 만드는 곡선을 가리지 않기",
+        "샥스의 실버 측면이 밑단 아래 조금 보이게"
+      ],
+      "observation": "블랙 재킷 아래 흰 이너를 조금 보이고, 넉넉한 올리브 팬츠와 어두운 신발을 연결한 SNS 사복입니다.",
+      "differences": "원본의 올리브 팬츠와 검정 신발을 보유 블랙·올리브 테이핑 팬츠와 실버 배색 샥스로 바꿨어요. 원본의 빨간 백팩은 더하지 않았어요.",
+      "pieces": [
+        {
+          "id": "item-20261029-19-humanmade",
+          "name": "휴먼메이드 코치 자켓 블랙 (HM27JK018)",
+          "brand": "HUMAN MADE",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "f4666d4c"
+        },
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261029-13-legion",
+          "name": "언더마이카 리전 01 트위스트 지퍼 라인 테이핑 팬츠 블랙 올리브",
+          "brand": "UNDERMYCAR",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "37ac306b"
+        },
+        {
+          "id": "item-20261103-shox",
+          "name": "나이키 샥스 R4 블랙 메탈릭 실버",
+          "brand": "NIKE",
+          "cat": "shoes",
+          "color": "silver",
+          "imageKey": "cc82d905"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-03-v1.webp",
+      "reference": {
+        "person": "주우재",
+        "kind": "sns",
+        "publishedAt": "2023-05-04",
+        "publisher": "GQ Korea",
+        "credit": "주우재 SNS · GQ Korea 재소개",
+        "profileUrl": "",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.gqkorea.co.kr/2023/05/04/주우재-데일리룩으로-알아보는-고프코어-입문/",
+        "imageUrl": "https://img.gqkorea.co.kr/gq/2023/05/style_64536311742c4.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-04",
+      "title": "여유로운 후디와 입체 카고",
+      "group": "daily",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "후디의 부드러운 볼륨 아래 피스마이너스원 카고의 다단 포켓을 펼쳐, 편하지만 형태가 분명한 조합으로 만들었어요. 밝은 캑터스 컬러는 흰색에 가까운 후디와 함께 양 끝에만 둡니다.",
+      "tip": "후디를 길게 늘어뜨리지 말고 시보리를 골반 위에 가볍게 모으세요. 카고는 포켓을 비워 자연스럽게 떨어뜨리고 신발의 스트랩이 보이도록 밑단을 정리하세요.",
+      "anchors": [
+        "밝은 후디 밑단을 허리보다 살짝 아래에 걸치기",
+        "카고 포켓의 입체감이 옆으로 퍼지도록 두기",
+        "스니커즈 스트랩과 밝은 앞코를 드러내기"
+      ],
+      "observation": "밝은 후디와 검정 와이드 카고 팬츠, 밝은 밑창의 운동화를 조합한 SNS 사진입니다.",
+      "differences": "원본의 흰 후디를 아이앱 오트밀로, 신발은 브라이트 캑터스로 바꿨어요. 비니는 얼굴 없는 구도와 보유품 조건에 맞춰 제외했습니다.",
+      "pieces": [
+        {
+          "id": "item-20261103-iab",
+          "name": "아이앱 스튜디오 로고 후드 오트밀",
+          "brand": "IAB STUDIO",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "d71df125"
+        },
+        {
+          "id": "item-20261103-pmone",
+          "name": "나이키 x 피스마이너스원 멀티 포켓 와이드 팬츠",
+          "brand": "NIKE x PEACEMINUSONE",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "1baf5fa6"
+        },
+        {
+          "id": "item-20261025-08-jumpman",
+          "name": "조던 x 트래비스 스캇 점프맨 잭 TR 브라이트 캑터스",
+          "brand": "JORDAN x TRAVIS SCOTT",
+          "cat": "shoes",
+          "color": "cream",
+          "imageKey": "c0b586ab"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-04-v1.webp",
+      "reference": {
+        "person": "변우석",
+        "kind": "sns",
+        "publishedAt": "2024-04-17",
+        "publisher": "W Korea",
+        "credit": "Instagram @byeonwooseok · W Korea 재소개",
+        "profileUrl": "https://www.instagram.com/byeonwooseok/",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.wkorea.com/2024/04/17/변우석의-데일리-룩에-항상-등장하는-이것/",
+        "imageUrl": "https://img.wkorea.com/w/2024/04/style_661f637a7f6f9.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-05",
+      "title": "블랙 스웨이드 안의 옅은 브라운",
+      "group": "date",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "STU 스웨이드의 매트한 블랙 안에 옅은 브라운 셔츠를 넣어 소재 차이를 만들었어요. 갈색 워싱과 데미지가 있는 벌룬 데님으로 상체의 빈티지 무드를 이어가고, 로퍼로 발끝을 정리합니다.",
+      "tip": "셔츠 단추는 위 두 개만 열고 칼라는 재킷 안쪽에 정리하세요. 셔츠 밑단은 넣고 재킷은 열어 입되, 팬츠의 둥근 통이 살아나도록 허리에서 과하게 조이지 마세요.",
+      "anchors": [
+        "스웨이드 지퍼를 열어 브라운 이너를 좁게 드러내기",
+        "셔츠 밑단을 넣어 재킷과 벌룬 팬츠 사이 허리 위치 살리기",
+        "재킷의 매트한 질감과 워싱 데님을 연결"
+      ],
+      "observation": "짧은 블랙 집업 안으로 브라운 이너를 드러낸 빈티지 무드의 SNS 상체 착장입니다.",
+      "differences": "원본의 트랙 재킷·얇은 브라운 톱을 스웨이드 재킷·라이트 브라운 셔츠로 바꿨어요. 원본에서 신발은 확인되지 않아 보유 브라운 로퍼로 해석했습니다.",
+      "pieces": [
+        {
+          "id": "item-20261029-16-stusuede",
+          "name": "STU 22FW 고트 스웨이드 자켓 블랙",
+          "brand": "STU",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "d58a3e62"
+        },
+        {
+          "id": "item-20261103-michiko",
+          "name": "미치코 런던 포켓 셔츠 라이트 브라운",
+          "brand": "MICHIKO LONDON",
+          "cat": "top",
+          "color": "brown",
+          "imageKey": "9156b42f"
+        },
+        {
+          "id": "item-20261102-yournus-balloon",
+          "name": "유어너스 블렌디드 데미지 벌룬 데님 브라운 블랙",
+          "brand": "YOURNUS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "c9c3284d"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-05-v1.webp",
+      "reference": {
+        "person": "TXT 연준",
+        "kind": "sns",
+        "publishedAt": "2025-03-06",
+        "publisher": "GQ Korea",
+        "credit": "Instagram @yawnzzn · GQ Korea 사복 소개",
+        "profileUrl": "https://www.instagram.com/yawnzzn/",
+        "framing": "상체 중심",
+        "sourceUrl": "https://www.gqkorea.co.kr/2025/03/06/그룹-내-극과-극-무드를-담당-아이돌-ootd/",
+        "imageUrl": "https://img.gqkorea.co.kr/gq/2025/03/style_67c8f96f3ae9e-1089x1400.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-06",
+      "title": "셔츠 소매를 걷고, 밑단은 가볍게",
+      "group": "daily",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을 / 선선한 여름",
+      "reason": "라이트 브라운 셔츠를 느슨하게 걸치고 소매를 걷어, 셔츠를 정장 이너 대신 가벼운 겉옷처럼 썼어요. 차콜 팬츠의 세로선과 뉴발란스의 낮은 볼륨으로 과하게 차려입은 느낌을 줄입니다.",
+      "tip": "티셔츠는 팬츠에 넣고 셔츠 단추는 가슴 아래 두 개만 여며보세요. 소매는 두 번 걷어 전완을 드러내고 셔츠 앞단 한쪽만 살짝 넣되, 뒤는 자연스럽게 내려주세요.",
+      "anchors": [
+        "셔츠 소매를 팔꿈치 아래까지 두 번 걷기",
+        "안쪽 티셔츠는 넣고 셔츠 앞단 한쪽만 살짝 걸치기",
+        "발목을 드러내기보다 팬츠를 신발 위까지 길게 내리기"
+      ],
+      "observation": "헐렁한 셔츠의 소매를 걷고 어두운 팬츠에 자연스럽게 떨어뜨린 파리 SNS 사복입니다.",
+      "differences": "원본의 블루 스트라이프 셔츠를 보유 라이트 브라운 무지 셔츠로 바꿨어요. 신발은 사진에서 확인되지 않아 뉴발란스, 가방은 보유 마뗑킴으로 더했습니다.",
+      "pieces": [
+        {
+          "id": "item-20261103-michiko",
+          "name": "미치코 런던 포켓 셔츠 라이트 브라운",
+          "brand": "MICHIKO LONDON",
+          "cat": "top",
+          "color": "brown",
+          "imageKey": "9156b42f"
+        },
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        },
+        {
+          "id": "item-20261103-matin",
+          "name": "마뗑킴 로고 워시드 데님 토트백 블랙",
+          "brand": "MATIN KIM",
+          "cat": "bag",
+          "color": "black",
+          "imageKey": "6ddbba5a"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-06-v1.webp",
+      "reference": {
+        "person": "차은우",
+        "kind": "sns",
+        "publishedAt": "2023-06-29",
+        "publisher": "W Korea",
+        "credit": "차은우 Instagram · W Korea 재소개",
+        "profileUrl": "",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.wkorea.com/2023/06/29/파리에서-마주친-k-셀럽들의-데일리룩/",
+        "imageUrl": "https://img.wkorea.com/w/2023/06/style_649bfbbb688bb-560x700.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-07",
+      "title": "패턴 니트를 코디의 중심으로",
+      "group": "daily",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을 / 선선한 여름",
+      "reason": "스탠다드 저널의 퍼플 패턴을 주인공으로 두고, 긴 셔츠 대신 흰 반팔을 겹쳐 조금 더 가볍게 풀었어요. 베이지 팬츠와 브라운 로퍼는 패턴 옆에서 색을 더 늘리지 않는 역할입니다.",
+      "tip": "티셔츠 밑단은 팬츠 안에 넣고 베스트를 그대로 내려 입으세요. 소매는 길게 겹치지 않게 자연스럽게 펴고, 팬츠는 로퍼에 가볍게 닿도록 정리하세요.",
+      "anchors": [
+        "퍼플 패턴을 가리지 않고 상체 한가운데 두기",
+        "흰 반팔 소매와 목선만 얇게 드러내기",
+        "하의와 신발은 베이지·브라운으로 조용하게 마무리"
+      ],
+      "observation": "큰 그래픽이 있는 니트를 중심으로, 차분한 팬츠와 작은 가방을 더한 SNS 사진입니다.",
+      "differences": "원본의 크림색 그래픽 풀오버를 퍼플 니트 베스트와 흰 반팔로 바꿨어요. 원본의 작은 크로스백은 보유품에 없어 제외했고, 신발은 브라운 로퍼로 해석했습니다.",
+      "pieces": [
+        {
+          "id": "item-20261103-vest",
+          "name": "스탠다드 저널 퍼플 패턴 니트 베스트",
+          "brand": "STANDARD JOURNAL",
+          "cat": "top",
+          "color": "purple",
+          "imageKey": "95bfb997"
+        },
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-07-v1.webp",
+      "reference": {
+        "person": "로몬",
+        "kind": "sns",
+        "publishedAt": "2023-06-29",
+        "publisher": "W Korea",
+        "credit": "Instagram @lomon991111 · W Korea 재소개",
+        "profileUrl": "https://www.instagram.com/lomon991111/",
+        "framing": "상체 중심",
+        "sourceUrl": "https://www.wkorea.com/2023/06/29/파리에서-마주친-k-셀럽들의-데일리룩/",
+        "imageUrl": "https://img.wkorea.com/w/2023/06/style_649bfc0709a8d-560x700.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-08",
+      "title": "봄버의 볼륨 아래 밝은 팬츠",
+      "group": "street",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "우영미 MA-1의 둥근 소매와 짧은 밑단을 그대로 살리면서 밝은 베이지 팬츠로 하체를 길게 열었어요. 노란 나이키크래프트는 팬츠의 따뜻한 색을 발끝까지 이어줍니다.",
+      "tip": "MA-1을 절반 정도만 잠그고 밑단을 골반에 가볍게 걸치세요. 베이지 팬츠는 허리 위치를 올려 입고, 신발 끈과 앞코가 드러날 정도의 주름만 남겨주세요.",
+      "anchors": [
+        "MA-1 시보리를 골반 위에 걸쳐 소매 볼륨 유지",
+        "티셔츠는 목선과 밑단에 얇게만 남기기",
+        "밝은 팬츠를 길게 내려 노란 신발과 연결"
+      ],
+      "observation": "GQ의 도겸·호시 사복 소개 중, 짧고 넉넉한 재킷에 밝은 와이드 팬츠와 운동화를 연결한 해변 사진을 참고했습니다.",
+      "differences": "원본의 브라운 재킷·카고 팬츠를 블랙 MA-1·베이지 테일러드 팬츠로 바꿨어요. 같은 비율을 좀 더 단정한 소재로 옮긴 조합이며, 신발은 옐로 나이키크래프트입니다.",
+      "pieces": [
+        {
+          "id": "item-20261025-06-ma1",
+          "name": "우영미 백로고 MA-1 블랙",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "1e949c8c"
+        },
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261103-nike",
+          "name": "나이키크래프트 제너럴 퍼포즈 슈 아카이브",
+          "brand": "NikeCraft",
+          "cat": "shoes",
+          "color": "yellow",
+          "imageKey": "ed6a9d46"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-08-v1.webp",
+      "reference": {
+        "person": "세븐틴 SNS 사복",
+        "kind": "sns",
+        "publishedAt": "2025-03-06",
+        "publisher": "GQ Korea",
+        "credit": "세븐틴 도겸·호시 SNS 소개 섹션 · GQ Korea",
+        "profileUrl": "",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.gqkorea.co.kr/2025/03/06/그룹-내-극과-극-무드를-담당-아이돌-ootd/",
+        "imageUrl": "https://img.gqkorea.co.kr/gq/2025/03/style_67c8f9c17053f.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-09",
+      "title": "허리선 하나로 정리한 롱 코트",
+      "group": "date",
+      "seasonKey": "spring-fall",
+      "season": "늦가을·겨울",
+      "reason": "우영미 울 코트의 벨트로 허리 위치만 잡아 긴 아우터 안에서도 몸의 비율이 보이게 했어요. 차콜 긴팔과 슬랙스를 어둡게 이어, 넓은 라펠과 코트의 드레이프가 먼저 보이도록 정리했습니다.",
+      "tip": "벨트는 단단한 리본 대신 옆으로 느슨하게 한 번 묶어보세요. 이너 밑단은 넣고 코트 앞을 조금 열어 세로선을 남기세요. 보온 정도는 실제 기온과 이너 두께에 맞춰 조절해주세요.",
+      "anchors": [
+        "코트 벨트는 꽉 조이지 않고 허리 위치만 잡기",
+        "차콜 이너를 좁게 드러내 코트의 긴 라펠 강조",
+        "팬츠 밑단을 구두 위에서 정리해 긴 세로선 유지"
+      ],
+      "observation": "길고 넉넉한 코트의 허리를 벨트로 모으고, 어두운 팬츠와 신발로 세로선을 이어간 패션위크 저녁 착장입니다.",
+      "differences": "원본은 광택 있는 맥시 트렌치와 부츠입니다. 보유 블랙 울 코트와 1461 구두로 바꿔 광택을 줄였고, 코트의 원래 벨트와 포켓을 유지했습니다.",
+      "pieces": [
+        {
+          "id": "item-20261029-17-beltedcoat",
+          "name": "우영미 벨티드 울 코트 블랙",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "6174e449"
+        },
+        {
+          "id": "item-20261103-woo",
+          "name": "우영미 22FW 백로고 긴팔 티셔츠 그레이",
+          "brand": "WOOYOUNGMI",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "c6d8e21c"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-09-v1.webp",
+      "reference": {
+        "person": "BTS 정국",
+        "kind": "show",
+        "publishedAt": "2025-09-17",
+        "publisher": "W Korea",
+        "credit": "Getty Images · W Korea 패션위크 보도",
+        "profileUrl": "",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.wkorea.com/2025/09/17/뉴욕-패션-위크를-밝힌-셀럽들의-180도-다른-모먼트/",
+        "imageUrl": "https://img.wkorea.com/w/2025/09/style_68ca555e89b17-1048x1400.jpg"
+      }
+    },
+    {
+      "id": "ref-edit-10",
+      "title": "하프집업의 목선, 데님의 긴 밑단",
+      "group": "daily",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "지퍼를 올린 쿼터집의 단단한 목선과 브라운 데님의 긴 기장을 대비시켰어요. 니트 밑단을 가볍게 모아 상체를 짧게 보이게 하고, 로퍼 위에는 작은 주름만 남겨 깔끔하게 떨어뜨립니다.",
+      "tip": "지퍼는 칼라가 서되 목을 조이지 않는 높이까지 올리세요. 니트 밑단은 안쪽으로 살짝 접어 길이를 줄이고, 긴 데님은 로퍼가 절반 이상 보이도록 정리해주세요.",
+      "anchors": [
+        "하프집업 칼라를 세워 상체의 중심 잡기",
+        "니트 밑단을 골반 위에 모아 팬츠의 긴 선 드러내기",
+        "낮게 든 가방과 낮은 구두로 하체 무게 균형 잡기"
+      ],
+      "observation": "높게 올린 하프집업과 긴 데님, 낮게 든 큰 여행 가방을 연결한 공항 착장입니다.",
+      "differences": "원본의 블랙 니트·블루 데님·부츠·체크백을 라이트 그레이 니트·브라운 데님·로퍼·블랙 쇼퍼로 바꿨어요. 구두가 낮아 원본보다 밑단 쌓임을 줄였습니다.",
+      "pieces": [
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        },
+        {
+          "id": "item-20261103-bag",
+          "name": "블랙 레더룩 쇼퍼 토트백",
+          "brand": "브랜드 미상",
+          "cat": "bag",
+          "color": "black",
+          "imageKey": "31de7577"
+        }
+      ],
+      "addons": [],
+      "fragrance": "",
+      "image": "./assets/reference-edit-10-v1.webp",
+      "reference": {
+        "person": "에이티즈 우영",
+        "kind": "airport",
+        "publishedAt": "2024-09-25",
+        "publisher": "Teen Vogue",
+        "credit": "The Chosunilbo JNS / Getty Images · Teen Vogue",
+        "profileUrl": "",
+        "framing": "전체 비율 참고",
+        "sourceUrl": "https://www.teenvogue.com/story/ateez-members-fashion-week-spring-summer-2025-see-photos",
+        "imageUrl": "https://assets.teenvogue.com/photos/66f47718e26440ca7b590c67/master/w_1600%2Cc_limit/2174342525"
+      }
+    }
+  ]
+}

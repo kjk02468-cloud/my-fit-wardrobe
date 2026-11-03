@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./styles.css?v=20261103-room-v1" />
   <link rel="stylesheet" href="./wardrobe-gallery.css?v=20261103-seasonal-v2" />
   <link rel="stylesheet" href="./room-editor.css?v=20261103-personal-v4" />
+  <link rel="stylesheet" href="./reference-edit.css?v=20261103-reference-edit-v1" />
 </head>
 <body>
  <header class="site-header">
@@ -90,7 +91,7 @@
    <div class="note-line">게시된 공개 옷장은 모든 기기에서 자동으로 불러옵니다. 직접 추가·수정·삭제한 내용과 착장 기록은 현재 기기에 저장돼요.</div>
   </section>
   <section class="view-panel internal-page stylist-page" data-view="stylist" hidden aria-label="AI 코디">
-   <div class="page-intro"><span class="eyebrow">PERSONAL STYLING LAB</span><div class="page-intro-row"><div><h1>STYLE, MADE FOR YOU.</h1><p>봄·가을 20 · 여름 20 · 겨울 20. 내 옷으로 만든 계절별 착장.</p></div><span class="rounded-stamp">01 — YOUR INPUT<br/>02 — THE SELECTION<br/>03 — OUTFIT BOARD</span></div></div>
+   <div class="page-intro"><span class="eyebrow">PERSONAL STYLING LAB</span><div class="page-intro-row"><div><h1>STYLE, MADE FOR YOU.</h1><p>실제 SNS·공항·패션위크 착장을 내 옷으로. 새 코디 10개와 계절별 60개를 만나보세요.</p></div><span class="rounded-stamp">01 — YOUR INPUT<br/>02 — THE SELECTION<br/>03 — OUTFIT BOARD</span></div></div>
    <div class="styling-workspace">
     <div class="stylist-controls">
      <div class="panel-head"><span class="eyebrow">01 / SET THE SCENE</span><h2>오늘의 외출 정보</h2></div>
@@ -104,7 +105,7 @@
     <div class="stylist-results">
      <div class="panel-head"><span class="eyebrow">02 / YOUR EDITED LOOKS</span><h2>나의 옷으로 완성한 조합 <span class="results-count" id="results-count">03 LOOKS</span></h2></div>
      <p class="stylist-results-desc" id="results-desc">등록한 내 옷만 사용합니다. 부족한 카테고리는 미등록으로 표시해요.</p>
-     <div id="recommendation-modes" class="recommendation-modes" role="group" aria-label="코디 보기 방식"><button type="button" data-recommendation-mode="curated" aria-pressed="true">계절별 60 LOOKS</button><button type="button" data-recommendation-mode="model" aria-pressed="false">AI 모델 코디</button><button type="button" data-recommendation-mode="more" aria-pressed="false">더 많은 조합</button></div><p class="fine-print model-mode-note">봄·가을, 여름, 겨울마다 20가지 모델 코디를 준비했어요. 현재 날씨에 따른 추천은 다른 보기에서 확인하세요. 리버서블은 한 벌의 착용 면을 나눴어요.</p>
+     <div id="recommendation-modes" class="recommendation-modes" role="group" aria-label="코디 보기 방식"><button type="button" data-recommendation-mode="reference" aria-pressed="true">실제 착장 재구성 10</button><button type="button" data-recommendation-mode="curated" aria-pressed="false">계절별 60 LOOKS</button><button type="button" data-recommendation-mode="model" aria-pressed="false">AI 모델 코디</button><button type="button" data-recommendation-mode="more" aria-pressed="false">더 많은 조합</button></div><p class="fine-print model-mode-note">새로운 10개는 공개 SNS 사복·공항·패션위크 착장에서 출발했어요. ‘실제 참고 사진과 비교’에서 원본과 보유품 해석을 볼 수 있어요. 계절별 60개와 날씨에 맞춘 추천도 다른 보기에서 확인하세요.</p>
      <div id="curated-seasons" class="curated-seasons" role="group" aria-label="코디 계절"></div><div id="curated-groups" class="curated-groups" role="group" aria-label="코디 분위기"></div><div id="outfit-results" class="outfit-result-grid"></div>
     </div>
    </div>
@@ -137,9 +138,10 @@
  <div id="model-look-modal" class="overlay" hidden role="presentation"><div class="dialog model-look-dialog" role="dialog" aria-modal="true" aria-labelledby="model-look-title"><div class="dialog-top"><div><span class="eyebrow">MY CLOTHES · AI LOOK</span><h2 id="model-look-title">AI 예상 착장</h2></div><button type="button" class="icon-dismiss" data-close="model-look-modal" aria-label="닫기">×</button></div><div id="model-look-content"></div></div></div>
  <script src="./curated-look-engine.js?v=20261103-neckdown-release-v3" defer></script>
  <script src="./model-look-engine.js?v=20261103-neckdown-release-v3" defer></script>
+ <script src="./reference-edit-engine.js?v=20261103-reference-edit-v1" defer></script>
  <script src="./style-reference-engine.js?v=20261103" defer></script>
  <script src="./room-scenes.js?v=20261103-personal-v4" defer></script>
  <script src="./room-editor.js?v=20261103-personal-v4" defer></script>
- <script src="./app.js?v=20261103-neckdown-release-v3" defer></script>
+ <script src="./app.js?v=20261103-reference-edit-v1" defer></script>
 </body>
 </html>
