@@ -1,6 +1,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8'),M=require('../model-look-engine.js'),R=require('../style-reference-engine.js');
 const manifest=JSON.parse(read('published-closet.json')),items=manifest.dataFiles.flatMap(p=>JSON.parse(read(p.path)).items),library=M.parseLibrary(read('model-looks.json'));
+assert.equal(JSON.parse(read('model-looks.json')).figureView,'neck-down');assert(library.every(l=>l.image.endsWith('-neckdown-v3.webp')),'Legacy model mode must use the same face-free presentation');
 const context={purpose:'casual',season:'fall',temperature:null,code:null};
 assert.equal(library.length,5);assert.equal(M.candidates(library,items,context).length,5);
 assert.equal(new Set(items.map(i=>i.id)).size,66);assert.equal(items.filter(i=>i.cat==='eyewear').length,2);

@@ -3,7 +3,7 @@
   "looks": [
     {
       "id": "denim",
-      "image": "./assets/model-look-denim-v1.webp",
+      "image": "./assets/model-look-denim-neckdown-v3.webp",
       "title": "흑청 데님 스트리트",
       "note": "리버서블 자켓의 데님 면 + 블랙 후드 + 와이드 흑청 데님 + 발렌시아가 트랙.",
       "purposes": [
@@ -50,7 +50,7 @@
     },
     {
       "id": "beige",
-      "image": "./assets/model-look-beige-v1.webp",
+      "image": "./assets/model-look-beige-neckdown-v3.webp",
       "title": "베이지 셋업 믹스",
       "note": "우영미 베이지 더블 재킷과 팬츠에 블랙 후드·브라운 스웨이드 로퍼를 연결했어요.",
       "purposes": [
@@ -95,7 +95,7 @@
     },
     {
       "id": "brown",
-      "image": "./assets/model-look-brown-v1.webp",
+      "image": "./assets/model-look-brown-neckdown-v3.webp",
       "title": "블랙 블레이저와 브라운 데님",
       "note": "우영미 블랙 투 버튼 블레이저 + 블랙 후드 + HE:COMMENDS 브라운 데님 + 닥터마틴 1461.",
       "purposes": [
@@ -140,7 +140,7 @@
     },
     {
       "id": "shirt",
-      "image": "./assets/model-look-shirt-v1.webp",
+      "image": "./assets/model-look-shirt-neckdown-v3.webp",
       "title": "화이트 셔츠와 그레이 슬랙스",
       "note": "우영미 블랙 투 버튼 블레이저 + 화이트 포켓 셔츠 + 그레이 슬랙스 + 닥터마틴 1461.",
       "purposes": [
@@ -186,7 +186,7 @@
     },
     {
       "id": "wind",
-      "image": "./assets/model-look-wind-v1.webp",
+      "image": "./assets/model-look-wind-neckdown-v3.webp",
       "title": "바람막이와 화이트 셔츠",
       "note": "리버서블 자켓의 바람막이 면 + 화이트 포켓 셔츠 + 와이드 흑청 데님 + 발렌시아가 트랙.",
       "purposes": [
@@ -231,5 +231,6 @@
         }
       ]
     }
-  ]
+  ],
+  "figureView": "neck-down"
 }

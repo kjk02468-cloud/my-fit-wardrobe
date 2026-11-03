@@ -7,7 +7,7 @@
   const data=JSON.parse(text),ids=new Set();if(data.schemaVersion!==1||!Array.isArray(data.looks)||data.looks.length>90)throw Error('Invalid curated library');
   return data.looks.map(row=>{
    if(!/^edit-\d{2}$/.test(row.id)||ids.has(row.id)||!groups.includes(row.group)||!seasons.includes(row.seasonKey)||!Array.isArray(row.pieces)||row.pieces.length<3||row.pieces.length>6||new Set(row.pieces.map(p=>p.id)).size!==row.pieces.length)throw Error('Invalid curated look');
-   ids.add(row.id);if(row.image&&!/^\.\/assets\/curated-look-\d{2}-v1\.webp$/.test(row.image))throw Error('Invalid curated image');
+   ids.add(row.id);if(row.image&&!/^\.\/assets\/curated-look-\d{2}-(?:v1|neckdown-v3)\.webp$/.test(row.image))throw Error('Invalid curated image');
    for(const p of row.pieces)if(typeof p.id!=='string'||!p.id||!/^[a-f0-9]{8}$/.test(p.imageKey)||!['outer','top','bottom','shoes','accessory'].includes(p.cat)||p.viewLabel&&!/^AI 보정 · (데님|바람막이) 면$/.test(p.viewLabel))throw Error('Invalid piece');
    if(!['top','bottom','shoes'].every(cat=>row.pieces.some(p=>p.cat===cat)))throw Error('Incomplete outfit');
    if(!Array.isArray(row.addons)||row.addons.length>4||row.addons.some(id=>typeof id!=='string')||typeof row.fragrance!=='string')throw Error('Invalid extras');

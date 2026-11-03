@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css?v=20261103-room-v1" />
   <link rel="stylesheet" href="./wardrobe-gallery.css?v=20261103-seasonal-v2" />
-  <link rel="stylesheet" href="./room-editor.css?v=20261103-finished-v3" />
+  <link rel="stylesheet" href="./room-editor.css?v=20261103-personal-v4" />
 </head>
 <body>
  <header class="site-header">
@@ -77,9 +77,9 @@
    <div class="page-intro"><span class="eyebrow">YOUR OWN EDITED COLLECTION</span><div class="page-intro-row"><div><h1>MY WARDROBE</h1><p>쇼핑몰처럼 한눈에 보는, 오직 나만의 남성복 컬렉션.</p></div><button type="button" id="closet-add" class="button-primary">＋ 새 아이템 등록</button></div></div>
    <section class="wardrobe-room" id="wardrobe-room" aria-labelledby="wardrobe-room-title">
     <div class="room-heading"><div><span class="eyebrow">THE PERSONAL SHOWROOM</span><h2 id="wardrobe-room-title">나의 옷을 담은 공간</h2></div><div class="room-heading-actions"><span id="room-inventory-count">MY COLLECTION</span><button type="button" id="room-edit-start">대표 아이템 고르기 ↗</button></div></div>
-    <div id="room-view-modes" role="group" aria-label="옷장 진열 방식"><button type="button" data-room-view="original" aria-pressed="true">완성 사진</button><button type="button" data-room-view="custom" aria-pressed="false">저장한 배치</button><button type="button" data-room-scene="dark">블랙·카키 전시</button></div>
+    <div id="room-view-modes" role="group" aria-label="옷장 진열 방식"><button type="button" data-room-view="original" aria-pressed="true">완성 사진</button><button type="button" data-room-view="custom" aria-pressed="false">저장한 배치</button><button type="button" data-room-scene="warm">베이지·퍼플 전시</button><button type="button" data-room-scene="dark">블랙·카키 전시</button></div>
     <div id="room-edit-bar" hidden><div><strong>옷걸이 8자리 · 선반 5자리</strong><p>아이템 선택·저장 후 완성 사진을 요청해주세요</p></div><div class="room-edit-actions"><button type="button" id="room-edit-defaults">기본 구성 불러오기</button><button type="button" id="room-edit-cancel">취소</button><button type="button" id="room-edit-save">이 진열 저장</button></div></div>
-    <div class="room-scene" id="room-scene"><img id="room-scene-image" src="./assets/wardrobe-natural-warm-v3.webp" width="1672" height="941" alt="보유품을 한 장면으로 연출한 실사풍 AI 옷장" fetchpriority="high"/><div id="room-hotspots"></div><span class="room-badge" id="room-badge">AI 3D SPACE</span></div>
+    <div class="room-scene" id="room-scene"><img id="room-scene-image" src="./assets/wardrobe-personal-20261103-v4.webp" width="1672" height="941" alt="보유품을 한 장면으로 연출한 실사풍 AI 옷장" fetchpriority="high"/><div id="room-hotspots"></div><span class="room-badge" id="room-badge">AI 3D SPACE</span></div>
     <div class="room-footer"><p><span id="room-caption">진열된 점을 누르면 해당 아이템을 볼 수 있어요.</span><br><small id="room-caption-note">향수 선반에 두 병을 나란히 놓을 수 있어요.</small></p><button id="room-request-copy" type="button" hidden>완성 사진 요청 복사 ↗</button><div id="room-categories" aria-label="옷장 구역"></div></div>
     <div id="room-selected-list" aria-label="대표 아이템 자리 편집" hidden></div>
    </section>
@@ -135,11 +135,11 @@
  <div id="toast" class="toast" role="status" aria-live="polite"></div>
  <div id="room-request-modal" class="overlay" hidden role="presentation"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="room-request-title"><div class="dialog-top"><h2 id="room-request-title">새 옷장 사진 요청</h2><button type="button" class="icon-dismiss" data-close="room-request-modal" aria-label="요청 내용 닫기">×</button></div><p class="fine-print">저장한 배치를 복사해 이 채팅에 붙여넣어 주세요. 같은 원목 공간에서 자연스럽게 연출한 완성 사진을 만들어 반영할 수 있어요.</p><textarea id="room-request-text" aria-label="완성 사진 요청 내용" readonly rows="12"></textarea><button type="button" id="room-request-copy-confirm" class="button-primary wide">요청 내용 전체 복사</button></div></div>
  <div id="model-look-modal" class="overlay" hidden role="presentation"><div class="dialog model-look-dialog" role="dialog" aria-modal="true" aria-labelledby="model-look-title"><div class="dialog-top"><div><span class="eyebrow">MY CLOTHES · AI LOOK</span><h2 id="model-look-title">AI 예상 착장</h2></div><button type="button" class="icon-dismiss" data-close="model-look-modal" aria-label="닫기">×</button></div><div id="model-look-content"></div></div></div>
- <script src="./curated-look-engine.js?v=20261103-seasonal-v2" defer></script>
- <script src="./model-look-engine.js?v=20261102-v1" defer></script>
+ <script src="./curated-look-engine.js?v=20261103-neckdown-release-v3" defer></script>
+ <script src="./model-look-engine.js?v=20261103-neckdown-release-v3" defer></script>
  <script src="./style-reference-engine.js?v=20261103" defer></script>
- <script src="./room-scenes.js?v=20261103-finished-v3" defer></script>
- <script src="./room-editor.js?v=20261103-finished-v3" defer></script>
- <script src="./app.js?v=20261103-seasonal-v2" defer></script>
+ <script src="./room-scenes.js?v=20261103-personal-v4" defer></script>
+ <script src="./room-editor.js?v=20261103-personal-v4" defer></script>
+ <script src="./app.js?v=20261103-neckdown-release-v3" defer></script>
 </body>
 </html>

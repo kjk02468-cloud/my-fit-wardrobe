@@ -1,6 +1,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../room-editor.js'),S=require('../room-scenes.js'),M=require('../model-look-engine.js');
 const root=path.resolve(__dirname,'..'),manifest=JSON.parse(fs.readFileSync(path.join(root,'published-closet.json'))),items=manifest.dataFiles.flatMap(f=>JSON.parse(fs.readFileSync(path.join(root,f.path))).items);
-assert.equal(S.find(R.defaultSlots(),items,M)?.id,'warm');
+assert.equal(S.find(R.defaultSlots(),items,M)?.id,'personal');
+const personal=S.scenes.find(s=>s.id==='personal');assert.deepEqual(personal.slots.map(s=>s.id),['item-20261029-11-balmacaan','item-20261025-06-ma1','item-20261102-balenciaga-reversible','item-20261029-18-stucoat','item-20261103-polo','item-mvnm5zvx-2egc7m','item-20261102-yournus-balloon','item-20261102-photo-denim','item-20261103-bag','item-20261103-le-labo','item-20261025-09-drmartens','item-20261025-02-track','item-20261103-wood-salt']);assert.equal(personal.slots[2].view,'AI 보정 · 바람막이 면');
 for(const scene of S.scenes){assert.equal(S.find(scene.slots,items,M),scene);assert(S.current(scene,items,M));assert.equal(scene.slots.length,13);const ids=scene.slots.filter(Boolean).map(s=>s.id);assert.equal(new Set(ids).size,ids.length);const changed=items.map(i=>i.id===ids[0]?{...i,color:'other'}:i);assert.equal(S.find(scene.slots,changed,M),null);assert(!S.current(scene,items.filter(i=>i.id!==ids[0]),M));}
 const pending=R.assign(R.defaultSlots(),12,{id:'item-20261103-creed',view:''});assert.equal(S.find(pending,items,M),null,'unrendered selections must never masquerade as a completed matching photograph');
 const dark=S.scenes.find(s=>s.id==='dark');assert(dark.slots[2].view.includes('바람막이'));assert.equal(dark.slots[12],null);

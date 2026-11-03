@@ -3,6 +3,197 @@
  'use strict';
  const scenes=[
  {
+  "id": "personal",
+  "title": "내가 고른 13개 전시",
+  "image": "./assets/wardrobe-personal-20261103-v4.webp",
+  "slots": [
+   {
+    "id": "item-20261029-11-balmacaan",
+    "view": ""
+   },
+   {
+    "id": "item-20261025-06-ma1",
+    "view": ""
+   },
+   {
+    "id": "item-20261102-balenciaga-reversible",
+    "view": "AI 보정 · 바람막이 면"
+   },
+   {
+    "id": "item-20261029-18-stucoat",
+    "view": ""
+   },
+   {
+    "id": "item-20261103-polo",
+    "view": ""
+   },
+   {
+    "id": "item-mvnm5zvx-2egc7m",
+    "view": ""
+   },
+   {
+    "id": "item-20261102-yournus-balloon",
+    "view": ""
+   },
+   {
+    "id": "item-20261102-photo-denim",
+    "view": ""
+   },
+   {
+    "id": "item-20261103-bag",
+    "view": ""
+   },
+   {
+    "id": "item-20261103-le-labo",
+    "view": ""
+   },
+   {
+    "id": "item-20261025-09-drmartens",
+    "view": ""
+   },
+   {
+    "id": "item-20261025-02-track",
+    "view": ""
+   },
+   {
+    "id": "item-20261103-wood-salt",
+    "view": ""
+   }
+  ],
+  "identities": [
+   {
+    "id": "item-20261029-11-balmacaan",
+    "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+    "brand": "UNDERMYCAR",
+    "cat": "outer",
+    "color": "green",
+    "imageKey": "13bc9e78",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261025-06-ma1",
+    "name": "우영미 백로고 MA-1 블랙",
+    "brand": "WOOYOUNGMI / 우영미",
+    "cat": "outer",
+    "color": "black",
+    "imageKey": "1e949c8c",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261102-balenciaga-reversible",
+    "name": "발렌시아가 x 언더아머 리버서블 데님·바람막이 자켓",
+    "brand": "BALENCIAGA x Under Armour",
+    "cat": "outer",
+    "color": "charcoal",
+    "imageKey": "1817afc5",
+    "view": "AI 보정 · 바람막이 면",
+    "viewImageKey": "21202fb4"
+   },
+   {
+    "id": "item-20261029-18-stucoat",
+    "name": "STU 핸드 스티치 더블 코트 블랙",
+    "brand": "STU",
+    "cat": "outer",
+    "color": "black",
+    "imageKey": "9ea06587",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261103-polo",
+    "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+    "brand": "Polo Ralph Lauren",
+    "cat": "top",
+    "color": "gray",
+    "imageKey": "b03f8b0d",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-mvnm5zvx-2egc7m",
+    "name": "우영미 블랙 후드 티셔츠 (105)",
+    "brand": "WOOYOUNGMI / 우영미",
+    "cat": "top",
+    "color": "black",
+    "imageKey": "a02369f5",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261102-yournus-balloon",
+    "name": "유어너스 블렌디드 데미지 벌룬 데님 브라운 블랙",
+    "brand": "YOURNUS",
+    "cat": "bottom",
+    "color": "brown",
+    "imageKey": "c9c3284d",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261102-photo-denim",
+    "name": "브랜드 미상 워싱 와이드 데님 흑청",
+    "brand": "브랜드 미상",
+    "cat": "bottom",
+    "color": "charcoal",
+    "imageKey": "3584e242",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261103-bag",
+    "name": "블랙 레더룩 쇼퍼 토트백",
+    "brand": "브랜드 미상",
+    "cat": "bag",
+    "color": "black",
+    "imageKey": "31de7577",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261103-le-labo",
+    "name": "르 라보 라방드 31 오 드 퍼퓸 100ml",
+    "brand": "LE LABO",
+    "cat": "fragrance",
+    "color": "other",
+    "imageKey": "41b3df7b",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261025-09-drmartens",
+    "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+    "brand": "DR. MARTENS / 닥터마틴",
+    "cat": "shoes",
+    "color": "black",
+    "imageKey": "12e8d8a8",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261025-02-track",
+    "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+    "brand": "BALENCIAGA / 발렌시아가",
+    "cat": "shoes",
+    "color": "black",
+    "imageKey": "5d391492",
+    "view": "",
+    "viewImageKey": ""
+   },
+   {
+    "id": "item-20261103-wood-salt",
+    "name": "탬버린즈 우드 솔트 비치 퍼퓸",
+    "brand": "TAMBURINS",
+    "cat": "fragrance",
+    "color": "other",
+    "imageKey": "b006e1e5",
+    "view": "",
+    "viewImageKey": ""
+   }
+  ]
+ },
+ {
   "id": "warm",
   "title": "베이지·퍼플 전시",
   "image": "./assets/wardrobe-natural-warm-v3.webp",

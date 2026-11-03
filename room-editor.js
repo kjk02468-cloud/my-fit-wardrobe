@@ -1,14 +1,14 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.MyFitRoom=api;})(typeof window==='object'?window:globalThis,function(){
  'use strict';
  const KEY='myfit-room-selection-v1',COUNT=13;
- const defaults=['item-20261025-04-trench','item-20261029-14-beigejacket','item-20261025-06-ma1','item-20261102-balenciaga-reversible','item-20261102-white-shirt','item-20261103-vest','item-20261102-gray-slacks','item-20261102-photo-denim','item-20261103-matin','item-20261103-wood-salt','item-20261025-09-drmartens','item-20261103-nike','item-20261103-le-labo'];
+ const defaults=["item-20261029-11-balmacaan","item-20261025-06-ma1","item-20261102-balenciaga-reversible","item-20261029-18-stucoat","item-20261103-polo","item-mvnm5zvx-2egc7m","item-20261102-yournus-balloon","item-20261102-photo-denim","item-20261103-bag","item-20261103-le-labo","item-20261025-09-drmartens","item-20261025-02-track","item-20261103-wood-salt"];
  const positions=[[9,17.2,14,53],[18.5,17.2,14,53],[28,17.2,14,53],[36.5,17.2,13,53],[50.3,10.2,12.5,31.5],[63,10.2,12.5,31.5],[51.5,45.2,11,42],[64,45.2,11,42],[81,10,13,21],[81,40,6.5,10.5],[80,55,15,13],[80,72,15,14],[88,40,6.5,10.5]];
  const slotName=n=>n===9?'10번 · 향수 선반 왼쪽':n===12?'13번 · 향수 선반 오른쪽':(n+1)+'번 자리';
  const categories={all:'전체',outer:'아우터',top:'상의',bottom:'하의',shoes:'신발',bag:'가방',eyewear:'아이웨어',accessory:'액세서리',fragrance:'향수'};
  const cleanEntry=entry=>entry&&typeof entry.id==='string'&&entry.id.length>0&&entry.id.length<=90?{id:entry.id,view:/^AI 보정 · (데님|바람막이) 면$/.test(entry.view||'')?entry.view:''}:null;
- const defaultSlots=()=>defaults.map(id=>({id,view:''}));
+ const defaultSlots=()=>defaults.map(id=>({id,view:id.includes('reversible')?'AI 보정 · 바람막이 면':''}));
  function normalize(slots,items){const own=new Set(items.filter(i=>!i.isDemo).map(i=>i.id)),seen=new Set();return Array.from({length:COUNT},(_,n)=>{const e=cleanEntry(slots?.[n]);if(!e||!own.has(e.id)||seen.has(e.id))return null;seen.add(e.id);return e})}
- function read(raw,items){try{if(typeof raw!=='string'||raw.length>16384)throw Error();const data=JSON.parse(raw);if(!Array.isArray(data.slots)||!((data.version===1&&data.slots.length===12)||(data.version===2&&data.slots.length===COUNT)))throw Error();const migrated=data.version===1?[...data.slots,defaultSlots()[12]]:data.slots;return {mode:data.mode==='custom'?'custom':'original',slots:normalize(migrated,items),...(['warm','dark'].includes(data.lastScene)?{lastScene:data.lastScene}:{})}}catch{return {mode:'original',slots:normalize(defaultSlots(),items)}}}
+ function read(raw,items){try{if(typeof raw!=='string'||raw.length>16384)throw Error();const data=JSON.parse(raw);if(!Array.isArray(data.slots)||!((data.version===1&&data.slots.length===12)||(data.version===2&&data.slots.length===COUNT)))throw Error();const migrated=data.version===1?[...data.slots,defaultSlots()[12]]:data.slots;return {mode:data.mode==='custom'?'custom':'original',slots:normalize(migrated,items),...(['personal','warm','dark'].includes(data.lastScene)?{lastScene:data.lastScene}:{})}}catch{return {mode:'original',slots:normalize(defaultSlots(),items)}}}
  function assign(slots,index,entry){if(!Number.isInteger(index)||index<0||index>=COUNT)throw Error('Invalid slot');const next=Array.from({length:COUNT},(_,n)=>cleanEntry(slots[n])),clean=cleanEntry(entry);const previous=clean?next.findIndex((s,n)=>n!==index&&s?.id===clean.id):-1;if(previous>=0)next[previous]=next[index];next[index]=clean;return next}
  function swap(slots,a,b){if(![a,b].every(n=>Number.isInteger(n)&&n>=0&&n<COUNT))throw Error('Invalid slot');const next=Array.from({length:COUNT},(_,n)=>cleanEntry(slots[n]));[next[a],next[b]]=[next[b],next[a]];return next}
  function resolve(entry,items,variants){const item=items.find(i=>!i.isDemo&&i.id===entry?.id);if(!item)return null;return (entry.view&&variants(item).find(v=>v.lookView===entry.view))||item}
@@ -17,7 +17,7 @@
   const scenes=window.MyFitRoomScenes,models=window.MyFitModels;
   const img=item=>item?.lookImage||image(item),name=item=>item.name+(item.lookSide?' · '+item.lookSide:'');
   let stored;try{stored=localStorage.getItem(KEY)}catch{}
-  let saved=read(stored,getItems()),mode=saved.mode,draft=null,pickIndex=0,filter='all',query='',dragIndex=null,previousScene=saved.lastScene||'warm';
+  let saved=read(stored,getItems()),mode=saved.mode,draft=null,pickIndex=0,filter='all',query='',dragIndex=null,previousScene=saved.lastScene||'personal';
   const currentSlots=()=>normalize(draft||saved.slots,getItems());
   const currentItem=n=>resolve(currentSlots()[n],getItems(),variants);
   function persist(next){try{const matched=scenes.find(next.mode==='custom'?next.slots:defaultSlots(),getItems(),models);if(matched)previousScene=matched.id;next={...next,lastScene:previousScene};localStorage.setItem(KEY,JSON.stringify({version:2,...next}));saved=next;mode=next.mode;return true}catch{notify('진열을 저장하지 못했어요. 브라우저 저장 공간을 확인해주세요.');return false}}

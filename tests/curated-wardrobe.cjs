@@ -2,6 +2,7 @@ const fs=require('fs'),path=require('path'),assert=require('node:assert/strict')
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const C=require('../curated-look-engine.js'),M=require('../model-look-engine.js');
 const manifest=JSON.parse(read('published-closet.json')),items=manifest.dataFiles.flatMap(f=>JSON.parse(read(f.path)).items),library=C.parseLibrary(read('curated-looks.json'));
+assert.equal(JSON.parse(read('curated-looks.json')).figureView,'neck-down');assert(library.every(l=>l.image.endsWith('-neckdown-v3.webp')),'Every seasonal photograph must use the face-free version');
 assert.equal(library.length,60);assert.equal(new Set(library.map(l=>l.id)).size,60);
 assert.equal(items.filter(i=>i.cat==='fragrance').length,6);assert.equal(items.filter(i=>i.photoStatus==='pending').length,1);
 for(const season of C.seasons){assert.equal(C.select(library,season).length,20);for(const group of ['office','date','daily','street'])assert(C.select(library,season,group).every(l=>l.seasonKey===season&&l.group===group));}

@@ -25,7 +25,7 @@
  async function loadModelLooks(){
   if(!modelEngine)return;
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),6000);
-  try{const response=await fetch('./model-looks.json?v=20261102-v1',{signal:controller.signal});if(!response.ok||Number(response.headers?.get('content-length'))>modelEngine.MAX_BYTES)throw Error('Model library unavailable');modelLibrary=modelEngine.parseLibrary(await response.text())}catch{modelLibrary=[];console.warn('Model photos unavailable; showing wardrobe combinations')}finally{clearTimeout(timer)}
+  try{const response=await fetch('./model-looks.json?v=20261103-neckdown-release-v3',{signal:controller.signal});if(!response.ok||Number(response.headers?.get('content-length'))>modelEngine.MAX_BYTES)throw Error('Model library unavailable');modelLibrary=modelEngine.parseLibrary(await response.text())}catch{modelLibrary=[];console.warn('Model photos unavailable; showing wardrobe combinations')}finally{clearTimeout(timer)}
  }
  const lookImage=item=>safeImg(item?.lookImage)||itemImage(item);
  const lookName=item=>item.name+(item.lookSide?` · ${item.lookSide} 착용`:'');
@@ -81,7 +81,7 @@
  async function loadCuratedLooks(){
   if(!curatedEngine)return;
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),6000);
-  try{const res=await fetch('./curated-looks.json?v=20261103-seasonal-v2',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
+  try{const res=await fetch('./curated-looks.json?v=20261103-neckdown-release-v3',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
  }
  function renderRoom(){roomEditor?.render()}
  function curatedRecommendations(){
@@ -90,19 +90,19 @@
  function curatedTiles(list){return '<div class="curated-pieces">'+list.map(item=>'<button type="button" data-view-item="'+S(item.id)+'" data-view-photo="'+Math.max(0,itemPhotos(item).findIndex(p=>p.src===lookImage(item)))+'"><img loading="lazy" src="'+S(lookImage(item))+'" alt=""/><span>'+S(lookName(item))+'</span></button>').join('')+'</div>'}
  function curatedCard(rec,index){
   const photo=rec.image&&!failedModelImages.has(rec.id);
-  return '<article class="curated-card"><div class="curated-photo">'+(photo?'<button type="button" data-open-curated="'+S(rec.id)+'" aria-label="'+S(rec.title)+' 크게 보기"><img src="'+S(rec.image)+'" data-curated-image="'+S(rec.id)+'" width="800" height="1200" loading="lazy" alt="'+S(rec.title)+' · 내 얼굴 참고 AI 예상 착장"/></button>':curatedTiles(rec.items))+'<span class="curated-number">'+String(rec.number).padStart(2,'0')+'</span>'+(photo?'<span class="curated-ai-label">AI 예상 착장</span>':'')+'</div><div class="curated-copy"><p class="curated-kicker">'+S(curatedGroups[rec.group])+' / '+S(rec.season)+'</p><h3>'+S(rec.title)+'</h3><p>'+S(rec.reason)+'</p><details><summary>구성 아이템 · 입는 방법</summary>'+curatedTiles(rec.items)+'<p class="curated-tip">'+S(rec.tip)+'</p>'+(rec.addons.length?'<h4>함께 더해도 좋아요</h4>'+curatedTiles(rec.addons):'')+(rec.fragrance?'<button class="curated-fragrance" type="button" data-view-item="'+S(rec.fragrance.id)+'">향수 선택 · '+S(rec.fragrance.name)+' ↗</button>':'')+'<small class="curated-extra-note">추가 액세서리와 향수는 모델컷에 포함되지 않은 선택 아이템이에요. 향수는 코디 분위기에 맞춘 제안이에요.</small></details><button class="curated-save" type="button" data-save-outfit="'+index+'">기본 착장으로 기록하기 ↗</button></div></article>';
+  return '<article class="curated-card"><div class="curated-photo">'+(photo?'<button type="button" data-open-curated="'+S(rec.id)+'" aria-label="'+S(rec.title)+' 크게 보기"><img src="'+S(rec.image)+'" data-curated-image="'+S(rec.id)+'" width="800" height="1200" loading="lazy" alt="'+S(rec.title)+' · 얼굴을 제외한 AI 예상 착장"/></button>':curatedTiles(rec.items))+'<span class="curated-number">'+String(rec.number).padStart(2,'0')+'</span>'+(photo?'<span class="curated-ai-label">AI 예상 착장</span>':'')+'</div><div class="curated-copy"><p class="curated-kicker">'+S(curatedGroups[rec.group])+' / '+S(rec.season)+'</p><h3>'+S(rec.title)+'</h3><p>'+S(rec.reason)+'</p><details><summary>구성 아이템 · 입는 방법</summary>'+curatedTiles(rec.items)+'<p class="curated-tip">'+S(rec.tip)+'</p>'+(rec.addons.length?'<h4>함께 더해도 좋아요</h4>'+curatedTiles(rec.addons):'')+(rec.fragrance?'<button class="curated-fragrance" type="button" data-view-item="'+S(rec.fragrance.id)+'">향수 선택 · '+S(rec.fragrance.name)+' ↗</button>':'')+'<small class="curated-extra-note">추가 액세서리와 향수는 모델컷에 포함되지 않은 선택 아이템이에요. 향수는 코디 분위기에 맞춘 제안이에요.</small></details><button class="curated-save" type="button" data-save-outfit="'+index+'">기본 착장으로 기록하기 ↗</button></div></article>';
  }
  function renderCuratedRecommendations(){
   $('#outfit-results').classList.remove('model-results');$('#outfit-results').classList.add('curated-results');
   $('#curated-seasons').hidden=false;$('#curated-seasons').innerHTML=Object.entries(curatedSeasons).map(([key,label])=>'<button type="button" data-curated-season="'+key+'" aria-pressed="'+(key===curatedSeason)+'">'+label+' <small>'+curatedLibrary.filter(r=>r.seasonKey===key&&curatedEngine.resolve(r,ownedItems(items),modelEngine)).length+' LOOKS</small></button>').join('');
   $('#curated-groups').hidden=false;$('#curated-groups').innerHTML=Object.entries(curatedGroups).map(([key,label])=>'<button type="button" data-curated-group="'+key+'" aria-pressed="'+(key===curatedGroup)+'">'+label+'</button>').join('');
   $('#results-count').textContent=String(recommendations.length).padStart(2,'0')+' LOOKS';
-  $('#results-desc').textContent=curatedSeasons[curatedSeason]+' · '+recommendations.length+'가지 보유품 코디 / 전체 '+curatedLibrary.length+'가지. 색·소재·기장·레이어링을 고려했어요. 모델컷은 공개 프로필을 참고한 AI 예상 표현이에요.'+(curatedSeason==='summer'?' 롤업 셔츠와 스카시 가디건은 냉방 실내·선선한 저녁용이에요.':curatedSeason==='winter'?' 울 코트 중심의 겹쳐 입기이며, 한파 장시간 야외에는 추가 보온이 필요해요.':'');
+  $('#results-desc').textContent=curatedSeasons[curatedSeason]+' · '+recommendations.length+'가지 보유품 코디 / 전체 '+curatedLibrary.length+'가지. 색·소재·기장·레이어링을 고려했어요. 모델컷은 얼굴을 제외하고 보유품과 체형 정보를 참고한 AI 예상 착장이에요.'+(curatedSeason==='summer'?' 롤업 셔츠와 스카시 가디건은 냉방 실내·선선한 저녁용이에요.':curatedSeason==='winter'?' 울 코트 중심의 겹쳐 입기이며, 한파 장시간 야외에는 추가 보온이 필요해요.':'');
   $('#outfit-results').innerHTML=recommendations.length?recommendations.map(curatedCard).join(''):'<p class="outfit-empty">이 코디에 필요한 보유 아이템을 확인하지 못했어요. 전체 분위기를 선택하거나 옷장을 확인해주세요.</p>';
  }
  function openCuratedLook(id){
   const row=curatedLibrary.find(r=>r.id===id),rec=row&&curatedEngine.resolve(row,ownedItems(items),modelEngine);if(!rec||!rec.image)return;
-  $('#model-look-title').textContent=rec.title;$('#model-look-content').innerHTML='<img class="model-detail-photo" src="'+S(rec.image)+'" alt="'+S(rec.title)+' AI 예상 착장"/><p class="fine-print">공개 프로필 사진을 참고한 AI 예상 착장입니다. 얼굴·체형·로고·핏은 실제와 다를 수 있어요.</p>'+curatedTiles(rec.items)+'<p>'+S(rec.tip)+'</p>';openModal('model-look-modal');
+  $('#model-look-title').textContent=rec.title;$('#model-look-content').innerHTML='<img class="model-detail-photo" src="'+S(rec.image)+'" alt="'+S(rec.title)+' AI 예상 착장"/><p class="fine-print">얼굴을 제외한 AI 예상 착장입니다. 의류의 질감·로고·착용 핏은 실제와 다를 수 있어요.</p>'+curatedTiles(rec.items)+'<p>'+S(rec.tip)+'</p>';openModal('model-look-modal');
  }
 
  function renderFeatured(){
@@ -115,7 +115,7 @@
   $('#hero-own-board').innerHTML=curatedPhoto?`<figure class="ai-model-figure"><button type="button" data-open-curated="${S(look.id)}" aria-label="${S(look.title)} 크게 보기"><img src="${S(look.image)}" data-curated-image="${S(look.id)}" alt="${S(look.title)} · AI 예상 착장"/><span class="ai-model-badge">AI 예상 착장</span></button></figure>`:look?(modelPhoto(look)||outfitBoard(look)):'<div class="board-empty">내 옷을 등록해 주세요.</div>';
   $('#feature-items').innerHTML=(look?.items||[]).filter(item=>lookImage(item)).map(item=>`<img loading="lazy" src="${S(lookImage(item))}" title="${S(lookName(item))}" alt="${S(lookName(item))}"/>`).join('');
   const reasons=look?[`내 옷 ${ownedItems(items).length}개에서 선택`,look.missing.length?`${look.missing.map(cat=>categories[cat]).join(' · ')} 미등록 · 있는 옷만 조합`:'상의·하의·신발이 모두 있는 조합',`목적지 ${look.context.destination} · ${styleLabels[look.context.purpose]}`,look.model?'내 옷으로 만든 AI 예상 착장 · 실제 핏은 다를 수 있어요':'사진 속 제품은 모두 내 옷장 등록품']:['첫 옷을 추가해 보세요.'];
-  if(look?.curated){reasons[2]=`${curatedGroups[look.group]} · ${look.season}`;reasons[3]='공개 프로필을 참고한 AI 예상 착장 · 실제 얼굴과 핏은 다를 수 있어요';}
+  if(look?.curated){reasons[2]=`${curatedGroups[look.group]} · ${look.season}`;reasons[3]='얼굴을 제외한 AI 예상 착장 · 실제 체형과 핏은 다를 수 있어요';}
   $('#feature-reasons').innerHTML=reasons.map((reason,index)=>`<div><span>${['◈','＋','⌖','♡'][index]}</span><p>${S(reason)}</p></div>`).join('');
   $('#feature-prev').disabled=!look;$('#feature-next').disabled=!look;$('#feature-like').disabled=!look;
   const saved=JSON.parse(localStorage.getItem('myfit-favourites')||'[]');const on=saved.includes(activeFeature);$('#feature-like').textContent=on?'♥':'♡';$('#feature-like').classList.toggle('saved',on);
