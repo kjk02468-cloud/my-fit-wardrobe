@@ -18,6 +18,7 @@
  const modelEngine=typeof window!=='undefined'?window.MyFitModels:null;
  let modelLibrary=[],recommendationMode='curated',curatedLibrary=[],curatedGroup='all';
  const curatedEngine=window.MyFitCurated;
+ let roomEditor=null;
  const curatedGroups={all:'전체',office:'출근 · 단정한 날',date:'데이트 · 약속',daily:'데일리',street:'스트리트'};
  const failedModelImages=new Set();
  async function loadModelLooks(){
@@ -81,12 +82,7 @@
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),6000);
   try{const res=await fetch('./curated-looks.json?v=20261103-v1',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
  }
- const roomPieces=[['item-20261025-04-trench',15,45],['item-20261029-14-beigejacket',25,33],['item-20261025-06-ma1',33,36],['item-20261102-balenciaga-reversible',43,37],['item-20261102-white-shirt',56,28],['item-20261103-vest',68,27],['item-20261102-gray-slacks',57,66],['item-20261102-photo-denim',69,66],['item-20261103-matin',87,25],['item-20261103-wood-salt',86,44],['item-20261025-09-drmartens',86,65],['item-20261103-nike',87,82]];
- function renderRoom(){
-  $('#room-inventory-count').textContent=ownedItems(items).length+' OWNED ITEMS';
-  $('#room-hotspots').innerHTML=roomPieces.map(([id,x,y])=>{const item=itemById(id);return item?'<button type="button" class="room-dot" style="left:'+x+'%;top:'+y+'%" data-view-item="'+S(id)+'" aria-label="'+S(item.name)+' 상세 보기"><span>＋</span><b>'+S(item.name)+'</b></button>':''}).join('');
-  $('#room-categories').innerHTML=['outer','top','bottom','shoes','bag','fragrance'].map(cat=>'<button type="button" data-room-category="'+cat+'">'+categories[cat]+' <small>'+items.filter(i=>i.cat===cat).length+'</small></button>').join('');
- }
+ function renderRoom(){roomEditor?.render()}
  function curatedRecommendations(){
   const c=getContext();return curatedLibrary.map((row,index)=>{const r=curatedEngine?.resolve(row,ownedItems(items),modelEngine);if(!r)return null;return {...r,curated:true,number:index+1,missing:[],context:c,description:r.reason,explain:r.season+' · '+curatedGroups[r.group],combinationRules:[],referenceMatches:[],score:0,model:null}}).filter(Boolean).filter(r=>curatedGroup==='all'||r.group===curatedGroup);
  }
@@ -414,6 +410,6 @@
   $('#export-data').addEventListener('click',exportBackup);
   const importButton=document.createElement('button');importButton.id='import-data';importButton.type='button';importButton.textContent='↥ 백업 불러오기';const importInput=document.createElement('input');importInput.type='file';importInput.accept='.json,application/json';importInput.hidden=true;$('#export-data').before(importButton,importInput);importButton.addEventListener('click',()=>importInput.click());importInput.addEventListener('change',e=>{importBackup(e.target.files?.[0]);e.target.value=''});
  }
- async function init(){registerActions();const referencesReady=Promise.all([loadStyleReferences(),loadModelLooks(),loadCuratedLooks()]);await loadData();await loadPublishedCloset();await referencesReady;renderEverything();showRoute(location.hash.slice(1)||'home');}
+ async function init(){registerActions();const referencesReady=Promise.all([loadStyleReferences(),loadModelLooks(),loadCuratedLooks()]);await loadData();await loadPublishedCloset();await referencesReady;roomEditor=window.MyFitRoom?.mount({getItems:()=>ownedItems(items),image:itemImage,variants:item=>modelEngine?.variants(item)||[item],photos:itemPhotos,notify:toast,closeModal});renderEverything();showRoute(location.hash.slice(1)||'home');}
  init().catch(error=>{console.error(error);toast('화면을 준비하는 중 문제가 발생했어요. 페이지를 다시 열어주세요.')});
 })();

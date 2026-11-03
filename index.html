@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css?v=20261103-room-v1" />
   <link rel="stylesheet" href="./wardrobe-gallery.css?v=20261103-v1" />
+  <link rel="stylesheet" href="./room-editor.css?v=20261103-v1" />
 </head>
 <body>
  <header class="site-header">
@@ -74,10 +75,13 @@
   </section>
   <section class="view-panel internal-page" data-view="closet" hidden aria-label="내 옷장">
    <div class="page-intro"><span class="eyebrow">YOUR OWN EDITED COLLECTION</span><div class="page-intro-row"><div><h1>MY WARDROBE</h1><p>쇼핑몰처럼 한눈에 보는, 오직 나만의 남성복 컬렉션.</p></div><button type="button" id="closet-add" class="button-primary">＋ 새 아이템 등록</button></div></div>
-   <section class="wardrobe-room" aria-labelledby="wardrobe-room-title">
-    <div class="room-heading"><div><span class="eyebrow">THE PERSONAL SHOWROOM</span><h2 id="wardrobe-room-title">나의 옷을 담은 공간</h2></div><span id="room-inventory-count">MY COLLECTION</span></div>
-    <div class="room-scene"><img src="./assets/wardrobe-room-v1.webp" width="1672" height="941" alt="보유한 트렌치와 재킷, 셔츠, 퍼플 니트 베스트, 팬츠, 가방, 향수와 신발을 진열한 원목 옷장 AI 이미지" fetchpriority="high"/><div id="room-hotspots"></div><span class="room-badge">AI 3D SPACE</span></div>
-    <div class="room-footer"><p>진열된 점을 누르면 해당 아이템을 볼 수 있어요.<br><small>대표 보유품 12점으로 구성한 AI 공간 이미지 · 실제 크기와 세부 형태는 다를 수 있어요.</small></p><div id="room-categories" aria-label="옷장 구역"></div></div>
+   <section class="wardrobe-room" id="wardrobe-room" aria-labelledby="wardrobe-room-title">
+    <div class="room-heading"><div><span class="eyebrow">THE PERSONAL SHOWROOM</span><h2 id="wardrobe-room-title">나의 옷을 담은 공간</h2></div><div class="room-heading-actions"><span id="room-inventory-count">MY COLLECTION</span><button type="button" id="room-edit-start">대표 아이템 고르기 ↗</button></div></div>
+    <div id="room-view-modes" role="group" aria-label="옷장 진열 방식"><button type="button" data-room-view="original" aria-pressed="true">AI 쇼룸</button><button type="button" data-room-view="custom" aria-pressed="false">선택 진열</button></div>
+    <div id="room-edit-bar" hidden><div><strong>나만의 대표품 12자리</strong><p>아이템을 눌러 교체 · 끌어서 자리 이동</p></div><div class="room-edit-actions"><button type="button" id="room-edit-defaults">기본 구성 불러오기</button><button type="button" id="room-edit-cancel">취소</button><button type="button" id="room-edit-save">이 진열 저장</button></div></div>
+    <div class="room-scene" id="room-scene"><img id="room-scene-image" src="./assets/wardrobe-room-v1.webp" width="1672" height="941" alt="대표 보유품 12점으로 구성한 AI 옷장" fetchpriority="high"/><div id="room-hotspots"></div><span class="room-badge" id="room-badge">AI 3D SPACE</span></div>
+    <div class="room-footer"><p><span id="room-caption">진열된 점을 누르면 해당 아이템을 볼 수 있어요.</span><br><small id="room-caption-note">대표 보유품 12점으로 구성한 AI 공간 이미지 · 실제 크기와 세부 형태는 다를 수 있어요.</small></p><div id="room-categories" aria-label="옷장 구역"></div></div>
+    <div id="room-selected-list" aria-label="대표 아이템 자리 편집" hidden></div>
    </section>
    <div class="closet-toolbar"><div class="filter-row" id="closet-filters"></div><label class="search-field"><span>⌕</span><input id="closet-search" type="search" placeholder="브랜드, 아이템, 색상 검색" autocomplete="off" aria-label="아이템 검색" /></label></div>
    <p id="published-closet-status" class="published-closet-status" role="status">공개 옷장을 불러오는 중이에요…</p>
@@ -127,11 +131,13 @@
    <button id="item-detail-edit" type="button" class="button-outline wide">사진 추가 · 정보 수정 <span>↗</span></button>
   </div>
  </div>
+ <div id="room-picker-modal" class="overlay" hidden role="presentation"><div class="dialog room-picker-dialog" role="dialog" aria-modal="true" aria-labelledby="room-picker-title"><div class="dialog-top"><div><span class="eyebrow">CURATE YOUR COLLECTION</span><h2 id="room-picker-title">진열할 아이템</h2></div><button type="button" class="icon-dismiss" data-room-picker-close aria-label="아이템 선택 닫기">×</button></div><input id="room-picker-search" type="search" placeholder="이름 또는 브랜드로 찾기" aria-label="대표 아이템 검색" autocomplete="off"/><div id="room-picker-filters" role="group" aria-label="대표 아이템 분류"></div><p id="room-picker-count" role="status"></p><div id="room-picker-grid"></div><p class="fine-print">이미 진열한 아이템을 고르면 두 자리가 바뀌어요. 리버서블은 원하는 면을 골라주세요.</p></div></div>
  <div id="toast" class="toast" role="status" aria-live="polite"></div>
  <div id="model-look-modal" class="overlay" hidden role="presentation"><div class="dialog model-look-dialog" role="dialog" aria-modal="true" aria-labelledby="model-look-title"><div class="dialog-top"><div><span class="eyebrow">MY CLOTHES · AI LOOK</span><h2 id="model-look-title">AI 예상 착장</h2></div><button type="button" class="icon-dismiss" data-close="model-look-modal" aria-label="닫기">×</button></div><div id="model-look-content"></div></div></div>
  <script src="./curated-look-engine.js?v=20261103-v1" defer></script>
  <script src="./model-look-engine.js?v=20261102-v1" defer></script>
  <script src="./style-reference-engine.js?v=20261103" defer></script>
- <script src="./app.js?v=20261103-room-v1" defer></script>
+ <script src="./room-editor.js?v=20261103-v1" defer></script>
+ <script src="./app.js?v=20261103-room-editor-v1" defer></script>
 </body>
 </html>
