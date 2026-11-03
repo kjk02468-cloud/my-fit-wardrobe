@@ -10,6 +10,8 @@ assert.deepEqual(R.swap(slots,0,5),swapped);assert.equal(R.assign(slots,3,null)[
 const reversible=items.find(i=>i.id==='item-20261102-balenciaga-reversible'),wind=M.variants(reversible).find(v=>v.lookSide==='바람막이 면');assert(wind);
 const selected=R.assign(slots,3,{id:reversible.id,view:wind.lookView});assert.equal(R.resolve(selected[3],items,M.variants).lookImage,wind.lookImage);assert.equal(selected.filter(s=>s?.id===reversible.id).length,1);
 const raw=JSON.stringify({version:2,mode:'custom',slots:selected});assert(raw.length<2000);assert(!raw.includes('base64')&&!raw.includes('https://'));assert.deepEqual(R.read(raw,items),{mode:'custom',slots:selected});
+assert.equal(R.read(JSON.stringify({version:2,mode:'custom',slots:selected,lastScene:'dark'}),items).lastScene,'dark');
+assert.equal(R.read(JSON.stringify({version:2,mode:'custom',slots:selected,lastScene:'https://unexpected.invalid'}),items).lastScene,undefined);
 const legacy=selected.slice(0,12);legacy[0]=null;
 const migrated=R.read(JSON.stringify({version:1,mode:'custom',slots:legacy}),items);
 assert.deepEqual(migrated.slots.slice(0,12),legacy);assert.equal(migrated.mode,'custom');assert.deepEqual(migrated.slots[12],slots[12]);
@@ -21,5 +23,5 @@ assert.equal(R.normalize(slots,items.map(i=>i.id===slots[0].id?{...i,isDemo:true
 assert.equal(R.normalize([slots[0],slots[0]],items)[1],null);
 assert.equal(R.resolve({id:slots[0].id,view:'missing face'},items,M.variants).id,slots[0].id);
 assert.equal(R.read(JSON.stringify({version:2,mode:'custom',slots:R.assign(slots,0,{id:slots[0].id,view:'<script>'})}),items).slots[0].view,'');
-assert(fs.statSync(path.join(root,'assets/wardrobe-hanging-v2.webp')).size<150000);
+assert(fs.statSync(path.join(root,'assets/wardrobe-natural-warm-v3.webp')).size<150000);
 console.log('PASS: 13 owned-only slots, 12-slot migration, independent perfume choices, duplicate-safe swaps, reversible face, missing items, corrupt storage and ID-only persistence.');

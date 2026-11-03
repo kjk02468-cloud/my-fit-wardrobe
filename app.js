@@ -16,10 +16,11 @@
  let styleLibrary=[],referenceIndexes=new Map();
  const referenceEngine=typeof window!=='undefined'?window.MyFitReferences:null;
  const modelEngine=typeof window!=='undefined'?window.MyFitModels:null;
- let modelLibrary=[],recommendationMode='curated',curatedLibrary=[],curatedGroup='all';
+ let modelLibrary=[],recommendationMode='curated',curatedLibrary=[],curatedGroup='all',curatedSeason='spring-fall';
  const curatedEngine=window.MyFitCurated;
  let roomEditor=null;
  const curatedGroups={all:'전체',office:'출근 · 단정한 날',date:'데이트 · 약속',daily:'데일리',street:'스트리트'};
+ const curatedSeasons={'spring-fall':'봄·가을',summer:'여름',winter:'겨울'};
  const failedModelImages=new Set();
  async function loadModelLooks(){
   if(!modelEngine)return;
@@ -80,11 +81,11 @@
  async function loadCuratedLooks(){
   if(!curatedEngine)return;
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),6000);
-  try{const res=await fetch('./curated-looks.json?v=20261103-v1',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
+  try{const res=await fetch('./curated-looks.json?v=20261103-seasonal-v2',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
  }
  function renderRoom(){roomEditor?.render()}
  function curatedRecommendations(){
-  const c=getContext();return curatedLibrary.map((row,index)=>{const r=curatedEngine?.resolve(row,ownedItems(items),modelEngine);if(!r)return null;return {...r,curated:true,number:index+1,missing:[],context:c,description:r.reason,explain:r.season+' · '+curatedGroups[r.group],combinationRules:[],referenceMatches:[],score:0,model:null}}).filter(Boolean).filter(r=>curatedGroup==='all'||r.group===curatedGroup);
+  const c=getContext();return curatedEngine.select(curatedLibrary,curatedSeason,curatedGroup).map((row,index)=>{const r=curatedEngine?.resolve(row,ownedItems(items),modelEngine);if(!r)return null;return {...r,curated:true,number:index+1,missing:[],context:c,description:r.reason,explain:r.season+' · '+curatedGroups[r.group],combinationRules:[],referenceMatches:[],score:0,model:null}}).filter(Boolean);
  }
  function curatedTiles(list){return '<div class="curated-pieces">'+list.map(item=>'<button type="button" data-view-item="'+S(item.id)+'" data-view-photo="'+Math.max(0,itemPhotos(item).findIndex(p=>p.src===lookImage(item)))+'"><img loading="lazy" src="'+S(lookImage(item))+'" alt=""/><span>'+S(lookName(item))+'</span></button>').join('')+'</div>'}
  function curatedCard(rec,index){
@@ -93,9 +94,10 @@
  }
  function renderCuratedRecommendations(){
   $('#outfit-results').classList.remove('model-results');$('#outfit-results').classList.add('curated-results');
+  $('#curated-seasons').hidden=false;$('#curated-seasons').innerHTML=Object.entries(curatedSeasons).map(([key,label])=>'<button type="button" data-curated-season="'+key+'" aria-pressed="'+(key===curatedSeason)+'">'+label+' <small>'+curatedLibrary.filter(r=>r.seasonKey===key&&curatedEngine.resolve(r,ownedItems(items),modelEngine)).length+' LOOKS</small></button>').join('');
   $('#curated-groups').hidden=false;$('#curated-groups').innerHTML=Object.entries(curatedGroups).map(([key,label])=>'<button type="button" data-curated-group="'+key+'" aria-pressed="'+(key===curatedGroup)+'">'+label+'</button>').join('');
   $('#results-count').textContent=String(recommendations.length).padStart(2,'0')+' LOOKS';
-  $('#results-desc').textContent='보유 아이템으로 고른 20가지 계절별 코디 · 색, 소재, 기장과 볼륨의 균형을 함께 고려했어요. 얼굴은 공개 프로필 사진을 참고한 AI 표현이며 실제 얼굴·체형·핏과 차이가 있어요.';
+  $('#results-desc').textContent=curatedSeasons[curatedSeason]+' · '+recommendations.length+'가지 보유품 코디 / 전체 '+curatedLibrary.length+'가지. 색·소재·기장·레이어링을 고려했어요. 모델컷은 공개 프로필을 참고한 AI 예상 표현이에요.'+(curatedSeason==='summer'?' 롤업 셔츠와 스카시 가디건은 냉방 실내·선선한 저녁용이에요.':curatedSeason==='winter'?' 울 코트 중심의 겹쳐 입기이며, 한파 장시간 야외에는 추가 보온이 필요해요.':'');
   $('#outfit-results').innerHTML=recommendations.length?recommendations.map(curatedCard).join(''):'<p class="outfit-empty">이 코디에 필요한 보유 아이템을 확인하지 못했어요. 전체 분위기를 선택하거나 옷장을 확인해주세요.</p>';
  }
  function openCuratedLook(id){
@@ -272,7 +274,7 @@
   $('.styling-workspace').classList.toggle('show-curated',recommendationMode==='curated'&&curatedLibrary.length>0);
   $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.recommendationMode===recommendationMode)));
   if(recommendationMode==='curated'&&curatedLibrary.length){renderCuratedRecommendations();renderFeatured();return}
-  $('#curated-groups').hidden=true;$('#outfit-results').classList.remove('curated-results');
+  $('#curated-groups').hidden=true;$('#curated-seasons').hidden=true;$('#outfit-results').classList.remove('curated-results');
   $('#outfit-results').classList.toggle('model-results',recommendations.some(r=>r.model));
   $('#results-count').textContent=`${String(recommendations.length).padStart(2,'0')} LOOKS`;
   const c=getContext(),missing=['top','bottom','shoes'].filter(cat=>!ownedItems(items).some(item=>item.cat===cat));
@@ -349,6 +351,7 @@
  function registerActions(){
   document.addEventListener('error',event=>{if(event.target.matches?.('[data-curated-image]')){failedModelImages.add(event.target.dataset.curatedImage);renderRecommendations(false);return}if(event.target.matches?.('[data-reference-image]'))event.target.closest('.reference-photo')?.classList.add('unavailable');if(event.target.matches?.('[data-model-image]')){failedModelImages.add(event.target.dataset.modelImage);if(!$('#model-look-modal').hidden)closeModal('model-look-modal');renderRecommendations(false)}},true);
   document.addEventListener('click',event=>{
+   const seasonTab=event.target.closest('[data-curated-season]');if(seasonTab){curatedSeason=seasonTab.dataset.curatedSeason;curatedGroup='all';renderRecommendations(true);return}
    const group=event.target.closest('[data-curated-group]');if(group){curatedGroup=group.dataset.curatedGroup;renderRecommendations(true);return}
    const room=event.target.closest('[data-room-category]');if(room){activeClosetFilter=room.dataset.roomCategory;$('#closet-search').value='';renderCloset();$('#closet-filters').scrollIntoView({behavior:'smooth',block:'start'});return}
    const curatedPhoto=event.target.closest('[data-open-curated]');if(curatedPhoto){openCuratedLook(curatedPhoto.dataset.openCurated);return}

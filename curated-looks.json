@@ -55,13 +55,14 @@
         "item-20261102-mm211"
       ],
       "fragrance": "item-20261103-creed",
-      "image": "./assets/curated-look-01-v1.webp"
+      "image": "./assets/curated-look-01-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-02",
       "title": "베이지 셋업의 부드러운 주말",
       "group": "date",
-      "season": "늦가을·겨울 실내",
+      "season": "늦가을 · 실내",
       "reason": "베이지 수트에 크림빛 알파카 니트를 겹쳐 색의 차이보다 질감 차이를 살렸어요. 브라운 스웨이드 로퍼가 따뜻한 색조를 이어줍니다.",
       "tip": "니트 밑단은 깔끔하게 정리하고 더블 재킷은 열어 입으세요. 두꺼운 니트가 재킷 팔 안에서 뭉치면 겹쳐 입기를 피하세요.",
       "pieces": [
@@ -102,7 +103,8 @@
         "item-20261103-givenchy"
       ],
       "fragrance": "item-20261103-tamdao",
-      "image": "./assets/curated-look-02-v1.webp"
+      "image": "./assets/curated-look-02-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-03",
@@ -150,7 +152,8 @@
         "item-20261102-ax2084"
       ],
       "fragrance": "item-20261103-le-labo",
-      "image": "./assets/curated-look-03-v1.webp"
+      "image": "./assets/curated-look-03-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-04",
@@ -198,7 +201,8 @@
         "item-20261102-ax2084"
       ],
       "fragrance": "item-20261103-haystacks",
-      "image": "./assets/curated-look-04-v1.webp"
+      "image": "./assets/curated-look-04-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-05",
@@ -245,7 +249,8 @@
         "item-20261103-givenchy"
       ],
       "fragrance": "item-20261103-tamdao",
-      "image": "./assets/curated-look-05-v1.webp"
+      "image": "./assets/curated-look-05-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-06",
@@ -293,7 +298,8 @@
         "item-20261102-chrome-ring"
       ],
       "fragrance": "item-20261103-wood-salt",
-      "image": "./assets/curated-look-06-v1.webp"
+      "image": "./assets/curated-look-06-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-07",
@@ -341,7 +347,8 @@
         "item-20261103-cap"
       ],
       "fragrance": "item-20261103-haystacks",
-      "image": "./assets/curated-look-07-v1.webp"
+      "image": "./assets/curated-look-07-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-08",
@@ -391,7 +398,8 @@
         "item-20261102-mm105"
       ],
       "fragrance": "item-20261103-wood-salt",
-      "image": "./assets/curated-look-08-v1.webp"
+      "image": "./assets/curated-look-08-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-09",
@@ -441,7 +449,8 @@
         "item-20261103-cap"
       ],
       "fragrance": "item-20261103-wood-salt",
-      "image": "./assets/curated-look-09-v1.webp"
+      "image": "./assets/curated-look-09-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-10",
@@ -488,7 +497,8 @@
         "item-20261103-matin"
       ],
       "fragrance": "item-20261103-tamdao",
-      "image": "./assets/curated-look-10-v1.webp"
+      "image": "./assets/curated-look-10-v1.webp",
+      "seasonKey": "winter"
     },
     {
       "id": "edit-11",
@@ -536,7 +546,8 @@
         "item-20261102-mm211"
       ],
       "fragrance": "item-20261103-le-labo",
-      "image": "./assets/curated-look-11-v1.webp"
+      "image": "./assets/curated-look-11-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-12",
@@ -583,7 +594,8 @@
         "item-20261103-backpack"
       ],
       "fragrance": "item-20261103-bibiang",
-      "image": "./assets/curated-look-12-v1.webp"
+      "image": "./assets/curated-look-12-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-13",
@@ -622,7 +634,8 @@
         "item-20261103-givenchy"
       ],
       "fragrance": "item-20261103-bibiang",
-      "image": "./assets/curated-look-13-v1.webp"
+      "image": "./assets/curated-look-13-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-14",
@@ -670,7 +683,8 @@
         "item-20261102-mm211"
       ],
       "fragrance": "item-20261103-le-labo",
-      "image": "./assets/curated-look-14-v1.webp"
+      "image": "./assets/curated-look-14-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-15",
@@ -710,7 +724,8 @@
         "item-20261102-ax2084"
       ],
       "fragrance": "item-20261103-haystacks",
-      "image": "./assets/curated-look-15-v1.webp"
+      "image": "./assets/curated-look-15-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-16",
@@ -758,7 +773,8 @@
         "item-20261102-mm211"
       ],
       "fragrance": "item-20261103-creed",
-      "image": "./assets/curated-look-16-v1.webp"
+      "image": "./assets/curated-look-16-v1.webp",
+      "seasonKey": "spring-fall"
     },
     {
       "id": "edit-17",
@@ -797,7 +813,8 @@
         "item-20261103-cap"
       ],
       "fragrance": "item-20261103-wood-salt",
-      "image": "./assets/curated-look-17-v1.webp"
+      "image": "./assets/curated-look-17-v1.webp",
+      "seasonKey": "summer"
     },
     {
       "id": "edit-18",
@@ -836,7 +853,8 @@
         "item-20261102-mm105"
       ],
       "fragrance": "item-20261103-wood-salt",
-      "image": "./assets/curated-look-18-v1.webp"
+      "image": "./assets/curated-look-18-v1.webp",
+      "seasonKey": "summer"
     },
     {
       "id": "edit-19",
@@ -875,7 +893,8 @@
         "item-20261103-matin"
       ],
       "fragrance": "item-20261103-bibiang",
-      "image": "./assets/curated-look-19-v1.webp"
+      "image": "./assets/curated-look-19-v1.webp",
+      "seasonKey": "summer"
     },
     {
       "id": "edit-20",
@@ -922,7 +941,1820 @@
         "item-20261103-backpack"
       ],
       "fragrance": "item-20261103-bibiang",
-      "image": "./assets/curated-look-20-v1.webp"
+      "image": "./assets/curated-look-20-v1.webp",
+      "seasonKey": "spring-fall"
+    },
+    {
+      "id": "edit-21",
+      "title": "블랙 블레이저와 그레이 타이",
+      "group": "office",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "화이트 셔츠에 회색 타이를 겹쳐 검정 재킷과 차콜 하의를 부드럽게 연결했어요.",
+      "tip": "재킷을 열고 타이는 짧고 단정하게 매어 세로선을 살리세요.",
+      "pieces": [
+        {
+          "id": "item-20261102-woo-black-blazer",
+          "name": "우영미 블랙 투 버튼 울 트윌 블레이저",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "aed54376"
+        },
+        {
+          "id": "item-20261103-ceindre-shirt",
+          "name": "세인드 소프트 히든 포켓 루즈핏 셔츠 화이트 Free",
+          "brand": "CEINDRE",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "f59ce85e"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        },
+        {
+          "id": "item-20261103-ceindre-tie",
+          "name": "세인드 Ne 비비안 솔리드 타이 그레이 Free",
+          "brand": "CEINDRE",
+          "cat": "accessory",
+          "color": "gray",
+          "imageKey": "637bdb18"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-creed",
+      "image": "./assets/curated-look-21-v1.webp"
+    },
+    {
+      "id": "edit-22",
+      "title": "베이지 재킷의 옐로 포인트",
+      "group": "daily",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "가벼운 베이지와 화이트 위에 검정 와이드 팬츠를 두고 노란 신발로 봄의 포인트를 만들었어요.",
+      "tip": "재킷과 티셔츠 밑단 길이가 과하게 겹치지 않도록 정리하세요.",
+      "pieces": [
+        {
+          "id": "item-20261029-14-beigejacket",
+          "name": "우영미 23SS 베이지 더블 재킷",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "beige",
+          "imageKey": "a7e3f41b"
+        },
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261103-pmone",
+          "name": "나이키 x 피스마이너스원 멀티 포켓 와이드 팬츠",
+          "brand": "NIKE x PEACEMINUSONE",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "1baf5fa6"
+        },
+        {
+          "id": "item-20261103-nike",
+          "name": "나이키크래프트 제너럴 퍼포즈 슈 아카이브",
+          "brand": "NikeCraft",
+          "cat": "shoes",
+          "color": "yellow",
+          "imageKey": "ed6a9d46"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-creed",
+      "image": "./assets/curated-look-22-v1.webp"
+    },
+    {
+      "id": "edit-23",
+      "title": "퍼플 베스트와 브라운 데님",
+      "group": "date",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "퍼플 패턴을 중심으로 셔츠의 흰색과 브라운 스웨이드의 질감을 연결했어요.",
+      "tip": "셔츠 칼라와 소매를 조금 드러내고 베스트 밑단 아래는 짧게 정리하세요.",
+      "pieces": [
+        {
+          "id": "item-20261102-white-shirt",
+          "name": "화이트 포켓 셔츠 (브랜드 미상)",
+          "brand": "",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "5ded0982"
+        },
+        {
+          "id": "item-20261103-vest",
+          "name": "스탠다드 저널 퍼플 패턴 니트 베스트",
+          "brand": "STANDARD JOURNAL",
+          "cat": "top",
+          "color": "purple",
+          "imageKey": "95bfb997"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-creed",
+      "image": "./assets/curated-look-23-v1.webp"
+    },
+    {
+      "id": "edit-24",
+      "title": "리버서블의 차분한 테크니컬 면",
+      "group": "street",
+      "seasonKey": "spring-fall",
+      "season": "봄·가을",
+      "reason": "검정 바람막이 면과 회색 긴팔을 연결하고 비틀린 지퍼 라인이 하체의 표정을 더해요.",
+      "tip": "리버서블은 바람막이 면으로 입고 지퍼를 조금 열어 회색 이너를 보여주세요.",
+      "pieces": [
+        {
+          "id": "item-20261102-balenciaga-reversible",
+          "name": "발렌시아가 x 언더아머 리버서블 데님·바람막이 자켓",
+          "brand": "BALENCIAGA x Under Armour",
+          "cat": "outer",
+          "color": "charcoal",
+          "imageKey": "1817afc5",
+          "viewLabel": "AI 보정 · 바람막이 면",
+          "viewImageKey": "21202fb4"
+        },
+        {
+          "id": "item-20261103-woo",
+          "name": "우영미 22FW 백로고 긴팔 티셔츠 그레이",
+          "brand": "WOOYOUNGMI",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "c6d8e21c"
+        },
+        {
+          "id": "item-20261029-13-legion",
+          "name": "언더마이카 리전 01 트위스트 지퍼 라인 테이핑 팬츠 블랙 올리브",
+          "brand": "UNDERMYCAR",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "37ac306b"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-creed",
+      "image": "./assets/curated-look-24-v1.webp"
+    },
+    {
+      "id": "edit-25",
+      "title": "화이트 그래픽과 베이지 팬츠",
+      "group": "daily",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "화이트 티셔츠와 베이지 팬츠를 밝게 이어주고 그레이 올리브 스니커즈로 톤을 묶었어요.",
+      "tip": "티셔츠는 앞부분만 가볍게 넣어 와이드 팬츠의 허리선을 보여주세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-25-v1.webp"
+    },
+    {
+      "id": "edit-26",
+      "title": "화이트 그래픽과 차콜 와이드",
+      "group": "street",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "화이트 그래픽을 흑청 데님과 연결하고 실버 슈즈가 여름의 가벼운 광택을 더해요.",
+      "tip": "티셔츠 소매는 자연스럽게 펴고 바지 밑단이 신발을 너무 덮지 않게 정리하세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261103-shox",
+          "name": "나이키 샥스 R4 블랙 메탈릭 실버",
+          "brand": "NIKE",
+          "cat": "shoes",
+          "color": "silver",
+          "imageKey": "cc82d905"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-26-v1.webp"
+    },
+    {
+      "id": "edit-27",
+      "title": "화이트 티셔츠의 단정한 외출",
+      "group": "office",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "반팔 티셔츠에 직선적인 차콜 슬랙스와 검정 더비를 조합해 힘을 뺀 단정함을 만들었어요.",
+      "tip": "격식을 요구하는 자리가 아닌 편안한 출근이나 실내 약속에 맞춰 입으세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-27-v1.webp"
+    },
+    {
+      "id": "edit-28",
+      "title": "크림 저지와 베이지 팬츠",
+      "group": "daily",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "리버풀 저지의 크림색과 베이지 팬츠를 연결하고 옐로 스니커즈로 따뜻한 색조를 이어갔어요.",
+      "tip": "칼라는 펴고 상의 밑단은 살짝 넣어 폴로 형태를 살리세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-liverpool",
+          "name": "나이키 리버풀 2021/22 어웨이 저지",
+          "brand": "NIKE x Liverpool FC",
+          "cat": "top",
+          "color": "cream",
+          "imageKey": "8d03cdd7"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261103-nike",
+          "name": "나이키크래프트 제너럴 퍼포즈 슈 아카이브",
+          "brand": "NikeCraft",
+          "cat": "shoes",
+          "color": "yellow",
+          "imageKey": "ed6a9d46"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-28-v1.webp"
+    },
+    {
+      "id": "edit-29",
+      "title": "크림 저지와 워싱 데님",
+      "group": "street",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "크림색 저지와 워싱 흑청의 대비에 크림 계열 스니커즈가 색을 다시 연결해줘요.",
+      "tip": "데님 볼륨을 살리되 상의가 골반 아래로 과하게 길어지지 않게 정리하세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-liverpool",
+          "name": "나이키 리버풀 2021/22 어웨이 저지",
+          "brand": "NIKE x Liverpool FC",
+          "cat": "top",
+          "color": "cream",
+          "imageKey": "8d03cdd7"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261025-08-jumpman",
+          "name": "조던 x 트래비스 스캇 점프맨 잭 TR 브라이트 캑터스",
+          "brand": "JORDAN x TRAVIS SCOTT",
+          "cat": "shoes",
+          "color": "cream",
+          "imageKey": "c0b586ab"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-29-v1.webp"
+    },
+    {
+      "id": "edit-30",
+      "title": "리버풀 저지의 단정한 변주",
+      "group": "date",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "칼라가 있는 크림 저지를 차콜 슬랙스와 검정 더비로 정리해 축구복을 일상에 맞췄어요.",
+      "tip": "저지는 앞부분을 넣고 칼라와 소매 끝을 반듯하게 정리하세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-liverpool",
+          "name": "나이키 리버풀 2021/22 어웨이 저지",
+          "brand": "NIKE x Liverpool FC",
+          "cat": "top",
+          "color": "cream",
+          "imageKey": "8d03cdd7"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-30-v1.webp"
+    },
+    {
+      "id": "edit-31",
+      "title": "차콜 저지와 베이지의 대비",
+      "group": "street",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "어두운 그래픽 저지 아래에 밝은 팬츠를 둬 무게를 나누고 실버 신발로 그래픽의 밝은 부분을 받쳤어요.",
+      "tip": "소매 끝과 바지 밑단이 뭉치지 않게 정리하면 패턴이 더 선명해져요.",
+      "pieces": [
+        {
+          "id": "item-20261103-real",
+          "name": "아디다스 레알 마드리드 2024/25 써드 저지",
+          "brand": "adidas x Real Madrid",
+          "cat": "top",
+          "color": "charcoal",
+          "imageKey": "37cbaf21"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261103-shox",
+          "name": "나이키 샥스 R4 블랙 메탈릭 실버",
+          "brand": "NIKE",
+          "cat": "shoes",
+          "color": "silver",
+          "imageKey": "cc82d905"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-31-v1.webp"
+    },
+    {
+      "id": "edit-32",
+      "title": "레알 저지의 그레이 레이어",
+      "group": "daily",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "차콜 저지와 웜그레이 커브 슬랙스를 단계적으로 연결해 패턴을 차분하게 보여줘요.",
+      "tip": "허리의 턱을 살리고 상의 밑단을 약간 넣어 커브 실루엣을 드러내세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-real",
+          "name": "아디다스 레알 마드리드 2024/25 써드 저지",
+          "brand": "adidas x Real Madrid",
+          "cat": "top",
+          "color": "charcoal",
+          "imageKey": "37cbaf21"
+        },
+        {
+          "id": "item-20261103-ceindre-pants",
+          "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+          "brand": "CEINDRE",
+          "cat": "bottom",
+          "color": "gray",
+          "imageKey": "2d1b37f8"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-32-v1.webp"
+    },
+    {
+      "id": "edit-33",
+      "title": "차콜 저지와 브라운 데님",
+      "group": "street",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "차콜과 브라운의 낮은 채도에 노란 신발을 더해 한 곳에만 색을 모았어요.",
+      "tip": "신발 색을 살리도록 다른 액세서리는 검정이나 실버 하나만 선택하세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-real",
+          "name": "아디다스 레알 마드리드 2024/25 써드 저지",
+          "brand": "adidas x Real Madrid",
+          "cat": "top",
+          "color": "charcoal",
+          "imageKey": "37cbaf21"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261103-nike",
+          "name": "나이키크래프트 제너럴 퍼포즈 슈 아카이브",
+          "brand": "NikeCraft",
+          "cat": "shoes",
+          "color": "yellow",
+          "imageKey": "ed6a9d46"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-33-v1.webp"
+    },
+    {
+      "id": "edit-34",
+      "title": "핑크 저지와 밝은 팬츠",
+      "group": "daily",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "핑크 저지 아래 베이지 팬츠를 두어 강한 색을 부드럽게 풀고 올리브 스니커즈로 마무리했어요.",
+      "tip": "상의는 여유롭게 두고 허리 앞부분만 넣어 비율을 잡아주세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-supreme",
+          "name": "슈프림 크레스트 사커 저지 핑크 24FW",
+          "brand": "Supreme",
+          "cat": "top",
+          "color": "pink",
+          "imageKey": "b38ed01c"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-34-v1.webp"
+    },
+    {
+      "id": "edit-35",
+      "title": "핑크 저지의 실버 포인트",
+      "group": "street",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "핑크의 명도와 차콜의 깊이를 대비시키고 실버 슈즈로 스포티한 연결을 만들었어요.",
+      "tip": "저지 그래픽이 중심이 되도록 가방과 모자는 검정으로 간단히 맞추세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-supreme",
+          "name": "슈프림 크레스트 사커 저지 핑크 24FW",
+          "brand": "Supreme",
+          "cat": "top",
+          "color": "pink",
+          "imageKey": "b38ed01c"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261103-shox",
+          "name": "나이키 샥스 R4 블랙 메탈릭 실버",
+          "brand": "NIKE",
+          "cat": "shoes",
+          "color": "silver",
+          "imageKey": "cc82d905"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-35-v1.webp"
+    },
+    {
+      "id": "edit-36",
+      "title": "핑크와 블랙 포켓 팬츠",
+      "group": "street",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "핑크 저지와 검정 와이드 팬츠의 볼륨을 맞추고 크림 스니커즈로 하체를 밝게 마무리했어요.",
+      "tip": "포켓이 많은 팬츠이므로 상의 밑단을 가지런하게 두어 디테일이 겹치지 않게 하세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-supreme",
+          "name": "슈프림 크레스트 사커 저지 핑크 24FW",
+          "brand": "Supreme",
+          "cat": "top",
+          "color": "pink",
+          "imageKey": "b38ed01c"
+        },
+        {
+          "id": "item-20261103-pmone",
+          "name": "나이키 x 피스마이너스원 멀티 포켓 와이드 팬츠",
+          "brand": "NIKE x PEACEMINUSONE",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "1baf5fa6"
+        },
+        {
+          "id": "item-20261025-08-jumpman",
+          "name": "조던 x 트래비스 스캇 점프맨 잭 TR 브라이트 캑터스",
+          "brand": "JORDAN x TRAVIS SCOTT",
+          "cat": "shoes",
+          "color": "cream",
+          "imageKey": "c0b586ab"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-36-v1.webp"
+    },
+    {
+      "id": "edit-37",
+      "title": "롤업 화이트 셔츠와 차콜",
+      "group": "office",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "화이트 셔츠와 차콜 슬랙스의 선명한 대비를 기본으로 소매를 접어 여름 실내에 맞췄어요.",
+      "tip": "소매는 팔꿈치 아래까지 두 번 접고 타이 없이 칼라를 열어 입으세요.",
+      "pieces": [
+        {
+          "id": "item-20261102-white-shirt",
+          "name": "화이트 포켓 셔츠 (브랜드 미상)",
+          "brand": "",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "5ded0982"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-37-v1.webp"
+    },
+    {
+      "id": "edit-38",
+      "title": "루즈 화이트와 베이지 팬츠",
+      "group": "date",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "여유 있는 화이트 셔츠와 베이지 팬츠를 연결해 밝은 면적을 넓히고 스웨이드 로퍼로 질감을 더했어요.",
+      "tip": "소매를 접고 앞 밑단을 가볍게 넣으세요. 한낮 장시간 야외보다 실내 약속에 어울려요.",
+      "pieces": [
+        {
+          "id": "item-20261103-ceindre-shirt",
+          "name": "세인드 소프트 히든 포켓 루즈핏 셔츠 화이트 Free",
+          "brand": "CEINDRE",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "f59ce85e"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-38-v1.webp"
+    },
+    {
+      "id": "edit-39",
+      "title": "라이트 브라운 셔츠의 여름",
+      "group": "daily",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "옅은 갈색 셔츠와 웜그레이 팬츠를 낮은 대비로 이어주고 올리브 신발이 자연스럽게 받쳐줘요.",
+      "tip": "소매를 팔꿈치 아래까지 접고 칼라 단추를 열어 입으세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-michiko",
+          "name": "미치코 런던 포켓 셔츠 라이트 브라운",
+          "brand": "MICHIKO LONDON",
+          "cat": "top",
+          "color": "brown",
+          "imageKey": "9156b42f"
+        },
+        {
+          "id": "item-20261103-ceindre-pants",
+          "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+          "brand": "CEINDRE",
+          "cat": "bottom",
+          "color": "gray",
+          "imageKey": "2d1b37f8"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-39-v1.webp"
+    },
+    {
+      "id": "edit-40",
+      "title": "블루 스카시의 여름 저녁",
+      "group": "daily",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "성긴 스카시 조직과 베이지 팬츠를 조합해 블루와 브라운의 부드러운 대비를 살렸어요.",
+      "tip": "더운 한낮은 피하고 선선한 여름 저녁이나 냉방이 있는 실내에서 입으세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-noco-cardigan",
+          "name": "노셀코지 스카시 카라 가디건 블루 Free",
+          "brand": "NOCELCOZY",
+          "cat": "top",
+          "color": "blue",
+          "imageKey": "c221d9be"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-40-v1.webp"
+    },
+    {
+      "id": "edit-41",
+      "title": "화이트 티셔츠와 웜그레이 커브",
+      "group": "daily",
+      "seasonKey": "summer",
+      "season": "여름",
+      "reason": "화이트와 웜그레이를 밝게 묶고 노란 신발 하나로 색의 중심을 만들었어요.",
+      "tip": "티셔츠 앞부분을 살짝 넣어 팬츠의 턱과 곡선을 보여주세요.",
+      "pieces": [
+        {
+          "id": "item-20261103-um",
+          "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+          "brand": "UNDERMYCAR",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "c75f8fcb"
+        },
+        {
+          "id": "item-20261103-ceindre-pants",
+          "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+          "brand": "CEINDRE",
+          "cat": "bottom",
+          "color": "gray",
+          "imageKey": "2d1b37f8"
+        },
+        {
+          "id": "item-20261103-nike",
+          "name": "나이키크래프트 제너럴 퍼포즈 슈 아카이브",
+          "brand": "NikeCraft",
+          "cat": "shoes",
+          "color": "yellow",
+          "imageKey": "ed6a9d46"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-41-v1.webp"
+    },
+    {
+      "id": "edit-42",
+      "title": "블랙 울 코트와 그레이 쿼터집",
+      "group": "office",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "긴 검정 울 코트 안에 라이트 그레이 니트를 두어 목 주변을 밝히고 차콜 슬랙스로 세로선을 이었어요.",
+      "tip": "니트 지퍼를 목 가까이 올리고 코트는 여유 있게 겹쳐 입으세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-18-stucoat",
+          "name": "STU 핸드 스티치 더블 코트 블랙",
+          "brand": "STU",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "9ea06587"
+        },
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-42-v1.webp"
+    },
+    {
+      "id": "edit-43",
+      "title": "블랙 울 코트와 크림 알파카",
+      "group": "date",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "검정 코트의 선명한 테두리 안에 크림 니트와 베이지 팬츠를 넣어 부드럽고 따뜻한 인상을 만들었어요.",
+      "tip": "젖은 길에서는 스웨이드 로퍼를 피하고 짧은 실내 이동 중심으로 입으세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-18-stucoat",
+          "name": "STU 핸드 스티치 더블 코트 블랙",
+          "brand": "STU",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "9ea06587"
+        },
+        {
+          "id": "item-20261103-margiela",
+          "name": "메종 마르지엘라 베이지 울 알파카 크루넥 니트",
+          "brand": "Maison Margiela",
+          "cat": "top",
+          "color": "beige",
+          "imageKey": "b89fc5e5"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-43-v1.webp"
+    },
+    {
+      "id": "edit-44",
+      "title": "울 코트 안의 오트밀 후디",
+      "group": "daily",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "울 코트의 긴 길이에 오트밀 후드와 흑청 데님을 더해 단정한 실루엣을 편안하게 풀었어요.",
+      "tip": "후드를 코트 칼라 밖으로 정리하고 소매가 겹쳐 뭉치지 않게 펴주세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-18-stucoat",
+          "name": "STU 핸드 스티치 더블 코트 블랙",
+          "brand": "STU",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "9ea06587"
+        },
+        {
+          "id": "item-20261103-iab",
+          "name": "아이앱 스튜디오 로고 후드 오트밀",
+          "brand": "IAB STUDIO",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "d71df125"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-44-v1.webp"
+    },
+    {
+      "id": "edit-45",
+      "title": "올블랙 코트와 볼륨 스니커즈",
+      "group": "street",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "검정 울 코트와 후디를 한 덩어리로 묶고 와이드 팬츠와 볼륨 스니커즈로 하체의 무게를 맞췄어요.",
+      "tip": "후디 밑단이 코트 안에서 뭉치지 않도록 정리하고 목까지 지퍼나 단추를 닫아주세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-18-stucoat",
+          "name": "STU 핸드 스티치 더블 코트 블랙",
+          "brand": "STU",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "9ea06587"
+        },
+        {
+          "id": "item-mvnm5zvx-2egc7m",
+          "name": "우영미 블랙 후드 티셔츠 (105)",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "top",
+          "color": "black",
+          "imageKey": "a02369f5"
+        },
+        {
+          "id": "item-20261103-pmone",
+          "name": "나이키 x 피스마이너스원 멀티 포켓 와이드 팬츠",
+          "brand": "NIKE x PEACEMINUSONE",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "1baf5fa6"
+        },
+        {
+          "id": "item-20261025-02-track",
+          "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+          "brand": "BALENCIAGA / 발렌시아가",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "5d391492"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-45-v1.webp"
+    },
+    {
+      "id": "edit-46",
+      "title": "코트와 그레이 니트의 브라운 연결",
+      "group": "date",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "검정·회색 위에 브라운 데님과 스웨이드를 더해 겨울의 어두운 팔레트에 질감 차이를 만들었어요.",
+      "tip": "로퍼를 신는 날은 비나 눈이 없는 짧은 이동 위주로 선택하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-18-stucoat",
+          "name": "STU 핸드 스티치 더블 코트 블랙",
+          "brand": "STU",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "9ea06587"
+        },
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-46-v1.webp"
+    },
+    {
+      "id": "edit-47",
+      "title": "크림 니트와 차콜 코트룩",
+      "group": "office",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "검정 코트와 웜그레이 팬츠 사이를 크림 니트로 밝히고 검정 더비로 중심을 잡았어요.",
+      "tip": "니트 밑단을 정리해 팬츠 허리 턱이 드러나게 입으면 비율이 좋아져요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-18-stucoat",
+          "name": "STU 핸드 스티치 더블 코트 블랙",
+          "brand": "STU",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "9ea06587"
+        },
+        {
+          "id": "item-20261103-margiela",
+          "name": "메종 마르지엘라 베이지 울 알파카 크루넥 니트",
+          "brand": "Maison Margiela",
+          "cat": "top",
+          "color": "beige",
+          "imageKey": "b89fc5e5"
+        },
+        {
+          "id": "item-20261103-ceindre-pants",
+          "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+          "brand": "CEINDRE",
+          "cat": "bottom",
+          "color": "gray",
+          "imageKey": "2d1b37f8"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-47-v1.webp"
+    },
+    {
+      "id": "edit-48",
+      "title": "벨티드 코트의 회색 중심",
+      "group": "office",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "벨티드 울 코트의 허리선과 차콜 슬랙스의 직선을 연결하고 밝은 회색 니트로 얼굴 주변을 정돈했어요.",
+      "tip": "벨트는 살짝 여유 있게 묶어 니트와 겹쳐 입을 공간을 남겨주세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-17-beltedcoat",
+          "name": "우영미 벨티드 울 코트 블랙",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "6174e449"
+        },
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-48-v1.webp"
+    },
+    {
+      "id": "edit-49",
+      "title": "벨티드 코트와 베이지 니트",
+      "group": "date",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "검정 울 코트 안에 베이지와 크림을 이어 넣어 긴 코트의 무게를 밝게 풀었어요.",
+      "tip": "벨트를 느슨하게 묶고 니트가 코트 칼라 밖으로 조금 보이게 정리하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-17-beltedcoat",
+          "name": "우영미 벨티드 울 코트 블랙",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "6174e449"
+        },
+        {
+          "id": "item-20261103-margiela",
+          "name": "메종 마르지엘라 베이지 울 알파카 크루넥 니트",
+          "brand": "Maison Margiela",
+          "cat": "top",
+          "color": "beige",
+          "imageKey": "b89fc5e5"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-49-v1.webp"
+    },
+    {
+      "id": "edit-50",
+      "title": "벨티드 코트와 오트밀 데님",
+      "group": "daily",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "울 코트의 긴 실루엣에 오트밀 후드와 흑청을 넣고 실버 신발로 작은 광택을 더했어요.",
+      "tip": "후드와 코트 칼라가 겹치지 않도록 후드를 바깥으로 꺼내 펴주세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-17-beltedcoat",
+          "name": "우영미 벨티드 울 코트 블랙",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "6174e449"
+        },
+        {
+          "id": "item-20261103-iab",
+          "name": "아이앱 스튜디오 로고 후드 오트밀",
+          "brand": "IAB STUDIO",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "d71df125"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261103-shox",
+          "name": "나이키 샥스 R4 블랙 메탈릭 실버",
+          "brand": "NIKE",
+          "cat": "shoes",
+          "color": "silver",
+          "imageKey": "cc82d905"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-50-v1.webp"
+    },
+    {
+      "id": "edit-51",
+      "title": "블랙 벨티드 코트의 스트리트",
+      "group": "street",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "검정 코트와 검정 후디를 잇고 포켓 팬츠와 트랙 스니커즈로 여유 있는 볼륨을 만들었어요.",
+      "tip": "벨트는 뒤로 넘기거나 느슨하게 묶어 후디의 두께를 편하게 받아주세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-17-beltedcoat",
+          "name": "우영미 벨티드 울 코트 블랙",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "6174e449"
+        },
+        {
+          "id": "item-mvnm5zvx-2egc7m",
+          "name": "우영미 블랙 후드 티셔츠 (105)",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "top",
+          "color": "black",
+          "imageKey": "a02369f5"
+        },
+        {
+          "id": "item-20261103-pmone",
+          "name": "나이키 x 피스마이너스원 멀티 포켓 와이드 팬츠",
+          "brand": "NIKE x PEACEMINUSONE",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "1baf5fa6"
+        },
+        {
+          "id": "item-20261025-02-track",
+          "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+          "brand": "BALENCIAGA / 발렌시아가",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "5d391492"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-51-v1.webp"
+    },
+    {
+      "id": "edit-52",
+      "title": "벨티드 울과 브라운 데님",
+      "group": "date",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "검정 울·회색 니트·브라운 데님의 질감을 쌓고 그레이 올리브 신발로 색을 이어줬어요.",
+      "tip": "니트의 목을 올리고 코트 안에 옷이 과하게 끼지 않는지 확인하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-17-beltedcoat",
+          "name": "우영미 벨티드 울 코트 블랙",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "6174e449"
+        },
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-52-v1.webp"
+    },
+    {
+      "id": "edit-53",
+      "title": "벨티드 코트의 크림 포인트",
+      "group": "office",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "밝은 니트와 웜그레이 커브 팬츠를 검정 코트와 더비가 감싸 균형 있는 겨울 출근룩을 만들었어요.",
+      "tip": "니트 앞부분을 정리하고 코트 벨트는 허리보다 조금 높게 느슨히 묶어주세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-17-beltedcoat",
+          "name": "우영미 벨티드 울 코트 블랙",
+          "brand": "WOOYOUNGMI",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "6174e449"
+        },
+        {
+          "id": "item-20261103-margiela",
+          "name": "메종 마르지엘라 베이지 울 알파카 크루넥 니트",
+          "brand": "Maison Margiela",
+          "cat": "top",
+          "color": "beige",
+          "imageKey": "b89fc5e5"
+        },
+        {
+          "id": "item-20261103-ceindre-pants",
+          "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+          "brand": "CEINDRE",
+          "cat": "bottom",
+          "color": "gray",
+          "imageKey": "2d1b37f8"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-53-v1.webp"
+    },
+    {
+      "id": "edit-54",
+      "title": "카키 발마칸과 그레이 니트",
+      "group": "daily",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "카키 울 코트에 라이트 그레이 니트와 흑청 데님을 더해 차분한 겨울 캐주얼을 만들었어요.",
+      "tip": "니트 목을 올리고 코트 칼라를 세워 목 주변을 감싸주세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-11-balmacaan",
+          "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+          "brand": "UNDERMYCAR",
+          "cat": "outer",
+          "color": "green",
+          "imageKey": "13bc9e78"
+        },
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-54-v1.webp"
+    },
+    {
+      "id": "edit-55",
+      "title": "카키 울과 브라운의 온기",
+      "group": "date",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "카키·크림·브라운의 따뜻한 색조를 이어주고 울과 스웨이드의 질감으로 깊이를 만들었어요.",
+      "tip": "비나 눈이 없는 날의 실내 약속에 어울려요. 코트 안 니트는 편하게 들어가야 해요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-11-balmacaan",
+          "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+          "brand": "UNDERMYCAR",
+          "cat": "outer",
+          "color": "green",
+          "imageKey": "13bc9e78"
+        },
+        {
+          "id": "item-20261103-margiela",
+          "name": "메종 마르지엘라 베이지 울 알파카 크루넥 니트",
+          "brand": "Maison Margiela",
+          "cat": "top",
+          "color": "beige",
+          "imageKey": "b89fc5e5"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261025-07-loafers",
+          "name": "STU 스웨이드 페니 로퍼 브라운",
+          "brand": "STU / 에스티유",
+          "cat": "shoes",
+          "color": "brown",
+          "imageKey": "05266c3c"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-55-v1.webp"
+    },
+    {
+      "id": "edit-56",
+      "title": "카키 발마칸과 오트밀 후드",
+      "group": "daily",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "울 코트의 큰 볼륨을 오트밀 후드와 검정 와이드 팬츠로 받아주고 크림 스니커즈로 연결했어요.",
+      "tip": "후드를 칼라 밖으로 펴고 팬츠가 신발을 과하게 덮지 않게 정리하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-11-balmacaan",
+          "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+          "brand": "UNDERMYCAR",
+          "cat": "outer",
+          "color": "green",
+          "imageKey": "13bc9e78"
+        },
+        {
+          "id": "item-20261103-iab",
+          "name": "아이앱 스튜디오 로고 후드 오트밀",
+          "brand": "IAB STUDIO",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "d71df125"
+        },
+        {
+          "id": "item-20261103-pmone",
+          "name": "나이키 x 피스마이너스원 멀티 포켓 와이드 팬츠",
+          "brand": "NIKE x PEACEMINUSONE",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "1baf5fa6"
+        },
+        {
+          "id": "item-20261025-08-jumpman",
+          "name": "조던 x 트래비스 스캇 점프맨 잭 TR 브라이트 캑터스",
+          "brand": "JORDAN x TRAVIS SCOTT",
+          "cat": "shoes",
+          "color": "cream",
+          "imageKey": "c0b586ab"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-56-v1.webp"
+    },
+    {
+      "id": "edit-57",
+      "title": "카키 코트의 테크니컬 블랙",
+      "group": "street",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "카키 울 코트 안에 검정 후디와 트위스트 팬츠를 넣어 긴 코트와 테크니컬 디테일의 대비를 만들었어요.",
+      "tip": "후드와 코트 칼라가 목 뒤에서 겹쳐 뭉치지 않게 정리하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-11-balmacaan",
+          "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+          "brand": "UNDERMYCAR",
+          "cat": "outer",
+          "color": "green",
+          "imageKey": "13bc9e78"
+        },
+        {
+          "id": "item-mvnm5zvx-2egc7m",
+          "name": "우영미 블랙 후드 티셔츠 (105)",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "top",
+          "color": "black",
+          "imageKey": "a02369f5"
+        },
+        {
+          "id": "item-20261029-13-legion",
+          "name": "언더마이카 리전 01 트위스트 지퍼 라인 테이핑 팬츠 블랙 올리브",
+          "brand": "UNDERMYCAR",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "37ac306b"
+        },
+        {
+          "id": "item-20261025-02-track",
+          "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+          "brand": "BALENCIAGA / 발렌시아가",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "5d391492"
+        }
+      ],
+      "addons": [
+        "item-20261103-cap",
+        "item-20261102-mm105"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-57-v1.webp"
+    },
+    {
+      "id": "edit-58",
+      "title": "카키 발마칸의 차콜 출근룩",
+      "group": "office",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "카키 코트와 라이트 그레이 니트 사이를 차콜 슬랙스가 연결하고 검정 더비가 단정함을 더해요.",
+      "tip": "니트 지퍼를 목 가까이 올리고 코트 단추를 잠가 세로선을 정리하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-11-balmacaan",
+          "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+          "brand": "UNDERMYCAR",
+          "cat": "outer",
+          "color": "green",
+          "imageKey": "13bc9e78"
+        },
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-gray-slacks",
+          "name": "무신사 스탠다드 그레이 슬랙스",
+          "brand": "MUSINSA STANDARD",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "ddd7153f"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-bag",
+        "item-20261102-mm211"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-58-v1.webp"
+    },
+    {
+      "id": "edit-59",
+      "title": "카키와 크림의 웜그레이 변주",
+      "group": "date",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "카키 울 코트 안에 크림 니트와 웜그레이 팬츠를 쌓아 부드러운 겨울 색감을 만들었어요.",
+      "tip": "커브 팬츠의 허리 턱을 살리고 니트 밑단은 가볍게 정리하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-11-balmacaan",
+          "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+          "brand": "UNDERMYCAR",
+          "cat": "outer",
+          "color": "green",
+          "imageKey": "13bc9e78"
+        },
+        {
+          "id": "item-20261103-margiela",
+          "name": "메종 마르지엘라 베이지 울 알파카 크루넥 니트",
+          "brand": "Maison Margiela",
+          "cat": "top",
+          "color": "beige",
+          "imageKey": "b89fc5e5"
+        },
+        {
+          "id": "item-20261103-ceindre-pants",
+          "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+          "brand": "CEINDRE",
+          "cat": "bottom",
+          "color": "gray",
+          "imageKey": "2d1b37f8"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-59-v1.webp"
+    },
+    {
+      "id": "edit-60",
+      "title": "카키 울 코트와 베이지 후디",
+      "group": "daily",
+      "seasonKey": "winter",
+      "season": "겨울",
+      "reason": "카키·오트밀·베이지를 가까운 명도로 연결하고 올리브 스니커즈로 차분하게 마무리했어요.",
+      "tip": "후드를 정돈하고 코트 안에서 어깨와 소매가 끼지 않는 여유를 확인하세요. 보유 울 코트와 니트·후디를 겹친 구성으로, 한파 장시간 야외에는 추가 보온이 필요해요.",
+      "pieces": [
+        {
+          "id": "item-20261029-11-balmacaan",
+          "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+          "brand": "UNDERMYCAR",
+          "cat": "outer",
+          "color": "green",
+          "imageKey": "13bc9e78"
+        },
+        {
+          "id": "item-20261103-iab",
+          "name": "아이앱 스튜디오 로고 후드 오트밀",
+          "brand": "IAB STUDIO",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "d71df125"
+        },
+        {
+          "id": "item-20261029-15-beigepants",
+          "name": "우영미 23SS 베이지 셋업 팬츠",
+          "brand": "WOOYOUNGMI",
+          "cat": "bottom",
+          "color": "beige",
+          "imageKey": "850341ad"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [
+        "item-20261103-matin"
+      ],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-60-v1.webp"
     }
   ]
 }

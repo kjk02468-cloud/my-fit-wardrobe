@@ -1,0 +1,9 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),R=require('../room-editor.js'),S=require('../room-scenes.js'),M=require('../model-look-engine.js');
+const root=path.resolve(__dirname,'..'),manifest=JSON.parse(fs.readFileSync(path.join(root,'published-closet.json'))),items=manifest.dataFiles.flatMap(f=>JSON.parse(fs.readFileSync(path.join(root,f.path))).items);
+assert.equal(S.find(R.defaultSlots(),items,M)?.id,'warm');
+for(const scene of S.scenes){assert.equal(S.find(scene.slots,items,M),scene);assert(S.current(scene,items,M));assert.equal(scene.slots.length,13);const ids=scene.slots.filter(Boolean).map(s=>s.id);assert.equal(new Set(ids).size,ids.length);const changed=items.map(i=>i.id===ids[0]?{...i,color:'other'}:i);assert.equal(S.find(scene.slots,changed,M),null);assert(!S.current(scene,items.filter(i=>i.id!==ids[0]),M));}
+const pending=R.assign(R.defaultSlots(),12,{id:'item-20261103-creed',view:''});assert.equal(S.find(pending,items,M),null,'unrendered selections must never masquerade as a completed matching photograph');
+const dark=S.scenes.find(s=>s.id==='dark');assert(dark.slots[2].view.includes('바람막이'));assert.equal(dark.slots[12],null);
+assert.equal(S.points[9][1],S.points[12][1]);assert(S.points[9][0]<S.points[12][0]);
+assert(S.scenes.reduce((sum,s)=>sum+fs.statSync(path.join(root,s.image)).size,0)<400000);
+console.log('PASS: whole-scene photos, correct item/face hotspots, independent perfume positions, stale scene rejection, explicit unrendered selection and sub-400KB rooms.');

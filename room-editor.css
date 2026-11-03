@@ -17,3 +17,7 @@
 .room-scene.editing-room .room-product{border-color:transparent}.room-scene.editing-room .room-product:hover,.room-scene.editing-room .room-product:focus-visible{background:#d8bc8d12;outline:1px dashed #dcc8a4b3;outline-offset:3px}
 .room-scene .room-product-empty{border:1px dashed #e9d4b630;display:grid;place-items:center}.room-scene .room-empty-mark{color:#f1e2cd;font-size:12px}
 .room-photo-fallback>.room-item-cutout{border-radius:3px}
+.room-finished .room-dot{background:none}.room-finished.editing-room .room-dot{cursor:pointer}
+#room-request-copy{font-size:11px;line-height:1.7;border:1px solid #9c8970;padding:10px 14px;min-height:44px;color:#eddfcd;margin-left:auto}
+#wardrobe-room:has(.room-finished:not(.editing-room)) .room-slot-actions{display:none}
+.room-photo-missing{padding:50px 20px;font-size:14px;color:#eadac3}
