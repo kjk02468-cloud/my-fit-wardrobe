@@ -3,7 +3,7 @@ const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p
 const manifest=JSON.parse(read('published-closet.json')),items=manifest.dataFiles.flatMap(p=>JSON.parse(read(p.path)).items),library=M.parseLibrary(read('model-looks.json'));
 const context={purpose:'casual',season:'fall',temperature:null,code:null};
 assert.equal(library.length,5);assert.equal(M.candidates(library,items,context).length,5);
-assert.equal(new Set(items.map(i=>i.id)).size,32);assert.equal(items.filter(i=>i.cat==='eyewear').length,2);
+assert.equal(new Set(items.map(i=>i.id)).size,66);assert.equal(items.filter(i=>i.cat==='eyewear').length,2);
 assert.equal(items.filter(i=>i.name.includes('리버서블')).length,1);
 const reversible=items.find(i=>i.name.includes('리버서블')),views=M.variants(reversible);assert.equal(views.length,2);assert.equal(views[0].id,views[1].id);assert.notEqual(views[0].lookImage,views[1].lookImage);
 for(const model of library){
@@ -30,7 +30,7 @@ const ctx={window:{MyFitModels:M,MyFitReferences:R},document:{querySelector:quer
 const code=read('app.js').replace(/ init\(\)\.catch\([^\n]+\);/,'').replace(/\}\)\(\);\s*$/,`globalThis.api={makeRecommendations,loadModelLooks,normalizeItem,stylingSummary,outfitBoard,modelPhoto,renderRecommendations,setItems(v){items=v.map(normalizeItem)},setMode(v){recommendationMode=v},setWeather(v){weather=v},failPhoto(id){failedModelImages.add(id)}};})();`);
 vm.createContext(ctx);vm.runInContext(code,ctx);const a=ctx.api;
 (async()=>{
- await a.loadModelLooks();a.setItems(items);let recs=a.makeRecommendations();assert.equal(recs.length,5);assert(recs.every(r=>r.model&&r.items.length===4));
+ await a.loadModelLooks();a.setMode('model');a.setItems(items);let recs=a.makeRecommendations();assert.equal(recs.length,5);assert(recs.every(r=>r.model&&r.items.length===4));
  assert(!a.stylingSummary(recs.find(r=>r.model.id==='brown')).join(' ').includes('화이트 셔츠'));
  const w=recs.find(r=>r.model.id==='wind');assert(a.outfitBoard(w).includes('data-view-photo="1"'));assert(a.outfitBoard(w).includes('바람막이 면 착용'));assert(!a.outfitBoard(w).includes('november-balenciaga-reversible-0.webp'));
  a.renderRecommendations();assert(nodes.get('#outfit-results').innerHTML.includes('AI 예상 착장'));assert(!nodes.get('#outfit-results').innerHTML.includes('data-reference-image'));
@@ -39,5 +39,5 @@ vm.createContext(ctx);vm.runInContext(code,ctx);const a=ctx.api;
  a.setItems(items);a.setWeather({city:'서울',temp:30,code:0});assert(a.makeRecommendations().every(r=>!r.model));a.setWeather(null);
  a.setMode('more');recs=a.makeRecommendations();assert.equal(recs.length,3);assert(recs.every(r=>r.items.filter(i=>i.cat==='eyewear').length===1));assert(recs.every(r=>new Set(r.items.map(i=>i.id)).size===r.items.length));
  offline=true;await a.loadModelLooks();a.setMode('model');assert(a.makeRecommendations().every(r=>!r.model));
- console.log('PASS: 5 exact-item model looks; reversible faces share one ID and open the correct photo; changed/deleted/demo items reject stale photos; no extra accessories in prepared cuts; weather and catalog/image failure fallback; 32-item normalization and eyewear; model media below 300KB.');
+ console.log('PASS: 5 exact-item model looks; reversible faces share one ID and open the correct photo; changed/deleted/demo items reject stale photos; no extra accessories in prepared cuts; weather and catalog/image failure fallback; 66-item normalization and eyewear; model media below 300KB.');
 })().catch(e=>{console.error(e);process.exitCode=1});

@@ -5,7 +5,7 @@
  const sourceHosts=new Set(['www.gq.com','www.mrporter.com','prd.harrods.com','www.uniqlo.com','www.cos.com','hypebeast.com']);
  const imageHosts=new Set(['media.gq.com','cache.mrporter.com','www.mrporter.com','d1l7zeynh7e3dn.cloudfront.net','www.uniqlo.com','media.cos.com','image-cdn.hypb.st']);
  const catNames={outer:'아우터',top:'상의',bottom:'하의',shoes:'신발'};
- const colorNames={black:'블랙',charcoal:'차콜',navy:'네이비',brown:'브라운',beige:'베이지',cream:'크림',white:'화이트',green:'그린',blue:'블루',purple:'퍼플',pink:'핑크',orange:'오렌지',red:'레드',other:'기타'};
+ const colorNames={black:'블랙',gray:'그레이',yellow:'옐로',charcoal:'차콜',navy:'네이비',brown:'브라운',beige:'베이지',cream:'크림',white:'화이트',green:'그린',blue:'블루',purple:'퍼플',pink:'핑크',orange:'오렌지',red:'레드',other:'기타'};
  const typeNames={coat:'긴 코트',blazer:'블레이저',bomber:'봄버',leather:'레더 재킷',suede:'스웨이드 재킷',denimjacket:'데님 재킷',shell:'가벼운 재킷',jacket:'재킷',shirt:'셔츠',hoodie:'후드',knit:'니트',tee:'티셔츠',pants:'팬츠',tailored:'테일러드 팬츠',technical:'테크 팬츠',jeans:'데님',loafer:'로퍼',derby:'더비',sneaker:'스니커즈',boot:'부츠'};
  const families={coat:'long',blazer:'tailoring',bomber:'jacket',leather:'jacket',suede:'jacket',denimjacket:'jacket',shell:'jacket',jacket:'jacket',shirt:'shirt',hoodie:'softtop',knit:'softtop',tee:'softtop',pants:'pants',tailored:'pants',technical:'pants',jeans:'pants',loafer:'leathershoe',derby:'leathershoe',boot:'boot',sneaker:'sneaker'};
  function validUrl(value,hosts){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&hosts.has(u.hostname)&&value.length<1800?u.href:''}catch{return ''}}
