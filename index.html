@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css?v=20261103-room-v1" />
   <link rel="stylesheet" href="./wardrobe-gallery.css?v=20261103-v1" />
-  <link rel="stylesheet" href="./room-editor.css?v=20261103-v1" />
+  <link rel="stylesheet" href="./room-editor.css?v=20261103-hanging-v2" />
 </head>
 <body>
  <header class="site-header">
@@ -77,10 +77,10 @@
    <div class="page-intro"><span class="eyebrow">YOUR OWN EDITED COLLECTION</span><div class="page-intro-row"><div><h1>MY WARDROBE</h1><p>쇼핑몰처럼 한눈에 보는, 오직 나만의 남성복 컬렉션.</p></div><button type="button" id="closet-add" class="button-primary">＋ 새 아이템 등록</button></div></div>
    <section class="wardrobe-room" id="wardrobe-room" aria-labelledby="wardrobe-room-title">
     <div class="room-heading"><div><span class="eyebrow">THE PERSONAL SHOWROOM</span><h2 id="wardrobe-room-title">나의 옷을 담은 공간</h2></div><div class="room-heading-actions"><span id="room-inventory-count">MY COLLECTION</span><button type="button" id="room-edit-start">대표 아이템 고르기 ↗</button></div></div>
-    <div id="room-view-modes" role="group" aria-label="옷장 진열 방식"><button type="button" data-room-view="original" aria-pressed="true">AI 쇼룸</button><button type="button" data-room-view="custom" aria-pressed="false">선택 진열</button></div>
-    <div id="room-edit-bar" hidden><div><strong>나만의 대표품 12자리</strong><p>아이템을 눌러 교체 · 끌어서 자리 이동</p></div><div class="room-edit-actions"><button type="button" id="room-edit-defaults">기본 구성 불러오기</button><button type="button" id="room-edit-cancel">취소</button><button type="button" id="room-edit-save">이 진열 저장</button></div></div>
-    <div class="room-scene" id="room-scene"><img id="room-scene-image" src="./assets/wardrobe-room-v1.webp" width="1672" height="941" alt="대표 보유품 12점으로 구성한 AI 옷장" fetchpriority="high"/><div id="room-hotspots"></div><span class="room-badge" id="room-badge">AI 3D SPACE</span></div>
-    <div class="room-footer"><p><span id="room-caption">진열된 점을 누르면 해당 아이템을 볼 수 있어요.</span><br><small id="room-caption-note">대표 보유품 12점으로 구성한 AI 공간 이미지 · 실제 크기와 세부 형태는 다를 수 있어요.</small></p><div id="room-categories" aria-label="옷장 구역"></div></div>
+    <div id="room-view-modes" role="group" aria-label="옷장 진열 방식"><button type="button" data-room-view="original" aria-pressed="true">기본 진열</button><button type="button" data-room-view="custom" aria-pressed="false">선택 진열</button></div>
+    <div id="room-edit-bar" hidden><div><strong>옷걸이 8자리 · 선반 5자리</strong><p>아이템을 눌러 교체 · 향수는 같은 칸에 두 병</p></div><div class="room-edit-actions"><button type="button" id="room-edit-defaults">기본 구성 불러오기</button><button type="button" id="room-edit-cancel">취소</button><button type="button" id="room-edit-save">이 진열 저장</button></div></div>
+    <div class="room-scene" id="room-scene"><img id="room-scene-image" src="./assets/wardrobe-hanging-v2.webp" width="1672" height="941" alt="봉과 원목 선반이 있는 실사풍 옷장" fetchpriority="high"/><div id="room-hotspots"></div><span class="room-badge" id="room-badge">AI 3D SPACE</span></div>
+    <div class="room-footer"><p><span id="room-caption">진열된 점을 누르면 해당 아이템을 볼 수 있어요.</span><br><small id="room-caption-note">향수 선반에 두 병을 나란히 놓을 수 있어요.</small></p><div id="room-categories" aria-label="옷장 구역"></div></div>
     <div id="room-selected-list" aria-label="대표 아이템 자리 편집" hidden></div>
    </section>
    <div class="closet-toolbar"><div class="filter-row" id="closet-filters"></div><label class="search-field"><span>⌕</span><input id="closet-search" type="search" placeholder="브랜드, 아이템, 색상 검색" autocomplete="off" aria-label="아이템 검색" /></label></div>
@@ -137,7 +137,8 @@
  <script src="./curated-look-engine.js?v=20261103-v1" defer></script>
  <script src="./model-look-engine.js?v=20261102-v1" defer></script>
  <script src="./style-reference-engine.js?v=20261103" defer></script>
- <script src="./room-editor.js?v=20261103-v1" defer></script>
+ <script src="./room-renderer.js?v=20261103-hanging-v2" defer></script>
+ <script src="./room-editor.js?v=20261103-hanging-v2" defer></script>
  <script src="./app.js?v=20261103-room-editor-v1" defer></script>
 </body>
 </html>
