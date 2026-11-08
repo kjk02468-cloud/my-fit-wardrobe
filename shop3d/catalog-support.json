@@ -1,0 +1,1794 @@
+{
+  "version": "template-1",
+  "note": "Generated inventory audit; runtime maps current local items dynamically.",
+  "counts": {
+    "PRODUCT_BASED": 0,
+    "APPROXIMATE": 52,
+    "UNSUPPORTED": 14
+  },
+  "items": [
+    {
+      "name": "우영미 블랙 후드 티셔츠 (105)",
+      "itemId": "item-mvnm5zvx-2egc7m",
+      "slot": "top",
+      "garmentType": "hoodie",
+      "templateId": "hoodie",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+      "itemId": "item-20261025-09-drmartens",
+      "slot": "shoes",
+      "garmentType": "derby",
+      "templateId": "derby",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "조던 x 트래비스 스캇 점프맨 잭 TR 브라이트 캑터스",
+      "itemId": "item-20261025-08-jumpman",
+      "slot": "shoes",
+      "garmentType": "chunky",
+      "templateId": "chunky",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#e2dbc9",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "STU 스웨이드 페니 로퍼 브라운",
+      "itemId": "item-20261025-07-loafers",
+      "slot": "shoes",
+      "garmentType": "loafer",
+      "templateId": "loafer",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#736050",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 백로고 MA-1 블랙",
+      "itemId": "item-20261025-06-ma1",
+      "slot": "outer",
+      "garmentType": "bomber",
+      "templateId": "bomber",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "Y-3 로고 볼캡 블랙",
+      "itemId": "item-20261025-05-cap",
+      "slot": "accessory",
+      "garmentType": "cap",
+      "templateId": "cap",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 턴업 트렌치코트 베이지 (46)",
+      "itemId": "item-20261025-04-trench",
+      "slot": "outer",
+      "garmentType": "coat",
+      "templateId": "coat",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#c3b193",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "COS 릴렉스드 히든 투 버튼 블레이저 다크브라운 (48)",
+      "itemId": "item-20261025-03-blazer",
+      "slot": "outer",
+      "garmentType": "blazer",
+      "templateId": "blazer",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#736050",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "발렌시아가 트랙 스니커즈 블랙 (43)",
+      "itemId": "item-20261025-02-track",
+      "slot": "shoes",
+      "garmentType": "chunky",
+      "templateId": "chunky",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 21FW 사슴가죽 자켓 네이비 (48)",
+      "itemId": "item-20261025-01-leather",
+      "slot": "outer",
+      "garmentType": "jacket",
+      "templateId": "jacket",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#26313f",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "leather",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "언더마이카 리전 02 발마칸 오버사이즈 울 코트 카키",
+      "itemId": "item-20261029-11-balmacaan",
+      "slot": "outer",
+      "garmentType": "coat",
+      "templateId": "coat",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#59604a",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "knit",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "슈프림 x 노스페이스 서밋 아우터 테이프 심 자켓 블랙",
+      "itemId": "item-20261029-12-supreme",
+      "slot": "outer",
+      "garmentType": "jacket",
+      "templateId": "jacket",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "언더마이카 리전 01 트위스트 지퍼 라인 테이핑 팬츠 블랙 올리브",
+      "itemId": "item-20261029-13-legion",
+      "slot": "bottom",
+      "garmentType": "wide",
+      "templateId": "wide",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 23SS 베이지 더블 재킷",
+      "itemId": "item-20261029-14-beigejacket",
+      "slot": "outer",
+      "garmentType": "blazer",
+      "templateId": "blazer",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#c3b193",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 23SS 베이지 셋업 팬츠",
+      "itemId": "item-20261029-15-beigepants",
+      "slot": "bottom",
+      "garmentType": "wide",
+      "templateId": "wide",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#c3b193",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "STU 22FW 고트 스웨이드 자켓 블랙",
+      "itemId": "item-20261029-16-stusuede",
+      "slot": "outer",
+      "garmentType": "jacket",
+      "templateId": "jacket",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 벨티드 울 코트 블랙",
+      "itemId": "item-20261029-17-beltedcoat",
+      "slot": "outer",
+      "garmentType": "coat",
+      "templateId": "coat",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "knit",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "STU 핸드 스티치 더블 코트 블랙",
+      "itemId": "item-20261029-18-stucoat",
+      "slot": "outer",
+      "garmentType": "coat",
+      "templateId": "coat",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "휴먼메이드 코치 자켓 블랙 (HM27JK018)",
+      "itemId": "item-20261029-19-humanmade",
+      "slot": "outer",
+      "garmentType": "jacket",
+      "templateId": "jacket",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 블랙 투 버튼 울 트윌 블레이저",
+      "itemId": "item-20261102-woo-black-blazer",
+      "slot": "outer",
+      "garmentType": "blazer",
+      "templateId": "blazer",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "knit",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "헨리코튼 몰스킨 블레이저 다크 그레이",
+      "itemId": "item-20261102-henry-moleskin",
+      "slot": "outer",
+      "garmentType": "blazer",
+      "templateId": "blazer",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#45464a",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "유어너스 블렌디드 데미지 벌룬 데님 브라운 블랙",
+      "itemId": "item-20261102-yournus-balloon",
+      "slot": "bottom",
+      "garmentType": "balloon",
+      "templateId": "balloon",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#393332",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "denim",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+      "itemId": "item-20261102-hecommends",
+      "slot": "bottom",
+      "garmentType": "wide",
+      "templateId": "wide",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#736050",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "denim",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "브랜드 미상 워싱 와이드 데님 흑청",
+      "itemId": "item-20261102-photo-denim",
+      "slot": "bottom",
+      "garmentType": "wide",
+      "templateId": "wide",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#45464a",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "denim",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "발렌시아가 x 언더아머 리버서블 데님·바람막이 자켓",
+      "itemId": "item-20261102-balenciaga-reversible",
+      "slot": "outer",
+      "garmentType": "jacket",
+      "templateId": "jacket",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#45464a",
+      "sides": [
+        "데님 면",
+        "바람막이 면"
+      ],
+      "level": "APPROXIMATE",
+      "material": "denim",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "무신사 스탠다드 그레이 슬랙스",
+      "itemId": "item-20261102-gray-slacks",
+      "slot": "bottom",
+      "garmentType": "straight",
+      "templateId": "straight",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#45464a",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "화이트 포켓 셔츠 (브랜드 미상)",
+      "itemId": "item-20261102-white-shirt",
+      "slot": "middle",
+      "garmentType": "shirt",
+      "templateId": "shirt",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#eeeae2",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "메종 마르지엘라 x 젠틀몬스터 MM211 01 안경",
+      "itemId": "item-20261102-mm211",
+      "slot": "eyewear",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "메종 마르지엘라 x 젠틀몬스터 MM105 01 선글라스",
+      "itemId": "item-20261102-mm105",
+      "slot": "eyewear",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "크롬하츠 FUCK YOU 6mm 스페이서 링",
+      "itemId": "item-20261102-chrome-ring",
+      "slot": "accessory",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#949a9e",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "아르마니 익스체인지 AX2084 크로노그래프 시계",
+      "itemId": "item-20261102-ax2084",
+      "slot": "accessory",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#949a9e",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "갤럭시 워치4 클래식 46mm 블랙 · 파란 스트랩",
+      "itemId": "item-20261102-galaxy-watch4",
+      "slot": "accessory",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#456082",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "메종 마르지엘라 베이지 울 알파카 크루넥 니트",
+      "itemId": "item-20261103-margiela",
+      "slot": "middle",
+      "garmentType": "knit",
+      "templateId": "knit",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#c3b193",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "knit",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "언더마이카 POC-007 베이직 티셔츠 화이트 Size2",
+      "itemId": "item-20261103-um",
+      "slot": "top",
+      "garmentType": "tee",
+      "templateId": "tee",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#eeeae2",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "다크룸 스튜디오 메쉬 트러커 캡 블랙",
+      "itemId": "item-20261103-cap",
+      "slot": "accessory",
+      "garmentType": "cap",
+      "templateId": "cap",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "노셀코지 스카시 카라 가디건 블루 Free",
+      "itemId": "item-20261103-noco-cardigan",
+      "slot": "middle",
+      "garmentType": "knit",
+      "templateId": "knit",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#456082",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "노셀코지 프론트 트랙 버뮤다 데님팬츠 흑청 L",
+      "itemId": "item-20261103-noco-shorts",
+      "slot": "bottom",
+      "garmentType": "shorts",
+      "templateId": "shorts",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#45464a",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "denim",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "노셀코지 레인 하이넥 BK 바람막이 블랙 Free",
+      "itemId": "item-20261103-noco-wind",
+      "slot": "outer",
+      "garmentType": "jacket",
+      "templateId": "jacket",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "세인드 와이드 라펠 크롭 블레이저 웜그레이 Free",
+      "itemId": "item-20261103-ceindre-blazer",
+      "slot": "outer",
+      "garmentType": "blazer",
+      "templateId": "blazer",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#aaa9a4",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+      "itemId": "item-20261103-ceindre-pants",
+      "slot": "bottom",
+      "garmentType": "balloon",
+      "templateId": "balloon",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#aaa9a4",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "세인드 Ne 비비안 솔리드 타이 그레이 Free",
+      "itemId": "item-20261103-ceindre-tie",
+      "slot": "accessory",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#aaa9a4",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "세인드 소프트 히든 포켓 루즈핏 셔츠 화이트 Free",
+      "itemId": "item-20261103-ceindre-shirt",
+      "slot": "middle",
+      "garmentType": "shirt",
+      "templateId": "shirt",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#eeeae2",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+      "itemId": "item-20261103-polo",
+      "slot": "middle",
+      "garmentType": "knit",
+      "templateId": "knit",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#aaa9a4",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "knit",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "우영미 22FW 백로고 긴팔 티셔츠 그레이",
+      "itemId": "item-20261103-woo",
+      "slot": "top",
+      "garmentType": "longtee",
+      "templateId": "longtee",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#aaa9a4",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "탬버린즈 헤이스택스 퍼퓸 50ml",
+      "itemId": "item-20261103-haystacks",
+      "slot": "fragrance",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#b2a389",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
+    },
+    {
+      "name": "르 라보 라방드 31 오 드 퍼퓸 100ml",
+      "itemId": "item-20261103-le-labo",
+      "slot": "fragrance",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#b2a389",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
+    },
+    {
+      "name": "크리드 어벤투스 100ml",
+      "itemId": "item-20261103-creed",
+      "slot": "fragrance",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#b2a389",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
+    },
+    {
+      "name": "블랙 레더룩 쇼퍼 토트백",
+      "itemId": "item-20261103-bag",
+      "slot": "bag",
+      "garmentType": "tote",
+      "templateId": "tote",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "leather",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "나이키크래프트 제너럴 퍼포즈 슈 아카이브",
+      "itemId": "item-20261103-nike",
+      "slot": "shoes",
+      "garmentType": "sneaker",
+      "templateId": "sneaker",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#d8a83e",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "나이키 리버풀 2021/22 어웨이 저지",
+      "itemId": "item-20261103-liverpool",
+      "slot": "top",
+      "garmentType": "tee",
+      "templateId": "tee",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#e2dbc9",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "아디다스 레알 마드리드 2024/25 써드 저지",
+      "itemId": "item-20261103-real",
+      "slot": "top",
+      "garmentType": "tee",
+      "templateId": "tee",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#45464a",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "아이앱 스튜디오 로고 후드 오트밀",
+      "itemId": "item-20261103-iab",
+      "slot": "top",
+      "garmentType": "hoodie",
+      "templateId": "hoodie",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#aaa9a4",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "슈프림 크레스트 사커 저지 핑크 24FW",
+      "itemId": "item-20261103-supreme",
+      "slot": "top",
+      "garmentType": "tee",
+      "templateId": "tee",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#c68d9b",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "블랙 솔리드 슬림 넥타이",
+      "itemId": "item-20261103-black-tie",
+      "slot": "accessory",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "탬버린즈 우드 솔트 비치 퍼퓸",
+      "itemId": "item-20261103-wood-salt",
+      "slot": "fragrance",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#b2a389",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
+    },
+    {
+      "name": "스탠다드 저널 퍼플 패턴 니트 베스트",
+      "itemId": "item-20261103-vest",
+      "slot": "middle",
+      "garmentType": "vest",
+      "templateId": "vest",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#594166",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "knit",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "나이키 샥스 R4 블랙 메탈릭 실버",
+      "itemId": "item-20261103-shox",
+      "slot": "shoes",
+      "garmentType": "chunky",
+      "templateId": "chunky",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#949a9e",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "뉴발란스 996 그레이 올리브",
+      "itemId": "item-20261103-nb996",
+      "slot": "shoes",
+      "garmentType": "sneaker",
+      "templateId": "sneaker",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#59604a",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "비비앙 월넛크릭그린 오 드 퍼퓸 50ml",
+      "itemId": "item-20261103-bibiang",
+      "slot": "fragrance",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#b2a389",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
+    },
+    {
+      "name": "슈프림 블랙 로고 메쉬 포켓 백팩",
+      "itemId": "item-20261103-backpack",
+      "slot": "bag",
+      "garmentType": "backpack",
+      "templateId": "backpack",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "미치코 런던 포켓 셔츠 라이트 브라운",
+      "itemId": "item-20261103-michiko",
+      "slot": "middle",
+      "garmentType": "shirt",
+      "templateId": "shirt",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#736050",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "블랙 화이트 체크 셔츠",
+      "itemId": "item-20261103-check-shirt",
+      "slot": "middle",
+      "garmentType": "shirt",
+      "templateId": "shirt",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "지방시 4G 로고 실버 컬러 시그넷 링",
+      "itemId": "item-20261103-givenchy",
+      "slot": "accessory",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#949a9e",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
+    },
+    {
+      "name": "딥티크 탐다오 오 드 퍼퓸",
+      "itemId": "item-20261103-tamdao",
+      "slot": "fragrance",
+      "garmentType": "unsupported",
+      "templateId": null,
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#b2a389",
+      "sides": [
+        "기본"
+      ],
+      "level": "UNSUPPORTED",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
+    },
+    {
+      "name": "나이키 x 피스마이너스원 멀티 포켓 와이드 팬츠",
+      "itemId": "item-20261103-pmone",
+      "slot": "bottom",
+      "garmentType": "wide",
+      "templateId": "wide",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "woven",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    },
+    {
+      "name": "마뗑킴 로고 워시드 데님 토트백 블랙",
+      "itemId": "item-20261103-matin",
+      "slot": "bag",
+      "garmentType": "tote",
+      "templateId": "tote",
+      "modelVersion": "template-1",
+      "body": "neutral-adult-male-fixed-pose",
+      "color": "#202024",
+      "sides": [
+        "기본"
+      ],
+      "level": "APPROXIMATE",
+      "material": "denim",
+      "compatible": [
+        "top",
+        "middle",
+        "outer",
+        "bottom",
+        "shoes",
+        "bag",
+        "accessory"
+      ],
+      "source": "MY FIT procedural templates",
+      "license": "project-authored",
+      "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
+    }
+  ]
+}

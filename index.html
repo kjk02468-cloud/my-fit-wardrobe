@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./wardrobe-gallery.css?v=20261103-seasonal-v2" />
   <link rel="stylesheet" href="./room-editor.css?v=20261103-personal-v4" />
   <link rel="stylesheet" href="./reference-edit.css?v=20261103-reference-edit-v1" />
+ <link rel="stylesheet" href="./shop3d/shop.css" />
 </head>
 <body>
  <header class="site-header">
@@ -21,7 +22,7 @@
    <nav class="desktop-nav" aria-label="주 메뉴">
     <button type="button" class="nav-item active" data-route="home">오늘의 추천</button>
     <button type="button" class="nav-item" data-route="closet">내 옷장</button>
-    <button type="button" class="nav-item" data-route="stylist">AI 코디</button>
+    <button type="button" class="nav-item" data-route="shop">3D 매장</button><button type="button" class="nav-item" data-route="stylist">AI 코디</button>
     <button type="button" class="nav-item" data-route="diary">착장 기록</button>
    </nav>
    <div class="header-tools">
@@ -31,10 +32,11 @@
    </div>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="모바일 메뉴" hidden>
-   <button type="button" data-route="home">오늘의 추천</button><button type="button" data-route="closet">내 옷장</button><button type="button" data-route="stylist">AI 코디</button><button type="button" data-route="diary">착장 기록</button>
+   <button type="button" data-route="home">오늘의 추천</button><button type="button" data-route="closet">내 옷장</button><button type="button" data-route="shop">3D 매장</button><button type="button" data-route="stylist">AI 코디</button><button type="button" data-route="diary">착장 기록</button>
   </nav>
  </header>
  <main>
+<section id="shop-page" data-view="shop" hidden aria-label="나의 3D 편집샵"><div class="shop-loading">MY FIT. · 매장을 준비하고 있어요.</div><a href="#closet">일반 2D 옷장 열기</a></section>
   <section class="view-panel" data-view="home" id="home-view" aria-label="오늘의 추천">
    <div class="hero-editorial">
     <div class="hero-copy">
@@ -143,5 +145,6 @@
  <script src="./room-scenes.js?v=20261103-personal-v4" defer></script>
  <script src="./room-editor.js?v=20261103-personal-v4" defer></script>
  <script src="./app.js?v=20261103-reference-edit-v1" defer></script>
+ <script type="module" src="./shop3d/entry.mjs"></script>
 </body>
 </html>
