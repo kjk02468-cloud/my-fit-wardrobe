@@ -16,10 +16,22 @@ const nodes=new Map(),inputs={'#stylist-purpose':{value:'date'},'#stylist-destin
 const query=selector=>{if(inputs[selector])return inputs[selector];if(!nodes.has(selector))nodes.set(selector,{textContent:'',hidden:false,classList:{add(){},remove(){}},removeAttribute(n){delete this[n]}});return nodes.get(selector)};
 const records=new Map(),calls=[];let offline=false,serverManifest=structuredClone(manifest);
 const ctx={window:{MyFitReferences:E},document:{querySelector:query,activeElement:null},Intl,Date,URL,Set,Map,Blob,TextEncoder,AbortController,AbortSignal,setTimeout,clearTimeout,console:{warn(){}},FileReader:class {async readAsDataURL(blob){this.result='data:image/webp;base64,'+Buffer.from(await blob.arrayBuffer()).toString('base64');this.onload()}},fetch:async url=>{calls.push(url);if(offline)throw Error('offline');const file=url==='./published-closet.json'?JSON.stringify(serverManifest):url.startsWith('./style-references.json')?read('style-references.json'):url.endsWith('.webp')?fs.readFileSync(path.join(root,url)):read(url);return {ok:true,headers:{get:()=>String(Buffer.byteLength(file))},json:async()=>JSON.parse(file),text:async()=>String(file),arrayBuffer:async()=>file,blob:async()=>new Blob([file],{type:'image/webp'})}}};
-let code=read('app.js').replace(/ init\(\)\.catch\([^\n]+\);/,'').replace(/\}\)\(\);\s*$/,`globalThis.api={loadStyleReferences,loadPublishedCloset,portableBackupItems,makeRecommendations,referencePanel,renderItemDetail,changeItemPhoto,normalizeItem,mergePublishedItemMedia,hidePublishedItem,setItems(v){items=v},getItems(){return items},setLibrary(v){styleLibrary=v},getLibrary(){return styleLibrary},setDetail(v){detailItemId=v;detailPhotoIndex=0},status(){return publishedStatus},setStore(v){dbReq=v}};})();`);
+let code=read('app.js').replace(/ init\(\)\.catch\([^\n]+\);/,'').replace(/\}\)\(\);\s*$/,`globalThis.api={loadStyleReferences,loadPublishedCloset,portableBackupItems,makeRecommendations,referencePanel,renderItemDetail,changeItemPhoto,normalizeItem,outerLength,matchesClosetFilter,mergePublishedItemMedia,hidePublishedItem,setItems(v){items=v},getItems(){return items},setLibrary(v){styleLibrary=v},getLibrary(){return styleLibrary},setDetail(v){detailItemId=v;detailPhotoIndex=0},status(){return publishedStatus},setStore(v){dbReq=v}};})();`);
 vm.createContext(ctx);vm.runInContext(code,ctx);const a=ctx.api;
 a.setStore(async(store,method,arg)=>{const key=store+':'+(typeof arg==='string'?arg:arg?.id);if(method==='get')return structuredClone(records.get(key));if(method==='put')records.set(key,structuredClone(arg))});
 (async()=>{
+ const outerwear=items.filter(i=>i.cat==='outer');
+ const longCoats=outerwear.filter(i=>a.matchesClosetFilter(i,'outer-long'));
+ assert.deepEqual(longCoats.map(i=>i.id.split('-').at(-1)).sort(),['balmacaan','beltedcoat','stucoat','trench']);
+ assert.equal(items.filter(i=>a.matchesClosetFilter(i,'outer-short')).length,outerwear.length-longCoats.length);
+ assert.equal(items.filter(i=>a.matchesClosetFilter(i,'outer')).length,outerwear.length);
+ assert.equal(a.outerLength({name:'숏 울 코트'}),'short');
+ assert.equal(a.outerLength({name:'Long Down Jacket'}),'long');
+ const adjusted=a.normalizeItem({...longCoats[0],outerLength:'short'});
+ assert.equal(adjusted.cat,'outer');assert.equal(a.outerLength(adjusted),'short');
+ assert.equal(a.matchesClosetFilter({...adjusted,cat:'top'},'outer-short'),false);
+ assert.equal((await a.portableBackupItems([{...adjusted,image:'',additionalImages:[]}]))[0].outerLength,'short');
+ calls.length=0;
  await a.loadStyleReferences();assert.equal(a.getLibrary().length,40);calls.length=0;
  await a.loadPublishedCloset();assert.equal(a.getItems().length,manifest.itemCount);assert.equal(a.status(),'live');assert.equal(calls.length,manifest.dataFiles.length+1);
  calls.length=0;a.setItems([]);await a.loadPublishedCloset();assert.equal(calls.length,1);assert.equal(a.getItems().length,manifest.itemCount);
