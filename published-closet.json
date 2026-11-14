@@ -1,25 +1,25 @@
 {
   "schemaVersion": 2,
-  "revision": "2026-71476e69722e1b3f",
+  "revision": "2026-ac67442adbb09ed5",
   "dataFiles": [
     {
       "path": "./data/wardrobe-4cec97a1453ea2c3.json",
       "revision": "2026-4cec97a1453ea2c3"
     },
     {
-      "path": "./data/wardrobe-806e2b0266bb4297.json",
-      "revision": "2026-806e2b0266bb4297"
+      "path": "./data/wardrobe-c1c4a3af65b9bd3f.json",
+      "revision": "2026-c1c4a3af65b9bd3f"
     },
     {
       "path": "./data/wardrobe-93b1c58de4c6d895.json",
       "revision": "2026-93b1c58de4c6d895"
     },
     {
-      "path": "./data/wardrobe-71476e69722e1b3f.json",
-      "revision": "2026-71476e69722e1b3f"
+      "path": "./data/wardrobe-ac67442adbb09ed5.json",
+      "revision": "2026-ac67442adbb09ed5"
     }
   ],
-  "itemCount": 66,
-  "photoCount": 191,
-  "updatedAt": "2026-11-02T23:22:28.652Z"
+  "itemCount": 80,
+  "photoCount": 217,
+  "updatedAt": "2026-11-14T04:57:13.660Z"
 }

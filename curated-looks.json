@@ -567,11 +567,11 @@
         },
         {
           "id": "item-20261103-noco-cardigan",
-          "name": "노셀코지 스카시 카라 가디건 블루 Free",
-          "brand": "NOCELCOZY",
+          "name": "애즈클로 스카시 카라 가디건 블루",
+          "brand": "ASCLO",
           "cat": "top",
           "color": "blue",
-          "imageKey": "c221d9be"
+          "imageKey": "e9e9a298"
         },
         {
           "id": "item-20261102-gray-slacks",
@@ -594,7 +594,7 @@
         "item-20261103-backpack"
       ],
       "fragrance": "item-20261103-bibiang",
-      "image": "./assets/curated-look-12-neckdown-v3.webp",
+      "image": "./assets/curated-look-12-neckdown-v4.webp",
       "seasonKey": "spring-fall"
     },
     {
@@ -607,11 +607,11 @@
       "pieces": [
         {
           "id": "item-20261103-noco-cardigan",
-          "name": "노셀코지 스카시 카라 가디건 블루 Free",
-          "brand": "NOCELCOZY",
+          "name": "애즈클로 스카시 카라 가디건 블루",
+          "brand": "ASCLO",
           "cat": "top",
           "color": "blue",
-          "imageKey": "c221d9be"
+          "imageKey": "e9e9a298"
         },
         {
           "id": "item-20261102-hecommends",
@@ -634,7 +634,7 @@
         "item-20261103-givenchy"
       ],
       "fragrance": "item-20261103-bibiang",
-      "image": "./assets/curated-look-13-neckdown-v3.webp",
+      "image": "./assets/curated-look-13-neckdown-v4.webp",
       "seasonKey": "spring-fall"
     },
     {
@@ -729,10 +729,10 @@
     },
     {
       "id": "edit-16",
-      "title": "화이트 셔츠와 볼륨 데님",
+      "title": "화이트 셔츠와 워싱 와이드 데님",
       "group": "office",
       "season": "봄·가을",
-      "reason": "화이트 셔츠와 블랙 타이의 단정함을 벌룬 데님으로 느슨하게 풀었어요. 앞코가 둥근 1461이 바지의 큰 볼륨을 받쳐줍니다.",
+      "reason": "화이트 셔츠와 블랙 타이에 브라운 워싱과 데미지가 들어간 와이드 데님을 더해 격식을 덜었어요. 둥근 앞코의 1461로 넓은 밑단을 받쳐줍니다.",
       "tip": "셔츠는 넣고 타이는 허리선에 맞추세요. 정장 출근보다는 자유로운 사무실이나 전시 약속에 어울려요.",
       "pieces": [
         {
@@ -745,11 +745,11 @@
         },
         {
           "id": "item-20261102-yournus-balloon",
-          "name": "유어너스 블렌디드 데미지 벌룬 데님 브라운 블랙",
-          "brand": "YOURNUS",
+          "name": "어쿠 블렌디드 빈티지 데미지 워싱 와이드 데님 팬츠 브라운",
+          "brand": "어쿠 / ACOU",
           "cat": "bottom",
           "color": "brown",
-          "imageKey": "c9c3284d"
+          "imageKey": "f8f2636f"
         },
         {
           "id": "item-20261025-09-drmartens",
@@ -773,7 +773,7 @@
         "item-20261102-mm211"
       ],
       "fragrance": "item-20261103-creed",
-      "image": "./assets/curated-look-16-neckdown-v3.webp",
+      "image": "./assets/curated-look-16-neckdown-v4.webp",
       "seasonKey": "spring-fall"
     },
     {
@@ -1767,11 +1767,11 @@
       "pieces": [
         {
           "id": "item-20261103-noco-cardigan",
-          "name": "노셀코지 스카시 카라 가디건 블루 Free",
-          "brand": "NOCELCOZY",
+          "name": "애즈클로 스카시 카라 가디건 블루",
+          "brand": "ASCLO",
           "cat": "top",
           "color": "blue",
-          "imageKey": "c221d9be"
+          "imageKey": "e9e9a298"
         },
         {
           "id": "item-20261029-15-beigepants",
@@ -1794,7 +1794,7 @@
         "item-20261103-matin"
       ],
       "fragrance": "item-20261103-le-labo",
-      "image": "./assets/curated-look-40-neckdown-v3.webp"
+      "image": "./assets/curated-look-40-neckdown-v4.webp"
     },
     {
       "id": "edit-41",

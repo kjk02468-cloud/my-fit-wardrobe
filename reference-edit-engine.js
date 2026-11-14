@@ -13,7 +13,7 @@
   const data=JSON.parse(raw),ids=new Set(),photos=new Set();
   if(data.schemaVersion!==1||data.figureView!=='neck-down'||!Array.isArray(data.looks)||data.looks.length>10)throw Error('Invalid reference edit');
   return data.looks.map(row=>{
-   if(!/^ref-edit-\d{2}$/.test(row.id)||ids.has(row.id)||!/^\.\/assets\/reference-edit-\d{2}-v1\.webp$/.test(row.image)||!Array.isArray(row.pieces)||row.pieces.length<3||row.pieces.length>7)throw Error('Invalid edited look');
+   if(!/^ref-edit-\d{2}$/.test(row.id)||ids.has(row.id)||!/^\.\/assets\/reference-edit-\d{2}-v[12]\.webp$/.test(row.image)||!Array.isArray(row.pieces)||row.pieces.length<3||row.pieces.length>7)throw Error('Invalid edited look');
    ids.add(row.id);const pieceIds=new Set();
    for(const p of row.pieces){if(!p.id||pieceIds.has(p.id)||!['top','outer','bottom','shoes','bag','accessory','eyewear'].includes(p.cat)||!/^[a-f0-9]{8}$/.test(p.imageKey)||p.viewLabel&&!/^AI 보정 · (데님|바람막이) 면$/.test(p.viewLabel)||p.viewLabel&&!/^[a-f0-9]{8}$/.test(p.viewImageKey))throw Error('Invalid owned item');pieceIds.add(p.id)}
    if(!['top','bottom','shoes'].every(cat=>row.pieces.some(p=>p.cat===cat)))throw Error('Incomplete edited outfit');

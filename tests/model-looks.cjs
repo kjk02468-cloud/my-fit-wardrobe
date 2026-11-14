@@ -4,7 +4,7 @@ const manifest=JSON.parse(read('published-closet.json')),items=manifest.dataFile
 assert.equal(JSON.parse(read('model-looks.json')).figureView,'neck-down');assert(library.every(l=>l.image.endsWith('-neckdown-v3.webp')),'Legacy model mode must use the same face-free presentation');
 const context={purpose:'casual',season:'fall',temperature:null,code:null};
 assert.equal(library.length,5);assert.equal(M.candidates(library,items,context).length,5);
-assert.equal(new Set(items.map(i=>i.id)).size,66);assert.equal(items.filter(i=>i.cat==='eyewear').length,2);
+assert.equal(new Set(items.map(i=>i.id)).size,manifest.itemCount);assert.equal(items.filter(i=>i.cat==='eyewear').length,2);
 assert.equal(items.filter(i=>i.name.includes('리버서블')).length,1);
 const reversible=items.find(i=>i.name.includes('리버서블')),views=M.variants(reversible);assert.equal(views.length,2);assert.equal(views[0].id,views[1].id);assert.notEqual(views[0].lookImage,views[1].lookImage);
 for(const model of library){
@@ -40,5 +40,5 @@ vm.createContext(ctx);vm.runInContext(code,ctx);const a=ctx.api;
  a.setItems(items);a.setWeather({city:'서울',temp:30,code:0});assert(a.makeRecommendations().every(r=>!r.model));a.setWeather(null);
  a.setMode('more');recs=a.makeRecommendations();assert.equal(recs.length,3);assert(recs.every(r=>r.items.filter(i=>i.cat==='eyewear').length===1));assert(recs.every(r=>new Set(r.items.map(i=>i.id)).size===r.items.length));
  offline=true;await a.loadModelLooks();a.setMode('model');assert(a.makeRecommendations().every(r=>!r.model));
- console.log('PASS: 5 exact-item model looks; reversible faces share one ID and open the correct photo; changed/deleted/demo items reject stale photos; no extra accessories in prepared cuts; weather and catalog/image failure fallback; 66-item normalization and eyewear; model media below 300KB.');
+ console.log('PASS: 5 exact-item model looks; reversible faces share one ID and open the correct photo; changed/deleted/demo items reject stale photos; no extra accessories in prepared cuts; weather and catalog/image failure fallback; wardrobe normalization and eyewear; model media below 300KB.');
 })().catch(e=>{console.error(e);process.exitCode=1});

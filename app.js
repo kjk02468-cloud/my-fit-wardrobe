@@ -6,7 +6,7 @@
  const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
  const S = (value='') => String(value ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const categories = {all:'전체', top:'상의', bottom:'하의', outer:'아우터', shoes:'신발', bag:'가방', eyewear:'아이웨어', accessory:'액세서리', fragrance:'향수'};
- const colors = {black:'블랙', brown:'브라운', beige:'베이지', cream:'크림', charcoal:'차콜', navy:'네이비', blue:'블루', white:'화이트', green:'그린', silver:'실버', gray:'그레이', yellow:'옐로', pink:'핑크', purple:'퍼플', other:'기타'};
+ const colors = {black:'블랙', brown:'브라운', beige:'베이지', cream:'크림', charcoal:'차콜', navy:'네이비', blue:'블루', white:'화이트', green:'그린', silver:'실버', gray:'그레이', yellow:'옐로', orange:'오렌지', pink:'핑크', purple:'퍼플', other:'기타'};
  const cityCoords = {'서울':[37.5665,126.9780],'성남':[37.4201,127.1266],'장성':[35.3018,126.7852],'부산':[35.1796,129.0756],'대전':[36.3504,127.3845]};
  const styleLabels = {casual:'데일리', date:'데이트', office:'비즈니스 캐주얼', formal:'포멀', travel:'주말 나들이'};
  const ownedItems = list => list.filter(item=>!item.isDemo);
@@ -83,12 +83,12 @@
  async function loadCuratedLooks(){
   if(!curatedEngine)return;
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),6000);
-  try{const res=await fetch('./curated-looks.json?v=20261103-neckdown-release-v3',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
+  try{const res=await fetch('./curated-looks.json?v=20261114-wardrobe',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
  }
  async function loadReferenceEdit(){
   if(!referenceEditEngine){recommendationMode='curated';return}
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),6000);
-  try{const res=await fetch('./reference-edit-looks.json?v=20261103-reference-edit-v1',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');referenceEditLibrary=referenceEditEngine.parseLibrary(await res.text())}catch{referenceEditLibrary=[];recommendationMode='curated';console.warn('Reference edit unavailable; using seasonal looks')}finally{clearTimeout(timer)}
+  try{const res=await fetch('./reference-edit-looks.json?v=20261114-wardrobe',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');referenceEditLibrary=referenceEditEngine.parseLibrary(await res.text())}catch{referenceEditLibrary=[];recommendationMode='curated';console.warn('Reference edit unavailable; using seasonal looks')}finally{clearTimeout(timer)}
  }
  function referenceEditRecommendations(){
   const context=getContext();return referenceEditEngine.select(referenceEditLibrary,referenceEditKind).map(row=>{const r=referenceEditEngine.resolve(row,ownedItems(items),modelEngine,curatedEngine);return r?{...r,curated:true,referenceEdit:true,number:Number(row.id.slice(-2)),missing:[],context,description:r.reason,explain:referenceEditEngine.kinds[r.reference.kind],combinationRules:[],referenceMatches:[],score:0,model:null}:null}).filter(Boolean);

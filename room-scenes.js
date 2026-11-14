@@ -5,7 +5,7 @@
  {
   "id": "personal",
   "title": "내가 고른 13개 전시",
-  "image": "./assets/wardrobe-personal-20261103-v4.webp",
+  "image": "./assets/wardrobe-personal-20261114-v5.webp",
   "slots": [
    {
     "id": "item-20261029-11-balmacaan",
@@ -123,11 +123,11 @@
    },
    {
     "id": "item-20261102-yournus-balloon",
-    "name": "유어너스 블렌디드 데미지 벌룬 데님 브라운 블랙",
-    "brand": "YOURNUS",
+    "name": "어쿠 블렌디드 빈티지 데미지 워싱 와이드 데님 팬츠 브라운",
+    "brand": "어쿠 / ACOU",
     "cat": "bottom",
     "color": "brown",
-    "imageKey": "c9c3284d",
+    "imageKey": "f8f2636f",
     "view": "",
     "viewImageKey": ""
    },
