@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./room-editor.css?v=20261103-personal-v4" />
   <link rel="stylesheet" href="./reference-edit.css?v=20261103-reference-edit-v1" />
   <link rel="stylesheet" href="./all-looks.css?v=20261114" />
+  <link rel="stylesheet" href="./photo-fitting.css?v=20261115" />
 </head>
 <body>
  <header class="site-header">
@@ -106,9 +107,13 @@
     <div class="stylist-results">
      <div class="panel-head"><span class="eyebrow">02 / YOUR EDITED LOOKS</span><h2>나의 옷으로 완성한 조합 <span class="results-count" id="results-count">03 LOOKS</span></h2></div>
      <p class="stylist-results-desc" id="results-desc">등록한 내 옷만 사용합니다. 부족한 카테고리는 미등록으로 표시해요.</p>
-     <div id="recommendation-modes" class="recommendation-modes" role="group" aria-label="코디 보기 방식"><button type="button" data-recommendation-mode="all-looks" aria-pressed="false">전체 조합</button><button type="button" data-recommendation-mode="reference" aria-pressed="true">실제 착장 재구성 10</button><button type="button" data-recommendation-mode="curated" aria-pressed="false">계절별 60 LOOKS</button><button type="button" data-recommendation-mode="model" aria-pressed="false">AI 모델 코디</button><button type="button" data-recommendation-mode="more" aria-pressed="false">더 많은 조합</button></div><p class="fine-print model-mode-note">새로운 10개는 공개 SNS 사복·공항·패션위크 착장에서 출발했어요. ‘실제 참고 사진과 비교’에서 원본과 보유품 해석을 볼 수 있어요. 계절별 60개와 날씨에 맞춘 추천도 다른 보기에서 확인하세요.</p>
+     <div id="recommendation-modes" class="recommendation-modes" role="group" aria-label="코디 보기 방식"><button type="button" data-recommendation-mode="photo-fitting" aria-pressed="false">옷 입혀보기</button><button type="button" data-recommendation-mode="all-looks" aria-pressed="false">전체 조합</button><button type="button" data-recommendation-mode="reference" aria-pressed="true">실제 착장 재구성 10</button><button type="button" data-recommendation-mode="curated" aria-pressed="false">계절별 60 LOOKS</button><button type="button" data-recommendation-mode="model" aria-pressed="false">AI 모델 코디</button><button type="button" data-recommendation-mode="more" aria-pressed="false">더 많은 조합</button></div><p class="fine-print model-mode-note">새로운 10개는 공개 SNS 사복·공항·패션위크 착장에서 출발했어요. ‘실제 참고 사진과 비교’에서 원본과 보유품 해석을 볼 수 있어요. 계절별 60개와 날씨에 맞춘 추천도 다른 보기에서 확인하세요.</p>
      <div id="curated-seasons" class="curated-seasons" role="group" aria-label="코디 계절"></div><div id="curated-groups" class="curated-groups" role="group" aria-label="코디 분위기"></div><div id="outfit-results" class="outfit-result-grid"></div>
      <section id="all-looks" class="all-looks" aria-label="보유품 전체 조합" hidden></section>
+     <section id="photo-fitting" class="photo-fitting" aria-label="보유품 입혀보기" hidden>
+      <figure><div class="fitting-stage" data-fitting-stage></div><figcaption data-fitting-status role="status"></figcaption></figure>
+      <div data-fitting-picker></div>
+     </section>
     </div>
    </div>
   </section>
@@ -146,6 +151,7 @@
  <script src="./room-editor.js?v=20261103-personal-v4" defer></script>
  <script src="./all-looks-engine.js?v=20261114" defer></script>
  <script src="./all-looks-view.js?v=20261114" defer></script>
- <script src="./app.js?v=20261114-all-looks" defer></script>
+ <script src="./photo-fitting.js?v=20261115" defer></script>
+ <script src="./app.js?v=20261115-photo-fitting" defer></script>
 </body>
 </html>

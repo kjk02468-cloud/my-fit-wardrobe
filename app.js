@@ -35,7 +35,7 @@
  const curatedEngine=window.MyFitCurated;
  const referenceEditEngine=window.MyFitReferenceEdit;
  let referenceEditLibrary=[],referenceEditKind='all';
- let roomEditor=null,allLooksView=null;
+ let roomEditor=null,allLooksView=null,photoFitting=null;
  const curatedGroups={all:'전체',office:'출근 · 단정한 날',date:'데이트 · 약속',daily:'데일리',street:'스트리트'};
  const curatedSeasons={'spring-fall':'봄·가을',summer:'여름',winter:'겨울'};
  const failedModelImages=new Set();
@@ -323,7 +323,20 @@
   const allMode=recommendationMode==='all-looks'&&allLooksView;
   const allPanel=$('#all-looks');
   if(allPanel)allPanel.hidden=!allMode;
-  $('#outfit-results').hidden=Boolean(allMode);
+  const fittingMode=recommendationMode==='photo-fitting'&&photoFitting;
+  const fittingPanel=$('#photo-fitting');
+  if(fittingPanel)fittingPanel.hidden=!fittingMode;
+  $('#outfit-results').hidden=Boolean(allMode||fittingMode);
+  if(fittingMode){
+   $('.styling-workspace').classList.add('show-curated');
+   $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.recommendationMode==='photo-fitting')));
+   $('#curated-groups').hidden=true;$('#curated-seasons').hidden=true;
+   const modeNote=$('.model-mode-note');if(modeNote)modeNote.hidden=true;
+   $('#results-desc').textContent='분류별로 한 아이템을 골라보세요. 제작된 조합은 선택 즉시 AI 모델컷을 보여드려요.';
+   $('#results-count').textContent='';
+   photoFitting.render();
+   return;
+  }
   if(allMode){
    $('.styling-workspace').classList.add('show-curated');
    $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.recommendationMode==='all-looks')));
@@ -424,7 +437,7 @@
    const group=event.target.closest('[data-curated-group]');if(group){curatedGroup=group.dataset.curatedGroup;renderRecommendations(true);return}
    const room=event.target.closest('[data-room-category]');if(room){activeClosetFilter=room.dataset.roomCategory;$('#closet-search').value='';renderCloset();$('#closet-filters').scrollIntoView({behavior:'smooth',block:'start'});return}
    const curatedPhoto=event.target.closest('[data-open-curated]');if(curatedPhoto){openCuratedLook(curatedPhoto.dataset.openCurated);return}
-   const mode=event.target.closest('[data-recommendation-mode]');if(mode){recommendationMode=['reference','curated','more','model','all-looks'].includes(mode.dataset.recommendationMode)?mode.dataset.recommendationMode:'reference';renderRecommendations(true);return}
+   const mode=event.target.closest('[data-recommendation-mode]');if(mode){recommendationMode=['reference','curated','more','model','all-looks','photo-fitting'].includes(mode.dataset.recommendationMode)?mode.dataset.recommendationMode:'reference';renderRecommendations(true);return}
    const model=event.target.closest('[data-open-model]');if(model){openModelLook(model.dataset.openModel);return}
    const nextRef=event.target.closest('[data-next-reference]');if(nextRef){const rec=recommendations[Number(nextRef.dataset.nextReference)];if(rec?.referenceMatches?.length){const key=rec.items.map(i=>i.id).join('|');if(referenceIndexes.size>64)referenceIndexes.clear();referenceIndexes.set(key,((referenceIndexes.get(key)||0)+1)%rec.referenceMatches.length);nextRef.closest('.reference-match').outerHTML=referencePanel(rec);$(`[data-next-reference="${rec.number-1}"]`)?.focus()}return}
    const route=event.target.closest('[data-route]');if(route){navigate(route.dataset.route);return}
@@ -487,7 +500,24 @@
    getItems:()=>ownedItems(items),outerLength,variants:item=>modelEngine?.variants(item)||[item],
    image:lookImage,name:lookName,photoIndex:item=>Math.max(0,itemPhotos(item).findIndex(p=>p.src===lookImage(item))),escape:S,notify:toast,
   });
+  if(modelEngine)photoFitting=window.MyFitPhotoFitting?.mount($('#photo-fitting'),{
+   getItems:()=>ownedItems(items),variants:item=>modelEngine?.variants(item)||[item],
+   identity:modelEngine.identity,image:lookImage,name:lookName,escape:S,announce:toast,
+   existingPhoto:pieces=>{
+    const wear=pieces.filter(item=>item.cat!=='fragrance');
+    const rowFits=row=>row.image&&!failedModelImages.has(row.id)&&row.pieces.length===wear.length&&row.pieces.every(p=>wear.some(item=>item.id===p.id&&(item.lookView||'')===(p.viewLabel||'')));
+    const owned=ownedItems(items);
+    for(const row of curatedLibrary.filter(rowFits)){
+     const match=curatedEngine.resolve(row,owned,modelEngine);if(match?.image)return match.image;
+    }
+    for(const row of referenceEditLibrary.filter(rowFits)){
+     const match=referenceEditEngine.resolve(row,owned,modelEngine,curatedEngine);if(match?.image)return match.image;
+    }
+    return '';
+   },
+  });
   if(allLooksView&&new URLSearchParams(location.search).get('looks')==='all')recommendationMode='all-looks';
+  if(photoFitting&&new URLSearchParams(location.search).get('looks')==='fitting')recommendationMode='photo-fitting';
   renderEverything();showRoute(location.hash.slice(1)||'home');}
  init().catch(error=>{console.error(error);toast('화면을 준비하는 중 문제가 발생했어요. 페이지를 다시 열어주세요.')});
 })();
