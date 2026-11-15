@@ -1,7 +1,7 @@
 /* An owned-item fitting panel using prepared photographic previews. */
 (function(){
  'use strict';
- const categories={outer:'아우터',top:'상의',bottom:'하의',shoes:'신발',bag:'가방',eyewear:'아이웨어',accessory:'액세서리'};
+ const categories={outer:'아우터',top:'상의',bottom:'하의',shoes:'신발'};
  const key=item=>JSON.stringify([item.id,item.lookView||'']);
  const plainSelection=item=>({id:item.id,view:item.lookView||''});
  const same=(left,right)=>Boolean(left&&right&&left.id===right.id&&left.view===right.view);
@@ -116,7 +116,7 @@
    photoFailed=event.target.getAttribute('src');
    render();
   },true);
-  fetch('./fitting-photos.json?v=20261115').then(res=>res.ok?res.json():null).then(setPreviews).catch(()=>{}).finally(()=>{
+  fetch('./fitting-photos.json?v=20261115-eight').then(res=>res.ok?res.json():null).then(setPreviews).catch(()=>{}).finally(()=>{
    loaded=true;
    if(!root.hidden)render();
   });
