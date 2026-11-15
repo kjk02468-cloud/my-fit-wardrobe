@@ -116,7 +116,7 @@
    photoFailed=event.target.getAttribute('src');
    render();
   },true);
-  fetch('./fitting-photos.json?v=20261115-fifteen').then(res=>res.ok?res.json():null).then(setPreviews).catch(()=>{}).finally(()=>{
+  fetch('./fitting-photos.json?v=20261115-long52').then(res=>res.ok?res.json():null).then(setPreviews).catch(()=>{}).finally(()=>{
    loaded=true;
    if(!root.hidden)render();
   });
