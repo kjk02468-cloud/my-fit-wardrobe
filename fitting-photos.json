@@ -380,6 +380,139 @@
         "imageKey": "1baf5fa6"
       },
       "image": "./assets/fitting/hoodie-pmone.webp"
+    },
+    {
+      "top": {
+        "id": "item-20261114-polo-oxford",
+        "name": "폴로 랄프 로렌 클래식핏 가먼트 다이 옥스포드 셔츠 퍼펙트 그레이",
+        "brand": "Polo Ralph Lauren",
+        "cat": "top",
+        "color": "gray",
+        "imageKey": "c54e0fb6"
+      },
+      "bottom": {
+        "id": "item-20261114-woo-cargo",
+        "name": "우영미 22SS 블랙 벨트 디테일 카고 팬츠 (50)",
+        "brand": "WOOYOUNGMI",
+        "cat": "bottom",
+        "color": "black",
+        "imageKey": "1185a925"
+      },
+      "image": "./assets/fitting/oxford-cargo.webp"
+    },
+    {
+      "top": {
+        "id": "item-20261114-polo-oxford",
+        "name": "폴로 랄프 로렌 클래식핏 가먼트 다이 옥스포드 셔츠 퍼펙트 그레이",
+        "brand": "Polo Ralph Lauren",
+        "cat": "top",
+        "color": "gray",
+        "imageKey": "c54e0fb6"
+      },
+      "bottom": {
+        "id": "item-20261102-photo-denim",
+        "name": "브랜드 미상 워싱 와이드 데님 흑청",
+        "brand": "브랜드 미상",
+        "cat": "bottom",
+        "color": "charcoal",
+        "imageKey": "3584e242"
+      },
+      "image": "./assets/fitting/oxford-denim.webp"
+    },
+    {
+      "top": {
+        "id": "item-20261114-polo-oxford",
+        "name": "폴로 랄프 로렌 클래식핏 가먼트 다이 옥스포드 셔츠 퍼펙트 그레이",
+        "brand": "Polo Ralph Lauren",
+        "cat": "top",
+        "color": "gray",
+        "imageKey": "c54e0fb6"
+      },
+      "bottom": {
+        "id": "item-20261102-hecommends",
+        "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+        "brand": "HECOMMENDS",
+        "cat": "bottom",
+        "color": "brown",
+        "imageKey": "087091db"
+      },
+      "image": "./assets/fitting/oxford-hecommends.webp"
+    },
+    {
+      "top": {
+        "id": "item-20261114-polo-cable-cardigan",
+        "name": "폴로 랄프 로렌 케이블 니트 가디건 블랙 (여성 XL)",
+        "brand": "Polo Ralph Lauren",
+        "cat": "top",
+        "color": "black",
+        "imageKey": "29338206"
+      },
+      "bottom": {
+        "id": "item-20261114-woo-cargo",
+        "name": "우영미 22SS 블랙 벨트 디테일 카고 팬츠 (50)",
+        "brand": "WOOYOUNGMI",
+        "cat": "bottom",
+        "color": "black",
+        "imageKey": "1185a925"
+      },
+      "image": "./assets/fitting/cable-cargo.webp"
+    },
+    {
+      "top": {
+        "id": "item-20261114-polo-cable-cardigan",
+        "name": "폴로 랄프 로렌 케이블 니트 가디건 블랙 (여성 XL)",
+        "brand": "Polo Ralph Lauren",
+        "cat": "top",
+        "color": "black",
+        "imageKey": "29338206"
+      },
+      "bottom": {
+        "id": "item-20261102-photo-denim",
+        "name": "브랜드 미상 워싱 와이드 데님 흑청",
+        "brand": "브랜드 미상",
+        "cat": "bottom",
+        "color": "charcoal",
+        "imageKey": "3584e242"
+      },
+      "image": "./assets/fitting/cable-denim.webp"
+    },
+    {
+      "top": {
+        "id": "item-20261114-polo-cable-cardigan",
+        "name": "폴로 랄프 로렌 케이블 니트 가디건 블랙 (여성 XL)",
+        "brand": "Polo Ralph Lauren",
+        "cat": "top",
+        "color": "black",
+        "imageKey": "29338206"
+      },
+      "bottom": {
+        "id": "item-20261102-hecommends",
+        "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+        "brand": "HECOMMENDS",
+        "cat": "bottom",
+        "color": "brown",
+        "imageKey": "087091db"
+      },
+      "image": "./assets/fitting/cable-hecommends.webp"
+    },
+    {
+      "top": {
+        "id": "item-20261114-polo-cable-cardigan",
+        "name": "폴로 랄프 로렌 케이블 니트 가디건 블랙 (여성 XL)",
+        "brand": "Polo Ralph Lauren",
+        "cat": "top",
+        "color": "black",
+        "imageKey": "29338206"
+      },
+      "bottom": {
+        "id": "item-20261103-ceindre-pants",
+        "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+        "brand": "CEINDRE",
+        "cat": "bottom",
+        "color": "gray",
+        "imageKey": "2d1b37f8"
+      },
+      "image": "./assets/fitting/cable-ceindre.webp"
     }
   ]
 }
