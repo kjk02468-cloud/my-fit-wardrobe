@@ -1,30 +1,9 @@
 // Pure domain logic. This module never writes to the existing wardrobe database.
-export const VERSION = 'template-1';
+export const VERSION = 'template-2';
+const SUPPORTED_SAVE_VERSIONS = new Set(['template-1',VERSION]);
 export const STATES = ['INTRO_SCROLL','STORE_EXPLORE','ITEM_DETAIL','FITTING','CONCIERGE','FRAGRANCE','OOTD','CLASSIC_2D'];
-export const ZONES = {
- showroom:{name:'MAIN SHOWROOM',label:'쇼룸',position:[0,1.65,5],yaw:0},
- concierge:{name:'STYLE CONCIERGE',label:'스타일 상담',position:[-4,1.65,4],yaw:.65},
- fragrance:{name:'FRAGRANCE BAR',label:'향수 바',position:[4.4,1.65,1],yaw:-.65},
- fitting:{name:'FITTING ROOM',label:'피팅룸',position:[-3.8,1.65,-4.2],yaw:0},
- ootd:{name:'OOTD STUDIO',label:'코디·기록',position:[3.8,1.65,-4.2],yaw:0}
-};
-export const OBSTACLES = [
- [-8,-6.9,-7.9,7.7],[6.9,8,-7.9,7.7],[-8,8,-8.2,-7.8],
- [-8,-1.65,7.7,8.2],[1.65,8,7.7,8.2], // entrance opening
- [-6.7,-4.7,2.0,3.3],[5.6,6.8,-2.7,2.6], // concierge and fragrance counter
- [-1.5,1.5,-1.1,1.1], // central display
- [-7,-5,4.65,4.95],[5,7,4.65,4.95],[-7,-5,-1.25,-.95],[5,7,-1.25,-.95], // clothing racks
- [-7,-2,-3.1,-2.85],[-7,-2,-7.6,-7.3], // fitting wall, open east entrance
- [-2.2,-2,-7.5,-5.5],[2,6.8,-3.1,-2.85] // studio screen, entrance at center
-];
-export function walk(p,dx,dz,obstacles=OBSTACLES,doorOpen=true){
- const q={...p},steps=Math.max(1,Math.ceil(Math.hypot(dx,dz)/.08));
- const blocked=(x,z)=>Math.abs(x)>7.5||z< -7.4||z>7.45||(!doorOpen&&z>7.3&&Math.abs(x)<1.8)||obstacles.some(([a,b,c,d])=>x>a-.22&&x<b+.22&&z>c-.22&&z<d+.22);
- for(let i=0;i<steps;i++){if(!blocked(q.x+dx/steps,q.z))q.x+=dx/steps;if(!blocked(q.x,q.z+dz/steps))q.z+=dz/steps;}
- return q;
-}
-export const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-export function introPose(t){t=clamp(t,0,1);return {x:0,y:1.65,z:16-11*t,yaw:0,door:clamp((t-.2)/.25,0,1)};}
+export {ZONES, OBSTACLES, walk, introPose} from './layout.mjs';
+export const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 export const COLORS={black:'#202024',navy:'#26313f',charcoal:'#45464a',brown:'#736050',beige:'#c3b193',cream:'#e2dbc9',white:'#eeeae2',gray:'#aaa9a4',blue:'#456082',green:'#59604a',silver:'#949a9e',yellow:'#d8a83e',pink:'#c68d9b',purple:'#594166',other:'#b2a389'};
 export function mapping(item){
  const n=item.name||'',cat=item.cat;
@@ -37,9 +16,9 @@ export function mapping(item){
  if(cat==='accessory'&&/볼캡|트러커/.test(n)){type='cap';slot='accessory';}
  const sides=/리버서블/.test(n)?['데님 면','바람막이 면']:['기본'];
  return {itemId:item.id,slot,garmentType:type||'unsupported',templateId:type||null,modelVersion:VERSION,
-  body:'neutral-adult-male-fixed-pose',color:/브라운 블랙/.test(n)?'#393332':COLORS[item.color]||COLORS.other,sides,
+  body:'neutral-adult-male-181cm-rig',color:/브라운 블랙/.test(n)?'#393332':COLORS[item.color]||COLORS.other,sides,
   level:type?'APPROXIMATE':'UNSUPPORTED',material:/데님/.test(n)?'denim':/가죽|레더/.test(n)?'leather':/니트|울/.test(n)?'knit':'woven',
-  compatible:['top','middle','outer','bottom','shoes','bag','accessory'],source:'MY FIT procedural templates',license:'project-authored',
+  compatible:['top','middle','outer','bottom','shoes','bag','accessory'],source:'MY FIT Blender assets and authored templates',license:'project-authored',
   limitation:type?'유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요.':cat==='fragrance'?'향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요.':'3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요.'};
 }
 export const signature=i=>{const text=JSON.stringify([i.name,i.cat,i.color,i.image,i.photoLabels,i.aiEditVersion]);let hash=2166136261;for(let j=0;j<text.length;j++)hash=Math.imul(hash^text.charCodeAt(j),16777619);return String(hash>>>0);};
@@ -55,7 +34,7 @@ export function parseSaves(raw){
  if(raw.length>512000)throw Error('백업 파일이 너무 커요.');const v=JSON.parse(raw);
  if(!v||v.schema!==1||!Array.isArray(v.looks)||v.looks.length>100)throw Error('3D 코디 백업 형식이 아니에요.');
  if(new Set(v.looks.map(r=>r?.id)).size!==v.looks.length)throw Error('코디 ID가 중복돼요.');
- for(const r of v.looks)if(!r||typeof r.createdAt!=='string'||!Number.isFinite(Date.parse(r.createdAt))||r.fragrance!==null&&typeof r.fragrance!=='string'||r.modelVersion!==VERSION)throw Error('지원하지 않거나 손상된 코디 정보예요.');
+ for(const r of v.looks)if(!r||typeof r.createdAt!=='string'||!Number.isFinite(Date.parse(r.createdAt))||r.fragrance!==null&&typeof r.fragrance!=='string'||!SUPPORTED_SAVE_VERSIONS.has(r.modelVersion))throw Error('지원하지 않거나 손상된 코디 정보예요.');
  for(const r of v.looks){if(r.type!=='virtual'||typeof r.id!=='string'||typeof r.name!=='string'||r.name.length>80||!r.fit||Object.keys(r.fit).some(k=>!['top','middle','outer','bottom','shoes','bag','accessory'].includes(k)))throw Error('손상된 코디예요.');for(const[k,p]of Object.entries(r.fit))if(!p||typeof p.itemId!=='string'||p.slot!==k||!['기본','데님 면','바람막이 면'].includes(p.side)||typeof p.signature!=='string'||p.signature.length>1500)throw Error('잘못된 아이템 참조예요.');}
  return v.looks;
 }

@@ -4,6 +4,7 @@ import * as C from '../shop3d/core.mjs';
 import {garment,mannequin,disposeGroup} from '../shop3d/garments.mjs';
 import * as T from '../shop3d/vendor/three.module.min.js';
 import {photoPreview} from '../shop3d/ai-preview.mjs';
+import {CAMERAS,ENTRY_KEYS,toWorld,canStand,tourPose} from '../shop3d/layout.mjs';
 const base=new URL('../',import.meta.url),read=p=>fs.readFileSync(new URL(p,base),'utf8');
 const manifest=JSON.parse(read('published-closet.json'));
 const items=manifest.dataFiles.flatMap(f=>JSON.parse(read(f.path)).items);
@@ -12,9 +13,9 @@ let checked=0;const test=async(name,fn)=>{await fn();checked++;console.log('PASS
 await test('fitting controls never collide with the legacy data-view route selector',()=>{
  assert(!read('shop3d/shop.mjs').includes('data-view='));assert(read('shop3d/shop.mjs').includes('data-fit-view='));
 });
-await test('all 66 owned items retain their IDs and explicit support levels',()=>{
- assert.equal(items.length,66);for(const i of items){const m=C.mapping(i);counts[m.level]++;assert.equal(m.itemId,i.id);assert(m.source&&m.license&&m.limitation);}
- assert.deepEqual(counts,{PRODUCT_BASED:0,APPROXIMATE:52,UNSUPPORTED:14});
+await test('owned items retain their IDs and explicit support levels',()=>{
+ assert.equal(items.length,manifest.itemCount);for(const i of items){const m=C.mapping(i);counts[m.level]++;assert.equal(m.itemId,i.id);assert(m.source&&m.license&&m.limitation);}
+ assert.deepEqual(counts,{PRODUCT_BASED:0,APPROXIMATE:64,UNSUPPORTED:16});
 });
 await test('every supported item builds finite volumetric geometry, both reversible faces',()=>{
  for(const i of items){const m=C.mapping(i);if(m.level==='UNSUPPORTED'){assert.throws(()=>garment(i));continue;}
@@ -36,17 +37,35 @@ await test('neutral mannequin stays present when independent garment layers are 
  const picks=['top','middle','outer','bottom','shoes'].map(slot=>items.find(i=>C.mapping(i).slot===slot&&C.mapping(i).templateId));
  const meshes=picks.map(i=>garment(i));meshes.forEach(g=>avatar.add(g));assert.equal(avatar.children.length,baseCount+5);disposeGroup(meshes[2]);assert.equal(avatar.children.length,baseCount+4);assert(avatar.children.includes(meshes[0]));disposeGroup(avatar);
 });
-await test('intro is reversible, door opens only during prescribed phase, end pose is safe',()=>{
- assert.equal(C.introPose(0).door,0);assert.equal(C.introPose(.45).door,1);assert.equal(C.introPose(-1).z,16);
- assert.deepEqual(C.introPose(.4),C.introPose(.4));assert.equal(C.introPose(1).z,5);
+await test('intro matches all four authored positions, lenses and door states',()=>{
+ for (const key of ENTRY_KEYS) {
+  const pose=C.introPose(key.progress), camera=CAMERAS[key.cameraId];
+  assert.deepEqual([pose.x,pose.y,pose.z],toWorld(camera.position));
+  assert.equal(pose.focalLengthMm,camera.focalLengthMm);
+  assert.equal(pose.door,Number(key.doorState==='open'));
+ }
+ assert.equal(C.introPose(-1).z,9.6);
  assert(Math.abs(C.introPose(.9999).z-C.introPose(1).z)<.002);
+ assert(canStand(C.introPose(1).x,C.introPose(1).z));
  assert.deepEqual(C.walk(C.introPose(1),0,0),C.introPose(1));
 });
 await test('swept collisions prevent delayed frames tunneling through furniture, walls and door',()=>{
- assert(C.walk({x:0,z:5},0,-100).z>1.3);assert(C.walk({x:0,z:5},100,0).x<7.5);
- assert(C.walk({x:0,z:7},0,2,[],false).z<=7.31);
- assert(C.walk({x:3,z:5},0,-30).z>=-7.4);
- const q=C.walk({x:0,z:5},2,-2);assert(q.x>1.9&&q.z<3.1,'free movement is not limited to zone anchors');
+ assert(C.walk({x:0,z:-2},0,-100).z>-4);
+ assert(C.walk({x:0,z:-2},100,0).x<5.78);
+ assert(C.walk({x:0,z:-1},0,2,[],false).z<=-.52);
+ assert(C.walk({x:3,z:-12},0,-3).z>-13);
+ for (const x of [-4,0,4]) assert(C.walk({x,z:-12},0,-2).z<=-14, 'the rear portal is walkable');
+ const q=C.walk({x:0,z:-2},2,-2);
+ assert(q.x>1.9&&q.z<-3.9,'free movement is not limited to zone anchors');
+ for (const zone of Object.values(C.ZONES)) assert(canStand(zone.position[0],zone.position[2]));
+});
+await test('scroll tour hands off without a jump and stays in the showroom aisle',()=>{
+ assert.deepEqual(tourPose(0),C.introPose(1));
+ for (let step=0;step<=1000;step++){
+  const {x,z}=tourPose(step/1000);
+  assert(canStand(x,z),`blocked tour at ${x}, ${z}`);
+ }
+ assert(Math.abs(tourPose(1).z+12.17)<.00001);
 });
 await test('last selected garment wins even if the previous request resolves late',async()=>{
  const l=new C.LatestSelection(),applied=[],discarded=[];let resolveOld;
@@ -62,6 +81,8 @@ await test('virtual save/restore uses a separate key and references, never image
  const data=new Map([['existing-records','untouched']]),storage={getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)},s=new C.SaveStore(storage);
  const look=C.snapshot(fit,fragrance,items,'local test');s.save(look);assert.equal(s.read()[0].fragrance,fragrance);assert.equal(data.get('existing-records'),'untouched');
  const raw=data.get(s.key);assert(!raw.includes('data:image'));assert(!raw.includes('wearCount'));assert.equal(s.import(raw).length,1);
+ const legacy={...look,modelVersion:'template-1'};
+ assert.deepEqual(C.parseSaves(JSON.stringify({schema:1,looks:[legacy]})),[legacy]);
  const second=C.snapshot(fit,null,items,'second');s.import(JSON.stringify({schema:1,looks:[second]}));assert.equal(s.read().length,2);
  const bad={...look,fit:{evil:{itemId:'x'}}};assert.throws(()=>s.import(JSON.stringify({schema:1,looks:[bad]})));assert.equal(s.read().length,2);
 });

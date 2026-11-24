@@ -1,0 +1,714 @@
+{
+  "version": 2,
+  "coordinateSystem": "Metres, design east/north/up maps to GLB x/y/z as X/Z/-Y",
+  "licenses": {
+    "storeAndTailoring": "Project-authored Blender geometry and materials derived from supplied MY FIT design references",
+    "avatarBase": "Innerscene MakeHuman-derived base, CC0. See tools/fitting/README.md"
+  },
+  "totalBytes": 18345634,
+  "assetCount": 89,
+  "assets": [
+    {
+      "path": "assets/fitting/mf_avatar_m01.glb",
+      "type": "glb",
+      "bytes": 689420,
+      "sha256": "e68af647090935b97b21cc64667b39e601e9d88a82a91d61a4b22ad7b652e4f6",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 49626,
+      "skins": 1,
+      "extensions": [
+        "KHR_draco_mesh_compression",
+        "KHR_materials_specular",
+        "KHR_texture_basisu"
+      ]
+    },
+    {
+      "path": "assets/fitting/mf_garment_coat_01.glb",
+      "type": "glb",
+      "bytes": 215728,
+      "sha256": "833d89310b2213156dfff8d87327ba7d96348f73f79e9ee1bf595f1ad57fa1cb",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 15200,
+      "skins": 1,
+      "extensions": [
+        "KHR_draco_mesh_compression",
+        "KHR_texture_basisu"
+      ]
+    },
+    {
+      "path": "assets/fitting/mf_garment_knit_01.glb",
+      "type": "glb",
+      "bytes": 203792,
+      "sha256": "2b8e4ff75f3918c542358c45eee7e991fc26874a2603c4f0345999c70f1d0c9f",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 12648,
+      "skins": 1,
+      "extensions": [
+        "KHR_draco_mesh_compression",
+        "KHR_texture_basisu"
+      ]
+    },
+    {
+      "path": "assets/fitting/mf_garment_shirt_01.glb",
+      "type": "glb",
+      "bytes": 218176,
+      "sha256": "27d613fdc49f34e6f516bcd3daf77a83b729604c7d82e562d512ec1d0154eba9",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 15520,
+      "skins": 1,
+      "extensions": [
+        "KHR_draco_mesh_compression",
+        "KHR_texture_basisu"
+      ]
+    },
+    {
+      "path": "assets/fitting/mf_garment_tee_01.glb",
+      "type": "glb",
+      "bytes": 180876,
+      "sha256": "a1bf01efe090dd6b54fa501e11533cf75f887e4f675443bb856df54103c4258f",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 10216,
+      "skins": 1,
+      "extensions": [
+        "KHR_draco_mesh_compression",
+        "KHR_texture_basisu"
+      ]
+    },
+    {
+      "path": "assets/fitting/mf_garment_trouser_01.glb",
+      "type": "glb",
+      "bytes": 176704,
+      "sha256": "e42e1aa680c501aa4d67d20cc1f692f1018104e01d20831b9258cdb40431327d",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 9720,
+      "skins": 1,
+      "extensions": [
+        "KHR_draco_mesh_compression",
+        "KHR_texture_basisu"
+      ]
+    },
+    {
+      "path": "assets/fitting/mf_shoe_derby_01.glb",
+      "type": "glb",
+      "bytes": 154772,
+      "sha256": "9ffeec9c4bbdcffe94c2f2e1f1c0e283251d66da3b2412db848c4c3a57c3830b",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 8544,
+      "skins": 1,
+      "extensions": [
+        "KHR_draco_mesh_compression",
+        "KHR_texture_basisu"
+      ]
+    },
+    {
+      "path": "production/materials/architecture-diffuse-bake.webp",
+      "type": "webp",
+      "bytes": 244724,
+      "sha256": "6bea1d6f6a32fd9ffea6985bc859c51d464c264756c51a9800ab3a92b2778905"
+    },
+    {
+      "path": "production/materials/bronze-base-mobile.webp",
+      "type": "webp",
+      "bytes": 35908,
+      "sha256": "bb4dcf9ec0903e2cc9b4ed6ea39512699c2098eb1fcfe296687a70ffb8e17938"
+    },
+    {
+      "path": "production/materials/bronze-base.ktx2",
+      "type": "ktx2",
+      "bytes": 139407,
+      "sha256": "0bf8b51a47d295c5067de158dcc6d7ffdfe6270b807633ab8650bf9eb1496c5f",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/bronze-base.webp",
+      "type": "webp",
+      "bytes": 53502,
+      "sha256": "b3a142a7b7bcef0daa6733f6a34c28364c6a4ee5dbf5e68a220c7e98687e450e"
+    },
+    {
+      "path": "production/materials/bronze-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 88340,
+      "sha256": "52e444c3c5e20bd64b551389cfce97645e7983dab712c764ce9ff82510574e9d"
+    },
+    {
+      "path": "production/materials/bronze-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 176184,
+      "sha256": "dacd8c8090f4d5fcb8049c5914fbc6df94047ed1d1ca8210eae68c2a52e409a4",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/bronze-normal.webp",
+      "type": "webp",
+      "bytes": 398766,
+      "sha256": "cf835f1a7ad412c9b5b0f4bb5618c7e8b8d0beca11b801d15c30c8a3a1e6edb7"
+    },
+    {
+      "path": "production/materials/bronze-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 40232,
+      "sha256": "b70cf50000f1e8cac0b97d038118797cf6c53e65cbd3bb992233187f97240ce6"
+    },
+    {
+      "path": "production/materials/bronze-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 36148,
+      "sha256": "ac1d7bdf808cda4c43a2823908d0306f462d854c80a98633f662f7b851ec2ccb",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/bronze-orm.webp",
+      "type": "webp",
+      "bytes": 148856,
+      "sha256": "27f5f146292d4e1655423886684e89b5aac82dfe5ac5948325d3cec99a7ca372"
+    },
+    {
+      "path": "production/materials/limestone-base-mobile.webp",
+      "type": "webp",
+      "bytes": 67060,
+      "sha256": "18cc99645b296ee38fee770c1de8c499c8dd5289735b7ca3619cb33d55948488"
+    },
+    {
+      "path": "production/materials/limestone-base.ktx2",
+      "type": "ktx2",
+      "bytes": 548936,
+      "sha256": "080bd54e70a40dd945721811aed0816d12238a0536123825065b825117de273f",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "production/materials/limestone-base.webp",
+      "type": "webp",
+      "bytes": 94420,
+      "sha256": "fa813300edb5cb573e23a449a6e95965a3f24b8bf63e5f114896172e093d50e8"
+    },
+    {
+      "path": "production/materials/limestone-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 136246,
+      "sha256": "e2b796fb3899e93b450ca33ec0a0465f6583f3e371952e5fd764f197a8db1eae"
+    },
+    {
+      "path": "production/materials/limestone-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 215265,
+      "sha256": "dda6382269d86f0829eeae4f5e85adda276c8889e81602a8e7f6d43c88a8699c",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/limestone-normal.webp",
+      "type": "webp",
+      "bytes": 556386,
+      "sha256": "02effa8a5a5377b77d0ec24aa6b69c92619823a7bd7bf1e4d0c96530dc0d0d2e"
+    },
+    {
+      "path": "production/materials/limestone-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 51990,
+      "sha256": "23f4cd8302812e55e6f1331ead3c14578663c88c26a2dc5d0fce7d809fdd3b87"
+    },
+    {
+      "path": "production/materials/limestone-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 80068,
+      "sha256": "47a1bade6402ccf7e257b5efac7a8596145544ff1e0f34937b25ceb7b0892d90",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/limestone-orm.webp",
+      "type": "webp",
+      "bytes": 193238,
+      "sha256": "bb2e6820f585524a9382adec7679246e0d7a7a9abdd57b55cdc45f878e7df3f4"
+    },
+    {
+      "path": "production/materials/linen-base-mobile.webp",
+      "type": "webp",
+      "bytes": 77200,
+      "sha256": "97c729c10110af28697cc9b64fba5aca03bfc47ba8022c0dc060b08bcc23b159"
+    },
+    {
+      "path": "production/materials/linen-base.ktx2",
+      "type": "ktx2",
+      "bytes": 187754,
+      "sha256": "277071e0d2327481b3d2149ffa9c3b6c9c3d6451c573de2f2aa48ac2ebd0b0cb",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/linen-base.webp",
+      "type": "webp",
+      "bytes": 105558,
+      "sha256": "f220f626451eea0eec7fdae42369e2e93ac53819ce810bb2a204e6e70b19bb0f"
+    },
+    {
+      "path": "production/materials/linen-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 133962,
+      "sha256": "9628c637b4e49a803f5a2acad91338b1ace09493c921570cbb85ca312bd9c59a"
+    },
+    {
+      "path": "production/materials/linen-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 239944,
+      "sha256": "bd6410bc2bce9e4df913d55380f1b28abfa091a0217106f76a7356c94f2489f4",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/linen-normal.webp",
+      "type": "webp",
+      "bytes": 616926,
+      "sha256": "a75bf4f849ac0c5a6aa8d117eb8675b8f4bf58a762c7ca17de315740840cb4cd"
+    },
+    {
+      "path": "production/materials/linen-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 67300,
+      "sha256": "d1098cd14a1b2303d49b2be5820470857c6cdeef917b9e604be5f6dfa1d9011e"
+    },
+    {
+      "path": "production/materials/linen-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 105865,
+      "sha256": "daaa334ed571aba7328db5f018f8dcadc1ebbfe63e041fcef61f51be8f3e4dda",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/linen-orm.webp",
+      "type": "webp",
+      "bytes": 228042,
+      "sha256": "7c112255a2ddda30df642488d2bfb57c4922d116515e366982179166ab4241df"
+    },
+    {
+      "path": "production/materials/oak-base-mobile.webp",
+      "type": "webp",
+      "bytes": 109274,
+      "sha256": "3001068750164658ef1e2dd5cb2e85bcd7a67b940a7fc88dbebfe9ee9d14253b"
+    },
+    {
+      "path": "production/materials/oak-base.ktx2",
+      "type": "ktx2",
+      "bytes": 682847,
+      "sha256": "3adcdf4a653adafd59c3446e4528379bcbd1659f85c78dfb95d24cb142b144a9",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "production/materials/oak-base.webp",
+      "type": "webp",
+      "bytes": 144266,
+      "sha256": "00842621314c9e028b23f4712c43734117c5be495ded7b4f50cc36122687ac71"
+    },
+    {
+      "path": "production/materials/oak-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 167056,
+      "sha256": "e1359e28723793adb0a2f357710e1d3d685c1d735da163c25b133b0d41862d2c"
+    },
+    {
+      "path": "production/materials/oak-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 243639,
+      "sha256": "362539039efc3c609e793be7d7e2e8c90e2e92661c1fbae529ffcb11bd6053e2",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/oak-normal.webp",
+      "type": "webp",
+      "bytes": 703290,
+      "sha256": "b2ef2dea10a230380e076dd04d0ef0f71e739dc11b9a7d9f68c13e52cd4c1293"
+    },
+    {
+      "path": "production/materials/oak-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 76154,
+      "sha256": "4b51b80dc24a229272ef2edfb33f307939c767ff8d406094c3594f70b38e9592"
+    },
+    {
+      "path": "production/materials/oak-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 102184,
+      "sha256": "0d612c6eafb0f4f167cf8450bb1263e75ec2186563e215b51e3eb2746161116e",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/oak-orm.webp",
+      "type": "webp",
+      "bytes": 279206,
+      "sha256": "0f2dcbc6dce66d53ab14c5b14e7524006d187da3bbc40c87f62485938123139c"
+    },
+    {
+      "path": "production/materials/olive-base-mobile.webp",
+      "type": "webp",
+      "bytes": 120928,
+      "sha256": "f68777c289670af15cfbfae0684e69195286fe17aa86bc9a05f963554015da5f"
+    },
+    {
+      "path": "production/materials/olive-base.ktx2",
+      "type": "ktx2",
+      "bytes": 181754,
+      "sha256": "57a1a41734b9914e14ef48964929d1eb76ef7bfc80b5ed2e1580428401674afd",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/olive-base.webp",
+      "type": "webp",
+      "bytes": 158624,
+      "sha256": "273bbe5da1d39df61c982192e04fd924ac28774a0ae143b318277a7616e35dbd"
+    },
+    {
+      "path": "production/materials/olive-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 179374,
+      "sha256": "16fd31e453a29d4d884f7c7e7a3be5b6287e5d94ba74562f051d5485bae0f1ee"
+    },
+    {
+      "path": "production/materials/olive-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 251469,
+      "sha256": "60763135d8c4aebebe907172ecc1c6c1738e753a44a2670e12a0d0e49b06453b",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/olive-normal.webp",
+      "type": "webp",
+      "bytes": 660862,
+      "sha256": "360d37a502399b39c171abca2a3aa8f3dc96dec3079a40baf08108688f52e615"
+    },
+    {
+      "path": "production/materials/olive-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 73798,
+      "sha256": "59e784b89f0b103c0b7cf4c9f4a1ede7a4fdd3ec007d0c7def852b4692ebcfc3"
+    },
+    {
+      "path": "production/materials/olive-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 105280,
+      "sha256": "3bf4342b77a63550d11d2c92a7945c9bc368578bddd68268d617cbef2a5b03e9",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/olive-orm.webp",
+      "type": "webp",
+      "bytes": 259060,
+      "sha256": "0070da6cfb85e1299a0119c66a01e9299ec8b1a0191d3ffd67c6a8cc514f48df"
+    },
+    {
+      "path": "production/materials/pavement-base-mobile.webp",
+      "type": "webp",
+      "bytes": 41664,
+      "sha256": "30aad0b37cb4a6d929c721c0384f4690531af34fbfdd23009496f3a01986ef9b"
+    },
+    {
+      "path": "production/materials/pavement-base.ktx2",
+      "type": "ktx2",
+      "bytes": 144690,
+      "sha256": "6bfb21235b27cce8b7282687db9628530ffc6c2b6821e908e85d35afb89de5fd",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/pavement-base.webp",
+      "type": "webp",
+      "bytes": 65158,
+      "sha256": "07c4ca6ccd69fd478e77d98086aecd59acedade0e89fecd731f50c01ed03acec"
+    },
+    {
+      "path": "production/materials/pavement-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 123506,
+      "sha256": "94220ad0f573c7fcbe7dcbcf2482c286f2ab30a2daa907b545a80ebe12814a07"
+    },
+    {
+      "path": "production/materials/pavement-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 202711,
+      "sha256": "3e8e68b453c06b5d035760a5afea922e564a70fcfb079fa961f06016012993fd",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/pavement-normal.webp",
+      "type": "webp",
+      "bytes": 514888,
+      "sha256": "8986c70432600aa74a085f1e204eb2c13d1ff131f934b525a4f0b280c266b9f0"
+    },
+    {
+      "path": "production/materials/pavement-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 47420,
+      "sha256": "c18a6953109b19a87ad9f4ed6b356f96a55cb03abc8808d7dff224109f8ab3e6"
+    },
+    {
+      "path": "production/materials/pavement-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 74557,
+      "sha256": "29da6b25e2ba61958c954a605ab7ada78c18451b8d6cabe496d567323e030534",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/pavement-orm.webp",
+      "type": "webp",
+      "bytes": 180904,
+      "sha256": "a0b0097ea213856a05a4853dec49174bbdebe8b625791478400d47ac7bc2113b"
+    },
+    {
+      "path": "production/materials/plaster-base-mobile.webp",
+      "type": "webp",
+      "bytes": 28686,
+      "sha256": "c68ff9c59c1e50b33fcb1612c3278a8f4c8c8f51ddcb034599882a71b3b0785b"
+    },
+    {
+      "path": "production/materials/plaster-base.ktx2",
+      "type": "ktx2",
+      "bytes": 432450,
+      "sha256": "b1492c37fe94e68f369e10a31a79126698f3b87e2ff3de60000a774f8c3ff41a",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "production/materials/plaster-base.webp",
+      "type": "webp",
+      "bytes": 50796,
+      "sha256": "2e87c8bbc412aa15734549404221263bf47a74be9034573f1c6221da2fa26486"
+    },
+    {
+      "path": "production/materials/plaster-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 92020,
+      "sha256": "e8c92c1a6dde9cd78fbaf332b9bbcc9f2fd7a1c590b4c06e17a70af3a96129d1"
+    },
+    {
+      "path": "production/materials/plaster-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 174197,
+      "sha256": "d656d02b820281336cd67df3d463270ff5be4d3f14661e06b4c78c02e3309f66",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/plaster-normal.webp",
+      "type": "webp",
+      "bytes": 422458,
+      "sha256": "94f541d4179f8d6f6f42216a7b7727aa597d727567e5b2ef0d945e1b591e7c81"
+    },
+    {
+      "path": "production/materials/plaster-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 36306,
+      "sha256": "3b31041ab8e13560bda3166a730e72679d1e7390757a25d7dad883d9d57365b2"
+    },
+    {
+      "path": "production/materials/plaster-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 78065,
+      "sha256": "04a1e45120f933f0cd42cf49486071d5e0bb299b5424fce58ced609ecfab9f9a",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/plaster-orm.webp",
+      "type": "webp",
+      "bytes": 153956,
+      "sha256": "1e505b7eb9af98d69832bb5053e694f67d4403b5ec4f4bbd7a400088b2f5efe1"
+    },
+    {
+      "path": "production/materials/store-diffuse-bake.webp",
+      "type": "webp",
+      "bytes": 30752,
+      "sha256": "fd85be5a28a7570e5da6ebc9be413eb4e6ac6e19d0dd8769827fe508a05e8177"
+    },
+    {
+      "path": "production/materials/walnut-base-mobile.webp",
+      "type": "webp",
+      "bytes": 96328,
+      "sha256": "7b673d4ab5553a24c975831876d28c2b8c05da79ea3c11a7f050c27a3ad89045"
+    },
+    {
+      "path": "production/materials/walnut-base.ktx2",
+      "type": "ktx2",
+      "bytes": 627535,
+      "sha256": "c25898db7209199a20cf6bf379ebec712e43bffdc472d5e0ce0adadc808b93d5",
+      "width": 2048,
+      "height": 2048,
+      "mips": 12
+    },
+    {
+      "path": "production/materials/walnut-base.webp",
+      "type": "webp",
+      "bytes": 125882,
+      "sha256": "630a02e6473befc6880d97cb9bcde057704fe7e13866b368c183e1c15ea53071"
+    },
+    {
+      "path": "production/materials/walnut-normal-mobile.webp",
+      "type": "webp",
+      "bytes": 156538,
+      "sha256": "545debf72adf3e2da679e6448d3712cc451e8b3e3f58c08f10f90798e52e8dff"
+    },
+    {
+      "path": "production/materials/walnut-normal.ktx2",
+      "type": "ktx2",
+      "bytes": 238093,
+      "sha256": "bc196d7925abd0de26ede8d05bd24b9c68f9da9556087f34d5775ee033f06258",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/walnut-normal.webp",
+      "type": "webp",
+      "bytes": 633014,
+      "sha256": "2693a6f1c78bc087900f7765155ace43476976652f97b503747ab5f7adbda815"
+    },
+    {
+      "path": "production/materials/walnut-orm-mobile.webp",
+      "type": "webp",
+      "bytes": 64492,
+      "sha256": "b044457d91a3bfd4a575858b02444208ea1f823d577f5376e18c00a1204c46d9"
+    },
+    {
+      "path": "production/materials/walnut-orm.ktx2",
+      "type": "ktx2",
+      "bytes": 97934,
+      "sha256": "8cf20ae2cd0b24dc93fdf2dafece71d4b559d25f5b1803941e0726bb7e800b4d",
+      "width": 1024,
+      "height": 1024,
+      "mips": 11
+    },
+    {
+      "path": "production/materials/walnut-orm.webp",
+      "type": "webp",
+      "bytes": 229754,
+      "sha256": "66e4de6cdb02b2dc42721361aa47411b2ee5cbf93943f3257d1040022454a02b"
+    },
+    {
+      "path": "production/mf_facade.glb",
+      "type": "glb",
+      "bytes": 120224,
+      "sha256": "242ce277b8d694bda7160de4691915622ff0256ed7a18c7153ebd880fbcb37f5",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 8944,
+      "skins": 0,
+      "extensions": [
+        "KHR_draco_mesh_compression"
+      ]
+    },
+    {
+      "path": "production/mf_fragrance_counter.glb",
+      "type": "glb",
+      "bytes": 16252,
+      "sha256": "ccf3865547415cedfe0bf4215c1df080d63c2f63d102af30f8af4b55e375ea1a",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 1456,
+      "skins": 0,
+      "extensions": [
+        "KHR_draco_mesh_compression"
+      ]
+    },
+    {
+      "path": "production/mf_fragrance_props.glb",
+      "type": "glb",
+      "bytes": 142012,
+      "sha256": "6a8ad266effc31089d2b1cb3da9a5913b7911300fd8553c0089cb5d20d9d4c32",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 14388,
+      "skins": 0,
+      "extensions": [
+        "KHR_draco_mesh_compression"
+      ]
+    },
+    {
+      "path": "production/mf_navmesh.glb",
+      "type": "glb",
+      "bytes": 547944,
+      "sha256": "1b778bbab16cb44fa3c71f9c7a2fdc82fbabc1e9d8b8ef38b2a03a6a500d63d2",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 29360,
+      "skins": 0,
+      "extensions": []
+    },
+    {
+      "path": "production/mf_room_consult.glb",
+      "type": "glb",
+      "bytes": 182504,
+      "sha256": "00c0fdafb308b8a34e2039c23b0b858a2760ed564e7475ae27425bff9eb19354",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 13016,
+      "skins": 0,
+      "extensions": [
+        "KHR_draco_mesh_compression"
+      ]
+    },
+    {
+      "path": "production/mf_room_fitting.glb",
+      "type": "glb",
+      "bytes": 28512,
+      "sha256": "d4d5f76ea17689bba64c2356dd33cb59cc2db54888dd8641fd26806ca3113db1",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 1872,
+      "skins": 0,
+      "extensions": [
+        "KHR_draco_mesh_compression"
+      ]
+    },
+    {
+      "path": "production/mf_room_ootd.glb",
+      "type": "glb",
+      "bytes": 18272,
+      "sha256": "42ed297c5f9ac34140354dcda0fc0825e96e9bac7a9ff4bb4b0c7ed75b518fa6",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 864,
+      "skins": 0,
+      "extensions": [
+        "KHR_draco_mesh_compression"
+      ]
+    },
+    {
+      "path": "production/mf_store_shell.glb",
+      "type": "glb",
+      "bytes": 718400,
+      "sha256": "b021d0f08fdc9b525b2d19b38ffe3c4d38624977c2a33beab510a3125a1de974",
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "triangles": 59312,
+      "skins": 0,
+      "extensions": [
+        "KHR_draco_mesh_compression"
+      ]
+    }
+  ]
+}

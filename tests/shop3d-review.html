@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>MY FIT · 로컬 3D 장면 검수</title>
+ <style>
+  html,body{height:100%;margin:0;overflow:hidden;background:#282018;color:#f6eddd;font:14px system-ui,sans-serif}
+  canvas{width:100%;height:100%;display:block}
+  button{font:inherit;min-height:44px;padding:7px 11px;color:#282018;background:#f3e6d3;border:1px solid #ae8760;border-radius:4px;cursor:pointer}
+  button:focus-visible,canvas:focus-visible{outline:2px solid #d39d62;outline-offset:-3px}
+  button[aria-current]{background:#4b3829;color:#fff4e1}
+  #review-panel{position:fixed;inset:12px 12px auto auto;width:min(350px,calc(100vw - 48px));max-height:calc(100dvh - 48px);overflow:auto;overscroll-behavior:contain;padding:14px;background:#2a2119ef;border:1px solid #a17c54;border-radius:5px}
+  h1{font-size:16px;margin:0 0 4px}p{font-size:12px;margin:5px 0 10px}
+  #review-views{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:7px 0}
+  #review-metrics{margin:10px 0 0;white-space:pre-wrap;font:11px/1.6 ui-monospace,monospace}
+  #review-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  #review-error{position:fixed;inset:0;display:grid;place-items:center;margin:0;padding:20px;background:#282018;color:#fff4e1;font-size:16px;text-align:center}
+  [hidden]{display:none!important}
+ </style>
+</head>
+<body data-ready="false">
+ <canvas id="review-canvas" tabindex="0" aria-label="MY FIT 3D 검수 장면"></canvas>
+ <p id="review-status" role="status">검수 장면을 준비하고 있어요.</p>
+ <section id="review-panel" aria-label="로컬 3D 검수 도구" hidden>
+  <h1>MY FIT · 3D 장면 검수</h1>
+  <p>장면을 선택하면 메뉴가 숨겨집니다. M 메뉴 · N 다음 · P 이전</p>
+  <div id="review-views"></div>
+  <button id="review-benchmark">2초 렌더링 측정</button>
+  <button id="review-hide">메뉴 숨기기</button>
+  <pre id="review-metrics"></pre>
+ </section>
+ <p id="review-error" role="alert" hidden></p>
+ <script type="module" src="./shop3d-review.mjs"></script>
+</body>
+</html>

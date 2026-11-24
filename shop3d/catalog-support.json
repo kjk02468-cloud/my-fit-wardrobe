@@ -1,6 +1,6 @@
 {
-  "version": "template-1",
-  "note": "Generated inventory audit; runtime maps current local items dynamically.",
+  "version": "template-2",
+  "note": "Inventory audit. Runtime maps the current browser wardrobe dynamically.",
   "counts": {
     "PRODUCT_BASED": 0,
     "APPROXIMATE": 52,
@@ -13,8 +13,8 @@
       "slot": "top",
       "garmentType": "hoodie",
       "templateId": "hoodie",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -30,7 +30,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -40,8 +40,8 @@
       "slot": "shoes",
       "garmentType": "derby",
       "templateId": "derby",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -57,7 +57,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -67,8 +67,8 @@
       "slot": "shoes",
       "garmentType": "chunky",
       "templateId": "chunky",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#e2dbc9",
       "sides": [
         "기본"
@@ -84,7 +84,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -94,8 +94,8 @@
       "slot": "shoes",
       "garmentType": "loafer",
       "templateId": "loafer",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#736050",
       "sides": [
         "기본"
@@ -111,7 +111,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -121,8 +121,8 @@
       "slot": "outer",
       "garmentType": "bomber",
       "templateId": "bomber",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -138,7 +138,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -148,8 +148,8 @@
       "slot": "accessory",
       "garmentType": "cap",
       "templateId": "cap",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -165,7 +165,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -175,8 +175,8 @@
       "slot": "outer",
       "garmentType": "coat",
       "templateId": "coat",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#c3b193",
       "sides": [
         "기본"
@@ -192,7 +192,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -202,8 +202,8 @@
       "slot": "outer",
       "garmentType": "blazer",
       "templateId": "blazer",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#736050",
       "sides": [
         "기본"
@@ -219,7 +219,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -229,8 +229,8 @@
       "slot": "shoes",
       "garmentType": "chunky",
       "templateId": "chunky",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -246,7 +246,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -256,8 +256,8 @@
       "slot": "outer",
       "garmentType": "jacket",
       "templateId": "jacket",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#26313f",
       "sides": [
         "기본"
@@ -273,7 +273,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -283,8 +283,8 @@
       "slot": "outer",
       "garmentType": "coat",
       "templateId": "coat",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#59604a",
       "sides": [
         "기본"
@@ -300,7 +300,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -310,8 +310,8 @@
       "slot": "outer",
       "garmentType": "jacket",
       "templateId": "jacket",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -327,7 +327,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -337,8 +337,8 @@
       "slot": "bottom",
       "garmentType": "wide",
       "templateId": "wide",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -354,7 +354,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -364,8 +364,8 @@
       "slot": "outer",
       "garmentType": "blazer",
       "templateId": "blazer",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#c3b193",
       "sides": [
         "기본"
@@ -381,7 +381,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -391,8 +391,8 @@
       "slot": "bottom",
       "garmentType": "wide",
       "templateId": "wide",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#c3b193",
       "sides": [
         "기본"
@@ -408,7 +408,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -418,8 +418,8 @@
       "slot": "outer",
       "garmentType": "jacket",
       "templateId": "jacket",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -435,7 +435,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -445,8 +445,8 @@
       "slot": "outer",
       "garmentType": "coat",
       "templateId": "coat",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -462,7 +462,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -472,8 +472,8 @@
       "slot": "outer",
       "garmentType": "coat",
       "templateId": "coat",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -489,7 +489,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -499,8 +499,8 @@
       "slot": "outer",
       "garmentType": "jacket",
       "templateId": "jacket",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -516,7 +516,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -526,8 +526,8 @@
       "slot": "outer",
       "garmentType": "blazer",
       "templateId": "blazer",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -543,7 +543,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -553,8 +553,8 @@
       "slot": "outer",
       "garmentType": "blazer",
       "templateId": "blazer",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#45464a",
       "sides": [
         "기본"
@@ -570,7 +570,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -580,8 +580,8 @@
       "slot": "bottom",
       "garmentType": "balloon",
       "templateId": "balloon",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#393332",
       "sides": [
         "기본"
@@ -597,7 +597,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -607,8 +607,8 @@
       "slot": "bottom",
       "garmentType": "wide",
       "templateId": "wide",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#736050",
       "sides": [
         "기본"
@@ -624,7 +624,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -634,8 +634,8 @@
       "slot": "bottom",
       "garmentType": "wide",
       "templateId": "wide",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#45464a",
       "sides": [
         "기본"
@@ -651,7 +651,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -661,8 +661,8 @@
       "slot": "outer",
       "garmentType": "jacket",
       "templateId": "jacket",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#45464a",
       "sides": [
         "데님 면",
@@ -679,7 +679,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -689,8 +689,8 @@
       "slot": "bottom",
       "garmentType": "straight",
       "templateId": "straight",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#45464a",
       "sides": [
         "기본"
@@ -706,7 +706,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -716,8 +716,8 @@
       "slot": "middle",
       "garmentType": "shirt",
       "templateId": "shirt",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#eeeae2",
       "sides": [
         "기본"
@@ -733,7 +733,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -743,8 +743,8 @@
       "slot": "eyewear",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -760,7 +760,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -770,8 +770,8 @@
       "slot": "eyewear",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -787,7 +787,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -797,8 +797,8 @@
       "slot": "accessory",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#949a9e",
       "sides": [
         "기본"
@@ -814,7 +814,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -824,8 +824,8 @@
       "slot": "accessory",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#949a9e",
       "sides": [
         "기본"
@@ -841,7 +841,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -851,8 +851,8 @@
       "slot": "accessory",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#456082",
       "sides": [
         "기본"
@@ -868,7 +868,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -878,8 +878,8 @@
       "slot": "middle",
       "garmentType": "knit",
       "templateId": "knit",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#c3b193",
       "sides": [
         "기본"
@@ -895,7 +895,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -905,8 +905,8 @@
       "slot": "top",
       "garmentType": "tee",
       "templateId": "tee",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#eeeae2",
       "sides": [
         "기본"
@@ -922,7 +922,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -932,8 +932,8 @@
       "slot": "accessory",
       "garmentType": "cap",
       "templateId": "cap",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -949,7 +949,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -959,8 +959,8 @@
       "slot": "middle",
       "garmentType": "knit",
       "templateId": "knit",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#456082",
       "sides": [
         "기본"
@@ -976,7 +976,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -986,8 +986,8 @@
       "slot": "bottom",
       "garmentType": "shorts",
       "templateId": "shorts",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#45464a",
       "sides": [
         "기본"
@@ -1003,7 +1003,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1013,8 +1013,8 @@
       "slot": "outer",
       "garmentType": "jacket",
       "templateId": "jacket",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -1030,7 +1030,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1040,8 +1040,8 @@
       "slot": "outer",
       "garmentType": "blazer",
       "templateId": "blazer",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#aaa9a4",
       "sides": [
         "기본"
@@ -1057,7 +1057,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1067,8 +1067,8 @@
       "slot": "bottom",
       "garmentType": "balloon",
       "templateId": "balloon",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#aaa9a4",
       "sides": [
         "기본"
@@ -1084,7 +1084,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1094,8 +1094,8 @@
       "slot": "accessory",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#aaa9a4",
       "sides": [
         "기본"
@@ -1111,7 +1111,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -1121,8 +1121,8 @@
       "slot": "middle",
       "garmentType": "shirt",
       "templateId": "shirt",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#eeeae2",
       "sides": [
         "기본"
@@ -1138,7 +1138,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1148,8 +1148,8 @@
       "slot": "middle",
       "garmentType": "knit",
       "templateId": "knit",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#aaa9a4",
       "sides": [
         "기본"
@@ -1165,7 +1165,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1175,8 +1175,8 @@
       "slot": "top",
       "garmentType": "longtee",
       "templateId": "longtee",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#aaa9a4",
       "sides": [
         "기본"
@@ -1192,7 +1192,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1202,8 +1202,8 @@
       "slot": "fragrance",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#b2a389",
       "sides": [
         "기본"
@@ -1219,7 +1219,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
     },
@@ -1229,8 +1229,8 @@
       "slot": "fragrance",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#b2a389",
       "sides": [
         "기본"
@@ -1246,7 +1246,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
     },
@@ -1256,8 +1256,8 @@
       "slot": "fragrance",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#b2a389",
       "sides": [
         "기본"
@@ -1273,7 +1273,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
     },
@@ -1283,8 +1283,8 @@
       "slot": "bag",
       "garmentType": "tote",
       "templateId": "tote",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -1300,7 +1300,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1310,8 +1310,8 @@
       "slot": "shoes",
       "garmentType": "sneaker",
       "templateId": "sneaker",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#d8a83e",
       "sides": [
         "기본"
@@ -1327,7 +1327,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1337,8 +1337,8 @@
       "slot": "top",
       "garmentType": "tee",
       "templateId": "tee",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#e2dbc9",
       "sides": [
         "기본"
@@ -1354,7 +1354,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1364,8 +1364,8 @@
       "slot": "top",
       "garmentType": "tee",
       "templateId": "tee",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#45464a",
       "sides": [
         "기본"
@@ -1381,7 +1381,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1391,8 +1391,8 @@
       "slot": "top",
       "garmentType": "hoodie",
       "templateId": "hoodie",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#aaa9a4",
       "sides": [
         "기본"
@@ -1408,7 +1408,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1418,8 +1418,8 @@
       "slot": "top",
       "garmentType": "tee",
       "templateId": "tee",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#c68d9b",
       "sides": [
         "기본"
@@ -1435,7 +1435,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1445,8 +1445,8 @@
       "slot": "accessory",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -1462,7 +1462,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -1472,8 +1472,8 @@
       "slot": "fragrance",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#b2a389",
       "sides": [
         "기본"
@@ -1489,7 +1489,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
     },
@@ -1499,8 +1499,8 @@
       "slot": "middle",
       "garmentType": "vest",
       "templateId": "vest",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#594166",
       "sides": [
         "기본"
@@ -1516,7 +1516,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1526,8 +1526,8 @@
       "slot": "shoes",
       "garmentType": "chunky",
       "templateId": "chunky",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#949a9e",
       "sides": [
         "기본"
@@ -1543,7 +1543,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1553,8 +1553,8 @@
       "slot": "shoes",
       "garmentType": "sneaker",
       "templateId": "sneaker",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#59604a",
       "sides": [
         "기본"
@@ -1570,7 +1570,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1580,8 +1580,8 @@
       "slot": "fragrance",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#b2a389",
       "sides": [
         "기본"
@@ -1597,7 +1597,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
     },
@@ -1607,8 +1607,8 @@
       "slot": "bag",
       "garmentType": "backpack",
       "templateId": "backpack",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -1624,7 +1624,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1634,8 +1634,8 @@
       "slot": "middle",
       "garmentType": "shirt",
       "templateId": "shirt",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#736050",
       "sides": [
         "기본"
@@ -1651,7 +1651,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1661,8 +1661,8 @@
       "slot": "middle",
       "garmentType": "shirt",
       "templateId": "shirt",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -1678,7 +1678,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1688,8 +1688,8 @@
       "slot": "accessory",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#949a9e",
       "sides": [
         "기본"
@@ -1705,7 +1705,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "3D 착용 미지원 · 상품 사진과 상세는 이용할 수 있어요."
     },
@@ -1715,8 +1715,8 @@
       "slot": "fragrance",
       "garmentType": "unsupported",
       "templateId": null,
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#b2a389",
       "sides": [
         "기본"
@@ -1732,7 +1732,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "향수는 코디 정보로만 연결해요. 병은 일반형 전시 모델이에요."
     },
@@ -1742,8 +1742,8 @@
       "slot": "bottom",
       "garmentType": "wide",
       "templateId": "wide",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -1759,7 +1759,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     },
@@ -1769,8 +1769,8 @@
       "slot": "bag",
       "garmentType": "tote",
       "templateId": "tote",
-      "modelVersion": "template-1",
-      "body": "neutral-adult-male-fixed-pose",
+      "modelVersion": "template-2",
+      "body": "neutral-adult-male-181cm-rig",
       "color": "#202024",
       "sides": [
         "기본"
@@ -1786,7 +1786,7 @@
         "bag",
         "accessory"
       ],
-      "source": "MY FIT procedural templates",
+      "source": "MY FIT Blender assets and authored templates",
       "license": "project-authored",
       "limitation": "유사 실루엣 · 고정 포즈 · 로고/패턴/실측 핏과 원단 움직임은 재현하지 않아요."
     }

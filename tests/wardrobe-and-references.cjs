@@ -2,7 +2,7 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),asse
 const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const manifest=JSON.parse(read('published-closet.json')),chunks=manifest.dataFiles.map(p=>JSON.parse(read(p.path))),items=chunks.flatMap(p=>p.items);
 const E=require('../style-reference-engine.js'),catalog=E.parseLibrary(read('style-references.json'));
-assert.equal(items.length,66);assert.equal(manifest.itemCount,66);assert.equal(items.reduce((n,i)=>n+Number(Boolean(i.image))+i.additionalImages.length,0),191);assert.equal(new Set(items.map(i=>i.id)).size,66);
+assert.equal(items.length,manifest.itemCount);assert.equal(items.reduce((n,i)=>n+Number(Boolean(i.image))+i.additionalImages.length,0),manifest.photoCount);assert.equal(new Set(items.map(i=>i.id)).size,items.length);
 assert.equal(chunks[0].items.length,19);assert.equal(chunks[1].items.length,6);assert(fs.statSync(path.join(root,manifest.dataFiles[1].path)).size<10000);
 for(const item of items){assert(item.aiEdited||item.photoStatus==='pending');assert(item.additionalImages.length<=8);assert.equal(item.photoLabels.length,item.additionalImages.length+Number(Boolean(item.image)));for(const image of [item.image,...item.additionalImages].filter(Boolean)){if(image.startsWith('./assets/'))assert(fs.existsSync(path.join(root,image)));else assert(image.startsWith('data:image/'))}}
 const reversible=items.find(i=>i.id.endsWith('balenciaga-reversible'));assert.equal(reversible.photoLabels.filter(s=>s.startsWith('AI 보정')).length,2);assert.equal(items.filter(i=>i.name.includes('언더아머')).length,1);
@@ -16,15 +16,27 @@ const nodes=new Map(),inputs={'#stylist-purpose':{value:'date'},'#stylist-destin
 const query=selector=>{if(inputs[selector])return inputs[selector];if(!nodes.has(selector))nodes.set(selector,{textContent:'',hidden:false,classList:{add(){},remove(){}},removeAttribute(n){delete this[n]}});return nodes.get(selector)};
 const records=new Map(),calls=[];let offline=false,serverManifest=structuredClone(manifest);
 const ctx={window:{MyFitReferences:E},document:{querySelector:query,activeElement:null},Intl,Date,URL,Set,Map,Blob,TextEncoder,AbortController,AbortSignal,setTimeout,clearTimeout,console:{warn(){}},FileReader:class {async readAsDataURL(blob){this.result='data:image/webp;base64,'+Buffer.from(await blob.arrayBuffer()).toString('base64');this.onload()}},fetch:async url=>{calls.push(url);if(offline)throw Error('offline');const file=url==='./published-closet.json'?JSON.stringify(serverManifest):url.startsWith('./style-references.json')?read('style-references.json'):url.endsWith('.webp')?fs.readFileSync(path.join(root,url)):read(url);return {ok:true,headers:{get:()=>String(Buffer.byteLength(file))},json:async()=>JSON.parse(file),text:async()=>String(file),arrayBuffer:async()=>file,blob:async()=>new Blob([file],{type:'image/webp'})}}};
-let code=read('app.js').replace(/ init\(\)\.catch\([^\n]+\);/,'').replace(/\}\)\(\);\s*$/,`globalThis.api={loadStyleReferences,loadPublishedCloset,portableBackupItems,makeRecommendations,referencePanel,renderItemDetail,changeItemPhoto,normalizeItem,mergePublishedItemMedia,hidePublishedItem,setItems(v){items=v},getItems(){return items},setLibrary(v){styleLibrary=v},getLibrary(){return styleLibrary},setDetail(v){detailItemId=v;detailPhotoIndex=0},status(){return publishedStatus},setStore(v){dbReq=v}};})();`);
+let code=read('app.js').replace(/ init\(\)\.catch\([^\n]+\);/,'').replace(/\}\)\(\);\s*$/,`globalThis.api={loadStyleReferences,loadPublishedCloset,portableBackupItems,makeRecommendations,referencePanel,renderItemDetail,changeItemPhoto,normalizeItem,outerLength,matchesClosetFilter,mergePublishedItemMedia,hidePublishedItem,setItems(v){items=v},getItems(){return items},setLibrary(v){styleLibrary=v},getLibrary(){return styleLibrary},setDetail(v){detailItemId=v;detailPhotoIndex=0},status(){return publishedStatus},setStore(v){dbReq=v}};})();`);
 vm.createContext(ctx);vm.runInContext(code,ctx);const a=ctx.api;
 a.setStore(async(store,method,arg)=>{const key=store+':'+(typeof arg==='string'?arg:arg?.id);if(method==='get')return structuredClone(records.get(key));if(method==='put')records.set(key,structuredClone(arg))});
 (async()=>{
+ const outerwear=items.filter(i=>i.cat==='outer');
+ const longCoats=outerwear.filter(i=>a.matchesClosetFilter(i,'outer-long'));
+ assert.deepEqual(longCoats.map(i=>i.id.split('-').at(-1)).sort(),['balmacaan','beltedcoat','stucoat','trench']);
+ assert.equal(items.filter(i=>a.matchesClosetFilter(i,'outer-short')).length,outerwear.length-longCoats.length);
+ assert.equal(items.filter(i=>a.matchesClosetFilter(i,'outer')).length,outerwear.length);
+ assert.equal(a.outerLength({name:'숏 울 코트'}),'short');
+ assert.equal(a.outerLength({name:'Long Down Jacket'}),'long');
+ const adjusted=a.normalizeItem({...longCoats[0],outerLength:'short'});
+ assert.equal(adjusted.cat,'outer');assert.equal(a.outerLength(adjusted),'short');
+ assert.equal(a.matchesClosetFilter({...adjusted,cat:'top'},'outer-short'),false);
+ assert.equal((await a.portableBackupItems([{...adjusted,image:'',additionalImages:[]}]))[0].outerLength,'short');
+ calls.length=0;
  await a.loadStyleReferences();assert.equal(a.getLibrary().length,40);calls.length=0;
- await a.loadPublishedCloset();assert.equal(a.getItems().length,66);assert.equal(a.status(),'live');assert.equal(calls.length,5);
- calls.length=0;a.setItems([]);await a.loadPublishedCloset();assert.equal(calls.length,1);assert.equal(a.getItems().length,66);
+ await a.loadPublishedCloset();assert.equal(a.getItems().length,manifest.itemCount);assert.equal(a.status(),'live');assert.equal(calls.length,manifest.dataFiles.length+1);
+ calls.length=0;a.setItems([]);await a.loadPublishedCloset();assert.equal(calls.length,1);assert.equal(a.getItems().length,manifest.itemCount);
  const local={...items[0],name:'내가 수정한 이름'};a.setItems([local]);await a.loadPublishedCloset();assert.equal(a.getItems().find(i=>i.id===local.id).name,local.name);
- offline=true;a.setItems([]);await a.loadPublishedCloset();assert.equal(a.status(),'cached');assert.equal(a.getItems().length,66);offline=false;
+ offline=true;a.setItems([]);await a.loadPublishedCloset();assert.equal(a.status(),'cached');assert.equal(a.getItems().length,manifest.itemCount);offline=false;
  calls.length=0;serverManifest={...manifest,dataFiles:[{path:'https://evil.invalid/wardrobe.json',revision:manifest.revision}]};await a.loadPublishedCloset();assert.equal(a.status(),'cached');assert.deepEqual(calls,['./published-closet.json']);serverManifest=manifest;
  a.setItems(items);const recs=a.makeRecommendations();assert.equal(recs.length,3);for(const rec of recs){assert.equal(rec.missing.length,0);assert(rec.items.every(i=>items.some(owned=>owned.id===i.id)));assert.equal(new Set(rec.items.map(i=>i.cat)).size,rec.items.length);assert(rec.referenceMatches.length>0);assert(rec.referenceMatches.every(r=>r.matched.length>=2));assert(a.referencePanel(rec).includes('data-reference-image'))}
  assert.equal(new Set(recs.map(r=>r.referenceMatches[0].reference.imageUrl)).size,3);
@@ -32,5 +44,5 @@ a.setStore(async(store,method,arg)=>{const key=store+':'+(typeof arg==='string'?
  a.setDetail(reversible.id);a.renderItemDetail();a.changeItemPhoto(1);assert(nodes.get('#item-detail-provenance').textContent.startsWith('AI 보정'));assert.equal(nodes.get('#item-detail-image').src,reversible.additionalImages[0]);a.changeItemPhoto(2);assert(!nodes.get('#item-detail-provenance').textContent.startsWith('AI 보정'));
  calls.length=0;const portable=await a.portableBackupItems(items);assert(portable.every(i=>[i.image,...i.additionalImages].filter(Boolean).every(p=>p.startsWith('data:image/'))));assert(calls.every(u=>u.startsWith('./assets/')),'Reference photos never enter backups');assert.equal(portable.find(i=>i.id===reversible.id).photoLabels[1],'AI 보정 · 바람막이 면');
  a.setLibrary([]);assert.equal(a.makeRecommendations().length,3);offline=true;await a.loadStyleReferences();assert.equal(a.getLibrary().length,0);
- console.log('PASS: 66 items / 191 photos; incremental load, cache/offline, local edit preservation, portable photo backups, one reversible garment with two AI views; 40 metadata-only references, whole-outfit match, image diversity, URL/size bounds and catalog failure fallback.');
+ console.log(`PASS: ${manifest.itemCount} items / ${manifest.photoCount} photos; incremental load, cache/offline, local edit preservation, portable photo backups, one reversible garment with two AI views; 40 metadata-only references, whole-outfit match, image diversity, URL/size bounds and catalog failure fallback.`);
 })().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "figureView": "neck-down",
+  "looks": [
+    {
+      "id": "edit-61",
+      "title": "시티보이 · 웜그레이 크롭과 브라운 와이드 데님",
+      "group": "daily",
+      "reason": "기장이 짧은 웜그레이 블레이저 아래로 넓은 데님 라인을 길게 살렸어요. 선명한 블루 카라 니트가 브라운 워싱과 대비되고, 996의 올리브 컬러가 워싱과 어울려요.",
+      "tip": "재킷은 열고 가디건은 가운데 단추를 잠가 카라를 드러내세요. 넓은 데님 밑단은 996 위에 자연스럽게 한 번 접히도록 정리하세요.",
+      "season": "봄·가을",
+      "seasonKey": "spring-fall",
+      "pieces": [
+        {
+          "id": "item-20261103-ceindre-blazer",
+          "name": "세인드 와이드 라펠 크롭 블레이저 웜그레이 Free",
+          "brand": "CEINDRE",
+          "cat": "outer",
+          "color": "gray",
+          "imageKey": "aac15fd6"
+        },
+        {
+          "id": "item-20261103-noco-cardigan",
+          "name": "애즈클로 스카시 카라 가디건 블루",
+          "brand": "ASCLO",
+          "cat": "top",
+          "color": "blue",
+          "imageKey": "e9e9a298"
+        },
+        {
+          "id": "item-20261102-yournus-balloon",
+          "name": "어쿠 블렌디드 빈티지 데미지 워싱 와이드 데님 팬츠 브라운",
+          "brand": "어쿠 / ACOU",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "f8f2636f"
+        },
+        {
+          "id": "item-20261103-nb996",
+          "name": "뉴발란스 996 그레이 올리브",
+          "brand": "New Balance",
+          "cat": "shoes",
+          "color": "green",
+          "imageKey": "fc462001"
+        }
+      ],
+      "addons": [],
+      "fragrance": "item-20261103-le-labo",
+      "image": "./assets/curated-look-61-neckdown-v4.webp"
+    },
+    {
+      "id": "edit-62",
+      "title": "빈티지 레더 · 네이비 재킷과 커브 슬랙스",
+      "group": "date",
+      "reason": "포켓이 큼직한 사슴가죽 재킷에 매끈하게 떨어지는 웜그레이 슬랙스를 붙였어요. 바지의 부드러운 곡선이 재킷의 단단한 인상을 풀어주고, 검정 1461이 밑단의 볼륨을 받아줘요.",
+      "tip": "재킷을 열어 안쪽 회색 티가 손바닥 폭 정도 보이게 입으세요. 슬랙스의 옆 턱이 펴지도록 상의 밑단을 허리 근처에서 정리해보세요.",
+      "season": "봄·가을",
+      "seasonKey": "spring-fall",
+      "pieces": [
+        {
+          "id": "item-20261025-01-leather",
+          "name": "우영미 21FW 사슴가죽 자켓 네이비 (48)",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "outer",
+          "color": "navy",
+          "imageKey": "4ea007cb"
+        },
+        {
+          "id": "item-20261103-woo",
+          "name": "우영미 22FW 백로고 긴팔 티셔츠 그레이",
+          "brand": "WOOYOUNGMI",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "c6d8e21c"
+        },
+        {
+          "id": "item-20261103-ceindre-pants",
+          "name": "세인드 사이드 턱 와이드 커브 슬랙스 웜그레이 L",
+          "brand": "CEINDRE",
+          "cat": "bottom",
+          "color": "gray",
+          "imageKey": "2d1b37f8"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [],
+      "fragrance": "item-20261103-haystacks",
+      "image": "./assets/curated-look-62-neckdown-v3.webp"
+    },
+    {
+      "id": "edit-63",
+      "title": "도심 고프코어 · 오트밀 후드와 실버 샥스",
+      "group": "street",
+      "reason": "바람막이의 테이프와 팬츠 지퍼의 곡선이 이어지는 조합이에요. 중앙에 오트밀 후드를 살짝 드러내 검정 레이어가 분리되게 하고, 샥스의 실버 패널로 발끝을 밝히세요.",
+      "tip": "바람막이 지퍼를 열고 오트밀 후드만 목 뒤로 빼주세요. 바지 밑단은 신발 앞코와 뒤축의 샥스 기둥이 보이는 정도로 올려 입어보세요.",
+      "season": "봄·가을",
+      "seasonKey": "spring-fall",
+      "pieces": [
+        {
+          "id": "item-20261029-12-supreme",
+          "name": "슈프림 x 노스페이스 서밋 아우터 테이프 심 자켓 블랙",
+          "brand": "Supreme x The North Face",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "edae4d4d"
+        },
+        {
+          "id": "item-20261103-iab",
+          "name": "아이앱 스튜디오 로고 후드 오트밀",
+          "brand": "IAB STUDIO",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "d71df125"
+        },
+        {
+          "id": "item-20261029-13-legion",
+          "name": "언더마이카 리전 01 트위스트 지퍼 라인 테이핑 팬츠 블랙 올리브",
+          "brand": "UNDERMYCAR",
+          "cat": "bottom",
+          "color": "black",
+          "imageKey": "37ac306b"
+        },
+        {
+          "id": "item-20261103-shox",
+          "name": "나이키 샥스 R4 블랙 메탈릭 실버",
+          "brand": "NIKE",
+          "cat": "shoes",
+          "color": "silver",
+          "imageKey": "cc82d905"
+        }
+      ],
+      "addons": [],
+      "fragrance": "item-20261103-wood-salt",
+      "image": "./assets/curated-look-63-neckdown-v3.webp"
+    },
+    {
+      "id": "edit-64",
+      "title": "브라운 프레피 · 블레이저와 롱 데님",
+      "group": "date",
+      "reason": "다크브라운 COS 블레이저와 브라운 롱 데님을 같은 계열로 묶었어요. 재킷의 매끈한 표면과 데님의 워싱으로 층이 생기고, 흰 셔츠가 라펠 사이를 밝게 열어줘요.",
+      "tip": "셔츠 맨 위 단추를 풀고 앞자락만 가볍게 넣어보세요. 블레이저는 열고, 데님 밑단은 더비 위에 한 번만 접히도록 정리하면 좋아요.",
+      "season": "봄·가을",
+      "seasonKey": "spring-fall",
+      "pieces": [
+        {
+          "id": "item-20261025-03-blazer",
+          "name": "COS 릴렉스드 히든 투 버튼 블레이저 다크브라운 (48)",
+          "brand": "COS / 코스",
+          "cat": "outer",
+          "color": "brown",
+          "imageKey": "ce1a7589"
+        },
+        {
+          "id": "item-20261103-ceindre-shirt",
+          "name": "세인드 소프트 히든 포켓 루즈핏 셔츠 화이트 Free",
+          "brand": "CEINDRE",
+          "cat": "top",
+          "color": "white",
+          "imageKey": "f59ce85e"
+        },
+        {
+          "id": "item-20261102-hecommends",
+          "name": "헤코멘즈 롱 와이드 브라운 데님 팬츠",
+          "brand": "HECOMMENDS",
+          "cat": "bottom",
+          "color": "brown",
+          "imageKey": "087091db"
+        },
+        {
+          "id": "item-20261025-09-drmartens",
+          "name": "닥터마틴 1461 3홀 블랙 나파 (11838001)",
+          "brand": "DR. MARTENS / 닥터마틴",
+          "cat": "shoes",
+          "color": "black",
+          "imageKey": "12e8d8a8"
+        }
+      ],
+      "addons": [],
+      "fragrance": "item-20261103-tamdao",
+      "image": "./assets/curated-look-64-neckdown-v3.webp"
+    },
+    {
+      "id": "edit-65",
+      "title": "볼륨 스트리트 · 블랙 MA-1과 옐로 나이키크래프트",
+      "group": "street",
+      "reason": "짧은 MA-1의 둥근 어깨와 넓게 떨어지는 흑청의 볼륨을 이어줬어요. 라이트그레이 쿼터집으로 가슴 쪽을 밝히고, 나이키크래프트의 옐로를 포인트로 잡았어요.",
+      "tip": "MA-1은 열고 니트 지퍼는 중간까지만 내려주세요. 흑청 밑단이 신발 끈 부분에 가볍게 닿도록 두면 옐로 앞코가 충분히 보여요.",
+      "season": "봄·가을",
+      "seasonKey": "spring-fall",
+      "pieces": [
+        {
+          "id": "item-20261025-06-ma1",
+          "name": "우영미 백로고 MA-1 블랙",
+          "brand": "WOOYOUNGMI / 우영미",
+          "cat": "outer",
+          "color": "black",
+          "imageKey": "1e949c8c"
+        },
+        {
+          "id": "item-20261103-polo",
+          "name": "폴로 랄프로렌 쿼터집 니트 라이트 그레이",
+          "brand": "Polo Ralph Lauren",
+          "cat": "top",
+          "color": "gray",
+          "imageKey": "b03f8b0d"
+        },
+        {
+          "id": "item-20261102-photo-denim",
+          "name": "브랜드 미상 워싱 와이드 데님 흑청",
+          "brand": "브랜드 미상",
+          "cat": "bottom",
+          "color": "charcoal",
+          "imageKey": "3584e242"
+        },
+        {
+          "id": "item-20261103-nike",
+          "name": "나이키크래프트 제너럴 퍼포즈 슈 아카이브",
+          "brand": "NikeCraft",
+          "cat": "shoes",
+          "color": "yellow",
+          "imageKey": "ed6a9d46"
+        }
+      ],
+      "addons": [],
+      "fragrance": "item-20261103-bibiang",
+      "image": "./assets/curated-look-65-neckdown-v3.webp"
+    }
+  ]
+}

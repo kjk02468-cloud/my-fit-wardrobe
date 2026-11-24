@@ -1,0 +1,195 @@
+{
+  "oak": {
+    "tileMetres": 1.42,
+    "resolution": 2048,
+    "base": "oak-base.webp",
+    "normal": "oak-normal.webp",
+    "orm": "oak-orm.webp",
+    "referencePlate": "11_material/mf_11_oak_herringbone.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "oak-base.ktx2",
+      "normal": "oak-normal.ktx2",
+      "orm": "oak-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 2048,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "architectureBake": "architecture-diffuse-bake.webp",
+    "mobile": {
+      "base": "oak-base-mobile.webp",
+      "normal": "oak-normal-mobile.webp",
+      "orm": "oak-orm-mobile.webp"
+    }
+  },
+  "walnut": {
+    "tileMetres": 1.07,
+    "resolution": 2048,
+    "base": "walnut-base.webp",
+    "normal": "walnut-normal.webp",
+    "orm": "walnut-orm.webp",
+    "referencePlate": "11_material/mf_11_walnut.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "walnut-base.ktx2",
+      "normal": "walnut-normal.ktx2",
+      "orm": "walnut-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 2048,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "mobile": {
+      "base": "walnut-base-mobile.webp",
+      "normal": "walnut-normal-mobile.webp",
+      "orm": "walnut-orm-mobile.webp"
+    }
+  },
+  "limestone": {
+    "tileMetres": 1.52,
+    "resolution": 2048,
+    "base": "limestone-base.webp",
+    "normal": "limestone-normal.webp",
+    "orm": "limestone-orm.webp",
+    "referencePlate": "11_material/mf_11_limestone.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "limestone-base.ktx2",
+      "normal": "limestone-normal.ktx2",
+      "orm": "limestone-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 2048,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "mobile": {
+      "base": "limestone-base-mobile.webp",
+      "normal": "limestone-normal-mobile.webp",
+      "orm": "limestone-orm-mobile.webp"
+    }
+  },
+  "plaster": {
+    "tileMetres": 2.29,
+    "resolution": 2048,
+    "base": "plaster-base.webp",
+    "normal": "plaster-normal.webp",
+    "orm": "plaster-orm.webp",
+    "referencePlate": "11_material/mf_11_plaster.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "plaster-base.ktx2",
+      "normal": "plaster-normal.ktx2",
+      "orm": "plaster-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 2048,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "mobile": {
+      "base": "plaster-base-mobile.webp",
+      "normal": "plaster-normal-mobile.webp",
+      "orm": "plaster-orm-mobile.webp"
+    }
+  },
+  "pavement": {
+    "tileMetres": 1.38,
+    "resolution": 2048,
+    "base": "pavement-base.webp",
+    "normal": "pavement-normal.webp",
+    "orm": "pavement-orm.webp",
+    "referencePlate": "11_material/mf_11_limestone.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "pavement-base.ktx2",
+      "normal": "pavement-normal.ktx2",
+      "orm": "pavement-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 1024,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "mobile": {
+      "base": "pavement-base-mobile.webp",
+      "normal": "pavement-normal-mobile.webp",
+      "orm": "pavement-orm-mobile.webp"
+    }
+  },
+  "bronze": {
+    "tileMetres": 0.61,
+    "resolution": 2048,
+    "base": "bronze-base.webp",
+    "normal": "bronze-normal.webp",
+    "orm": "bronze-orm.webp",
+    "referencePlate": "11_material/mf_11_bronze.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "bronze-base.ktx2",
+      "normal": "bronze-normal.ktx2",
+      "orm": "bronze-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 1024,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "mobile": {
+      "base": "bronze-base-mobile.webp",
+      "normal": "bronze-normal-mobile.webp",
+      "orm": "bronze-orm-mobile.webp"
+    }
+  },
+  "olive": {
+    "tileMetres": 0.54,
+    "resolution": 2048,
+    "base": "olive-base.webp",
+    "normal": "olive-normal.webp",
+    "orm": "olive-orm.webp",
+    "referencePlate": "11_material/mf_11_olive_leather.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "olive-base.ktx2",
+      "normal": "olive-normal.ktx2",
+      "orm": "olive-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 1024,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "mobile": {
+      "base": "olive-base-mobile.webp",
+      "normal": "olive-normal-mobile.webp",
+      "orm": "olive-orm-mobile.webp"
+    }
+  },
+  "linen": {
+    "tileMetres": 0.26,
+    "resolution": 2048,
+    "base": "linen-base.webp",
+    "normal": "linen-normal.webp",
+    "orm": "linen-orm.webp",
+    "referencePlate": "11_material/mf_11_merino.png",
+    "referenceProcessing": "center crop, broad light removal, color normalization, seamless edges, inferred normal/ORM",
+    "ktx2": {
+      "base": "linen-base.ktx2",
+      "normal": "linen-normal.ktx2",
+      "orm": "linen-orm.ktx2"
+    },
+    "ktx2Resolution": {
+      "base": 1024,
+      "normal": 1024,
+      "orm": 1024
+    },
+    "mobile": {
+      "base": "linen-base-mobile.webp",
+      "normal": "linen-normal-mobile.webp",
+      "orm": "linen-orm-mobile.webp"
+    }
+  }
+}

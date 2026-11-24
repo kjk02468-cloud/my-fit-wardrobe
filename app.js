@@ -6,7 +6,22 @@
  const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
  const S = (value='') => String(value ?? '').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const categories = {all:'전체', top:'상의', bottom:'하의', outer:'아우터', shoes:'신발', bag:'가방', eyewear:'아이웨어', accessory:'액세서리', fragrance:'향수'};
- const colors = {black:'블랙', brown:'브라운', beige:'베이지', cream:'크림', charcoal:'차콜', navy:'네이비', blue:'블루', white:'화이트', green:'그린', silver:'실버', gray:'그레이', yellow:'옐로', pink:'핑크', purple:'퍼플', other:'기타'};
+ const outerLabels={'outer-short':'숏 아우터','outer-long':'롱 아우터'};
+ const closetFilters={...categories,outer:'아우터 전체'};
+ const filterEntries=Object.entries(closetFilters).flatMap(entry=>entry[0]==='outer'?[entry,...Object.entries(outerLabels)]:[entry]);
+ const validOuterLength=value=>value==='short'||value==='long';
+ function outerLength(item){
+  if(validOuterLength(item.outerLength))return item.outerLength;
+  const name=item.name||'';
+  if(/숏|크롭|\bshort\b|\bcropped\b/i.test(name))return 'short';
+  return /코트|트렌치|발마칸|롱\s*(?:아우터|패딩|다운|자켓|재킷)|\b(?:overcoat|coat|trench|balmacaan|long)\b/i.test(name)?'long':'short';
+ }
+ const itemCategoryLabel=item=>item.cat==='outer'?outerLabels['outer-'+outerLength(item)]:categories[item.cat];
+ function matchesClosetFilter(item,filter){
+  if(Object.hasOwn(outerLabels,filter))return item.cat==='outer'&&filter==='outer-'+outerLength(item);
+  return filter==='all'||item.cat===filter;
+ }
+ const colors = {black:'블랙', brown:'브라운', beige:'베이지', cream:'크림', charcoal:'차콜', navy:'네이비', blue:'블루', white:'화이트', green:'그린', silver:'실버', gray:'그레이', yellow:'옐로', orange:'오렌지', pink:'핑크', purple:'퍼플', other:'기타'};
  const cityCoords = {'서울':[37.5665,126.9780],'성남':[37.4201,127.1266],'장성':[35.3018,126.7852],'부산':[35.1796,129.0756],'대전':[36.3504,127.3845]};
  const styleLabels = {casual:'데일리', date:'데이트', office:'비즈니스 캐주얼', formal:'포멀', travel:'주말 나들이'};
  const ownedItems = list => list.filter(item=>!item.isDemo);
@@ -16,11 +31,11 @@
  let styleLibrary=[],referenceIndexes=new Map();
  const referenceEngine=typeof window!=='undefined'?window.MyFitReferences:null;
  const modelEngine=typeof window!=='undefined'?window.MyFitModels:null;
- let modelLibrary=[],recommendationMode='reference',curatedLibrary=[],curatedGroup='all',curatedSeason='spring-fall';
+ let modelLibrary=[],recommendationMode='trend',curatedLibrary=[],trendLibrary=[],curatedGroup='all',curatedSeason='spring-fall';
  const curatedEngine=window.MyFitCurated;
  const referenceEditEngine=window.MyFitReferenceEdit;
  let referenceEditLibrary=[],referenceEditKind='all';
- let roomEditor=null;
+ let roomEditor=null,allLooksView=null,photoFitting=null;
  const curatedGroups={all:'전체',office:'출근 · 단정한 날',date:'데이트 · 약속',daily:'데일리',street:'스트리트'};
  const curatedSeasons={'spring-fall':'봄·가을',summer:'여름',winter:'겨울'};
  const failedModelImages=new Set();
@@ -63,7 +78,7 @@
   $('#item-detail-title').textContent=item.name;
   $('#item-detail-brand').textContent=item.brand||'MY WARDROBE';
   const source=$('#item-detail-source');const url=sourceUrl(item.sourceUrl);source.hidden=!url;source.textContent=`${isAiPhoto?'원본 출처 · ':''}${item.photoSourceName||'사진 · 상품 출처'} 보기 ↗`;if(url)source.href=url;else source.removeAttribute('href');const note=[isAiPhoto?item.aiEditNote:'',item.photoNote].filter(Boolean).join(' ');$('#item-detail-photo-note').textContent=note;$('#item-detail-photo-note').hidden=!note;$('#item-detail-provenance').textContent=isAiPhoto?(additionalImages(item).length?'AI 보정 이미지 · 원본 사진과 비교할 수 있어요.':'AI 재구성 이미지 · 확인된 상세 사진은 아직 없어요.'):item.photoStatus==='pending'?'상품 사진 확인 필요':item.photoSourceName||'사진 출처 미확인';$('#item-detail-empty').textContent=item.photoStatus==='pending'?'해당 제품의 사진을 아직 확인하지 못했어요.':'아직 등록된 사진이 없어요.';
-  $('#item-detail-meta').textContent=[categories[item.cat],colors[item.color],{all:'사계절',spring:'봄',summer:'여름',fall:'가을',winter:'겨울'}[item.season],{casual:'캐주얼',smart:'스마트 캐주얼',formal:'포멀 / 비즈니스'}[item.formality]].filter(Boolean).join(' · ');
+  $('#item-detail-meta').textContent=[itemCategoryLabel(item),colors[item.color],{all:'사계절',spring:'봄',summer:'여름',fall:'가을',winter:'겨울'}[item.season],{casual:'캐주얼',smart:'스마트 캐주얼',formal:'포멀 / 비즈니스'}[item.formality]].filter(Boolean).join(' · ');
   const image=$('#item-detail-image');image.hidden=!selected;if(selected){image.src=selected.src;image.alt=`${item.name} · ${selected.label}`}else image.removeAttribute('src');
   $('#item-detail-empty').hidden=Boolean(selected);
   $('#item-photo-caption').textContent=selected?`${selected.label} · ${detailPhotoIndex+1} / ${photos.length}`:item.photoStatus==='pending'?'상품 사진 확인 필요':'등록된 사진이 없어요.';
@@ -76,19 +91,25 @@
   $('#item-additional-previews').innerHTML=tempItemAdditionalImages.map((src,index)=>`<div class="extra-photo"><img src="${S(src)}" alt="${S(tempItemPhotoLabels[index+1]||`상세 ${index+1}`)} 사진"/><span>${S(tempItemPhotoLabels[index+1]||`상세 ${index+1}`)}</span><button type="button" data-remove-item-photo="${index}" aria-label="${S(tempItemPhotoLabels[index+1]||`상세 ${index+1}`)} 사진 제외">×</button></div>`).join('');
   $('#item-additional-count').textContent=`${tempItemAdditionalImages.length} / 8`;
  }
- function itemCard(item){const src=itemImage(item);const count=wearCount(item.id);return `<article class="product-card"><button class="product-media" data-ai-photo="${Boolean(item.aiEdited)}" type="button" data-view-item="${S(item.id)}" aria-label="${S(item.name)} 사진 보기">${src?`<img loading="lazy" src="${S(src)}" alt="${S(item.name)}"/>`:`<div class="product-placeholder">${item.photoStatus==='pending'?'<span>상품 사진<br>확인 필요</span>':'◈'}</div>`}</button><button type="button" class="card-action" data-edit-item="${S(item.id)}" aria-label="${S(item.name)} 편집">⋯</button><div class="product-text"><button type="button" class="product-title" data-view-item="${S(item.id)}">${S(item.name)}</button><p class="product-meta">${item.aiEdited?'AI 보정 · ':item.photoStatus==='pending'?'상품 사진 확인 필요 · ':item.photoStatus==='brand'?'브랜드 공식 · ':item.photoStatus==='retailer'?'공식 판매처 · ':item.photoStatus==='reference'?'상품·실물 참고 · ':''}${count}회 ${item.cat==='fragrance'?'사용':'착용'}</p></div></article>`}
- function renderFilters(rootId,active){const parent=document.getElementById(rootId);if(!parent)return;const rows=Object.entries(categories).map(([key,label])=>`<button type="button" class="filter-chip ${active===key?'active':''}" data-filter="${key}" data-filter-scope="${rootId}">${label}</button>`).join('');parent.innerHTML=rows}
- function renderCloset(){window.dispatchEvent(new Event('myfit-items-changed'));renderRoom();renderFilters('home-filters',activeHomeFilter);renderFilters('closet-filters',activeClosetFilter);const filteredHome=items.filter(item=>activeHomeFilter==='all'||item.cat===activeHomeFilter);$('#home-items').innerHTML=filteredHome.slice(0,4).map(itemCard).join('')||`<div class="empty-card" style="grid-column:1/-1"><p>해당 카테고리에 등록된 옷이 없어요.</p><button type="button" data-add-item>등록하기 →</button></div>`;const keyword=$('#closet-search').value.trim().toLowerCase();const filtered=items.filter(item=>(activeClosetFilter==='all'||item.cat===activeClosetFilter)&&(!keyword||`${item.name} ${item.brand||''} ${colors[item.color]||''}`.toLowerCase().includes(keyword)));$('#catalog-grid').innerHTML=filtered.map(itemCard).join('')||`<div class="empty-card" style="grid-column:1/-1"><span>＋</span><p>아직 등록된 아이템이 없습니다.<br>내 옷 사진을 올려보세요.</p><button type="button" data-add-item>옷 등록하기 →</button></div>`;$('#photo-policy-summary').textContent=`대표 사진 · AI 보정 ${items.filter(i=>i.aiEdited).length}개 / 원본 출처 · 브랜드 공식 ${items.filter(i=>i.photoStatus==='brand').length} · 공식 판매처 ${items.filter(i=>i.photoStatus==='retailer').length} · 상품·실물 참고 ${items.filter(i=>i.photoStatus==='reference').length}${items.some(i=>i.photoStatus==='pending')?` · 확인 필요 ${items.filter(i=>i.photoStatus==='pending').length}`:''}`;$('#closet-count').textContent=`${filtered.length.toString().padStart(2,'0')} ITEMS · ${items.filter(i=>!i.isDemo).length} MY OWN`;}
+ function itemCard(item){const src=itemImage(item);const count=wearCount(item.id);return `<article class="product-card"><button class="product-media" data-ai-photo="${Boolean(item.aiEdited)}" type="button" data-view-item="${S(item.id)}" aria-label="${S(item.name)} 사진 보기">${src?`<img loading="lazy" src="${S(src)}" alt="${S(item.name)}"/>`:`<div class="product-placeholder">${item.photoStatus==='pending'?'<span>상품 사진<br>확인 필요</span>':'◈'}</div>`}</button><button type="button" class="card-action" data-edit-item="${S(item.id)}" aria-label="${S(item.name)} 편집">⋯</button><div class="product-text"><button type="button" class="product-title" data-view-item="${S(item.id)}">${S(item.name)}</button><p class="product-meta">${item.cat==='outer'?itemCategoryLabel(item)+' · ':''}${item.aiEdited?'AI 보정 · ':item.photoStatus==='pending'?'상품 사진 확인 필요 · ':item.photoStatus==='brand'?'브랜드 공식 · ':item.photoStatus==='retailer'?'공식 판매처 · ':item.photoStatus==='reference'?'상품·실물 참고 · ':''}${count}회 ${item.cat==='fragrance'?'사용':'착용'}</p></div></article>`}
+ function renderFilters(rootId,active){const parent=document.getElementById(rootId);if(!parent)return;const rows=filterEntries.map(([key,label])=>`<button type="button" class="filter-chip ${active===key?'active':''}" aria-pressed="${active===key}" data-filter="${key}" data-filter-scope="${rootId}">${label}</button>`).join('');parent.innerHTML=rows}
+ function renderCloset(){window.dispatchEvent(new Event('myfit-items-changed'));renderRoom();renderFilters('home-filters',activeHomeFilter);renderFilters('closet-filters',activeClosetFilter);const filteredHome=items.filter(item=>matchesClosetFilter(item,activeHomeFilter));$('#home-items').innerHTML=filteredHome.slice(0,4).map(itemCard).join('')||`<div class="empty-card" style="grid-column:1/-1"><p>해당 카테고리에 등록된 옷이 없어요.</p><button type="button" data-add-item>등록하기 →</button></div>`;const keyword=$('#closet-search').value.trim().toLowerCase();const filtered=items.filter(item=>matchesClosetFilter(item,activeClosetFilter)&&(!keyword||`${item.name} ${item.brand||''} ${colors[item.color]||''} ${itemCategoryLabel(item)||''}`.toLowerCase().includes(keyword)));$('#catalog-grid').innerHTML=filtered.map(itemCard).join('')||`<div class="empty-card" style="grid-column:1/-1"><span>＋</span><p>아직 등록된 아이템이 없습니다.<br>내 옷 사진을 올려보세요.</p><button type="button" data-add-item>옷 등록하기 →</button></div>`;$('#photo-policy-summary').textContent=`대표 사진 · AI 보정 ${items.filter(i=>i.aiEdited).length}개 / 원본 출처 · 브랜드 공식 ${items.filter(i=>i.photoStatus==='brand').length} · 공식 판매처 ${items.filter(i=>i.photoStatus==='retailer').length} · 상품·실물 참고 ${items.filter(i=>i.photoStatus==='reference').length}${items.some(i=>i.photoStatus==='pending')?` · 확인 필요 ${items.filter(i=>i.photoStatus==='pending').length}`:''}`;$('#closet-count').textContent=`${filtered.length.toString().padStart(2,'0')} ITEMS · ${items.filter(i=>!i.isDemo).length} MY OWN`;}
 
- async function loadCuratedLooks(){
-  if(!curatedEngine)return;
+ async function fetchCuratedLibrary(url){
+  if(!curatedEngine)return [];
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),6000);
-  try{const res=await fetch('./curated-looks.json?v=20261103-neckdown-release-v3',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');curatedLibrary=curatedEngine.parseLibrary(await res.text())}catch{curatedLibrary=[]}finally{clearTimeout(timer)}
+  try{const res=await fetch(url,{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');return curatedEngine.parseLibrary(await res.text())}catch{return []}finally{clearTimeout(timer)}
+ }
+ async function loadCuratedLooks(){
+  [curatedLibrary,trendLibrary]=await Promise.all([
+   fetchCuratedLibrary('./curated-looks.json?v=20261114-wardrobe'),
+   fetchCuratedLibrary('./trend-looks.json?v=20261114-wardrobe'),
+  ]);
  }
  async function loadReferenceEdit(){
-  if(!referenceEditEngine){recommendationMode='curated';return}
+  if(!referenceEditEngine)return;
   const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),6000);
-  try{const res=await fetch('./reference-edit-looks.json?v=20261103-reference-edit-v1',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');referenceEditLibrary=referenceEditEngine.parseLibrary(await res.text())}catch{referenceEditLibrary=[];recommendationMode='curated';console.warn('Reference edit unavailable; using seasonal looks')}finally{clearTimeout(timer)}
+  try{const res=await fetch('./reference-edit-looks.json?v=20261114-wardrobe',{signal:ctrl.signal});if(!res.ok)throw Error('Unavailable');referenceEditLibrary=referenceEditEngine.parseLibrary(await res.text())}catch{referenceEditLibrary=[];console.warn('Reference edit unavailable; using seasonal looks')}finally{clearTimeout(timer)}
  }
  function referenceEditRecommendations(){
   const context=getContext();return referenceEditEngine.select(referenceEditLibrary,referenceEditKind).map(row=>{const r=referenceEditEngine.resolve(row,ownedItems(items),modelEngine,curatedEngine);return r?{...r,curated:true,referenceEdit:true,number:Number(row.id.slice(-2)),missing:[],context,description:r.reason,explain:referenceEditEngine.kinds[r.reference.kind],combinationRules:[],referenceMatches:[],score:0,model:null}:null}).filter(Boolean);
@@ -113,8 +134,12 @@
   openModal('model-look-modal');
  }
  function renderRoom(){roomEditor?.render()}
- function curatedRecommendations(){
-  const c=getContext();return curatedEngine.select(curatedLibrary,curatedSeason,curatedGroup).map((row,index)=>{const r=curatedEngine?.resolve(row,ownedItems(items),modelEngine);if(!r)return null;return {...r,curated:true,number:index+1,missing:[],context:c,description:r.reason,explain:r.season+' · '+curatedGroups[r.group],combinationRules:[],referenceMatches:[],score:0,model:null}}).filter(Boolean);
+ function curatedRecommendations(rows){
+  const context=getContext(),own=ownedItems(items);
+  return rows.map(row=>curatedEngine.resolve(row,own,modelEngine)).filter(Boolean).map((r,index)=>({
+   ...r,curated:true,number:index+1,missing:[],context,description:r.reason,
+   explain:r.season+' · '+curatedGroups[r.group],combinationRules:[],referenceMatches:[],score:0,model:null,
+  }));
  }
  function curatedTiles(list){return '<div class="curated-pieces">'+list.map(item=>'<button type="button" data-view-item="'+S(item.id)+'" data-view-photo="'+Math.max(0,itemPhotos(item).findIndex(p=>p.src===lookImage(item)))+'"><img loading="lazy" src="'+S(lookImage(item))+'" alt=""/><span>'+S(lookName(item))+'</span></button>').join('')+'</div>'}
  function curatedCard(rec,index){
@@ -130,10 +155,21 @@
   $('#results-desc').textContent=curatedSeasons[curatedSeason]+' · '+recommendations.length+'가지 보유품 코디 / 전체 '+curatedLibrary.length+'가지. 색·소재·기장·레이어링을 고려했어요. 모델컷은 얼굴을 제외하고 보유품과 체형 정보를 참고한 AI 예상 착장이에요.'+(curatedSeason==='summer'?' 롤업 셔츠와 스카시 가디건은 냉방 실내·선선한 저녁용이에요.':curatedSeason==='winter'?' 울 코트 중심의 겹쳐 입기이며, 한파 장시간 야외에는 추가 보온이 필요해요.':'');
   $('#outfit-results').innerHTML=recommendations.length?recommendations.map(curatedCard).join(''):'<p class="outfit-empty">이 코디에 필요한 보유 아이템을 확인하지 못했어요. 전체 분위기를 선택하거나 옷장을 확인해주세요.</p>';
  }
+ function renderTrendRecommendations(){
+  $('#outfit-results').classList.remove('model-results');
+  $('#outfit-results').classList.add('curated-results');
+  $('#curated-seasons').hidden=true;
+  $('#curated-groups').hidden=true;
+  $('#results-count').textContent=String(recommendations.length).padStart(2,'0')+' LOOKS';
+  $('#results-desc').textContent='시티보이, 빈티지, 고프코어, 프레피, 볼륨 스트리트를 내 옷에 적용했어요. 각 코디에서 조합한 이유와 입는 방법을 확인하세요.';
+  $('#outfit-results').innerHTML=recommendations.length
+   ?recommendations.map(curatedCard).join('')
+   :'<p class="outfit-empty">이 코디에 필요한 보유품을 찾지 못했어요. 내 옷장에서 구성 아이템을 확인해 주세요.</p>';
+ }
  function openCuratedLook(id){
   if(id.startsWith('ref-edit-')){openReferenceEdit(id);return}
   $('#model-look-modal .dialog').classList.remove('reference-edit-dialog');
-  const row=curatedLibrary.find(r=>r.id===id),rec=row&&curatedEngine.resolve(row,ownedItems(items),modelEngine);if(!rec||!rec.image)return;
+  const row=trendLibrary.find(r=>r.id===id)||curatedLibrary.find(r=>r.id===id),rec=row&&curatedEngine.resolve(row,ownedItems(items),modelEngine);if(!rec||!rec.image)return;
   $('#model-look-title').textContent=rec.title;$('#model-look-content').innerHTML='<img class="model-detail-photo" src="'+S(rec.image)+'" alt="'+S(rec.title)+' AI 예상 착장"/><p class="fine-print">얼굴을 제외한 AI 예상 착장입니다. 의류의 질감·로고·착용 핏은 실제와 다를 수 있어요.</p>'+curatedTiles(rec.items)+'<p>'+S(rec.tip)+'</p>';openModal('model-look-modal');
  }
 
@@ -158,9 +194,9 @@
  function renderArchive(){const total=logs.length;$('#diary-total').textContent=String(total).padStart(2,'0');const scores=items.map(item=>({...item,count:wearCount(item.id)})).sort((a,b)=>b.count-a.count);$('#diary-top-item').textContent=scores[0]?.count?scores[0].name:'—';const archive=$('#archive-grid');if(!logs.length){archive.innerHTML=`<div class="empty-card"><span>✎</span><p>아직 남긴 착장 기록이 없어요.<br>오늘 입은 옷부터 시작해보세요.</p><button type="button" data-add-log>첫 착장 기록하기 →</button></div>`;return}const ordered=[...logs].sort((a,b)=>$('#diary-sort').value==='new'?b.date.localeCompare(a.date):a.date.localeCompare(b.date));archive.innerHTML=ordered.map(log=>{const photo=safeImg(log.photo)||getLogFallback(log);const used=(log.itemIds||[]).map(itemById).filter(Boolean);return `<article class="archive-card"><div class="archive-photo">${photo?`<img loading="lazy" src="${S(photo)}" alt="${S(log.destination||'착장 이미지')}" />`:'<div class="log-fallback">MY OOTD</div>'}<span class="date-stamp">${S(formatDate(log.date))}</span></div><div class="archive-details"><h3>${S(log.destination||'일상의 한 장면')}</h3><p>${S(log.note||'나만의 스타일을 기록했어요.')}</p><div class="archive-used">${used.filter(item=>itemImage(item)).slice(0,4).map(i=>`<img src="${S(itemImage(i))}" title="${S(i.name)}" alt="${S(i.name)}"/>`).join('')}</div><button type="button" data-delete-log="${S(log.id)}">기록 삭제</button></div></article>`}).join('')}
  function openModal(name){document.getElementById(name).hidden=false;document.body.classList.add('modal-open');const first=$('#'+name+' .icon-dismiss');first?.focus()}
  function closeModal(name){document.getElementById(name).hidden=true;if(!$$('.overlay:not([hidden])').length)document.body.classList.remove('modal-open')}
- function openItemModal(itemId=null){const item=itemId?itemById(itemId):null;$('#item-form').reset();$('#item-id').value=item?.id||'';$('#item-dialog-title').textContent=item?'아이템 수정':'새 아이템 등록';$('#item-name').value=item?.name||'';$('#item-brand').value=item?.brand||'';$('#item-category').value=item?.cat||'outer';$('#item-color').value=item?.color||'black';$('#item-season').value=item?.season||'all';$('#item-formality').value=item?.formality||'casual';tempItemImage=null;tempItemAdditionalImages=additionalImages(item);tempItemPhotoLabels=Array.from({length:tempItemAdditionalImages.length+1},(_,index)=>photoLabel(item,index));renderAdditionalPhotos();$('#item-photos-status').textContent='뒷면·소재·로고·착용 사진을 자유롭게 추가하세요.';const src=item?itemImage(item):'';$('#item-preview').innerHTML=src?`<img src="${S(src)}" alt="아이템 사진 미리보기" /><span style="position:absolute;bottom:5px;background:#fff9;padding:3px 9px;font-size:11px">사진 변경하기 ↗</span>`:'<strong>＋</strong><span>옷 사진을 추가하세요</span><small>JPG, PNG, WEBP · 최대 12MB</small>';const submit=$('#item-form [type="submit"]');submit.textContent=item?'변경사항 저장 →':'아이템 저장하기 →';let deleteButton=$('#item-delete');if(deleteButton)deleteButton.remove();if(item){deleteButton=document.createElement('button');deleteButton.id='item-delete';deleteButton.type='button';deleteButton.className='button-outline';deleteButton.textContent='삭제';deleteButton.addEventListener('click',()=>deleteItem(item.id));$('#item-form .dialog-actions').prepend(deleteButton)}openModal('item-modal')}
+ function openItemModal(itemId=null){const item=itemId?itemById(itemId):null;$('#item-form').reset();$('#item-id').value=item?.id||'';$('#item-dialog-title').textContent=item?'아이템 수정':'새 아이템 등록';$('#item-name').value=item?.name||'';$('#item-brand').value=item?.brand||'';$('#item-category').value=item?.cat==='outer'&&validOuterLength(item.outerLength)?'outer-'+item.outerLength:item?.cat||'outer';$('#item-color').value=item?.color||'black';$('#item-season').value=item?.season||'all';$('#item-formality').value=item?.formality||'casual';tempItemImage=null;tempItemAdditionalImages=additionalImages(item);tempItemPhotoLabels=Array.from({length:tempItemAdditionalImages.length+1},(_,index)=>photoLabel(item,index));renderAdditionalPhotos();$('#item-photos-status').textContent='뒷면·소재·로고·착용 사진을 자유롭게 추가하세요.';const src=item?itemImage(item):'';$('#item-preview').innerHTML=src?`<img src="${S(src)}" alt="아이템 사진 미리보기" /><span style="position:absolute;bottom:5px;background:#fff9;padding:3px 9px;font-size:11px">사진 변경하기 ↗</span>`:'<strong>＋</strong><span>옷 사진을 추가하세요</span><small>JPG, PNG, WEBP · 최대 12MB</small>';const submit=$('#item-form [type="submit"]');submit.textContent=item?'변경사항 저장 →':'아이템 저장하기 →';let deleteButton=$('#item-delete');if(deleteButton)deleteButton.remove();if(item){deleteButton=document.createElement('button');deleteButton.id='item-delete';deleteButton.type='button';deleteButton.className='button-outline';deleteButton.textContent='삭제';deleteButton.addEventListener('click',()=>deleteItem(item.id));$('#item-form .dialog-actions').prepend(deleteButton)}openModal('item-modal')}
  async function imageFromFile(file){if(!file)return null;if(!['image/jpeg','image/png','image/webp'].includes(file.type))throw new Error('JPG, PNG, WEBP 형식의 이미지만 등록할 수 있어요.');if(file.size>12*1024*1024)throw new Error('12MB 이하의 이미지를 선택해주세요.');return new Promise((resolve,reject)=>{const img=new Image();const url=URL.createObjectURL(file);img.onload=()=>{try{const scale=Math.min(1,1150/Math.max(img.naturalWidth,img.naturalHeight));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));const ctx=canvas.getContext('2d');ctx.fillStyle='#f8f7f3';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);const result=canvas.toDataURL('image/webp',.79);URL.revokeObjectURL(url);resolve(result)}catch(e){URL.revokeObjectURL(url);reject(e)}};img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('이미지를 읽지 못했습니다.'))};img.src=url})}
- async function saveItem(event){event.preventDefault();const current=itemById($('#item-id').value);const name=$('#item-name').value.trim();if(!name){toast('아이템 이름을 입력해주세요.');return}const photosChanged=Boolean(tempItemImage)||tempItemAdditionalImages.some(src=>!additionalImages(current).includes(src));const item={id:current?.id||id('item'),name,brand:$('#item-brand').value.trim(),cat:$('#item-category').value,color:$('#item-color').value,season:$('#item-season').value,formality:$('#item-formality').value,image:tempItemImage||current?.image||'',additionalImages:[...tempItemAdditionalImages],photoLabels:[...tempItemPhotoLabels],sourceUrl:photosChanged?'':sourceUrl(current?.sourceUrl),photoStatus:photosChanged?'unverified':current?.photoStatus||'unverified',photoSourceName:photosChanged?'직접 추가한 사진 · 출처 미확인':current?.photoSourceName||'',photoNote:photosChanged?'':current?.photoNote||'',...aiPhotoFields(tempItemImage?null:current),isDemo:false};try{await dbReq('items','put',item)}catch(e){console.warn(e);toast('저장소 공간을 확인해주세요.');return}if(current){items=items.map(i=>i.id===item.id?item:i)}else{items.unshift(item)}renderCloset();renderFeatured();renderRecommendations(true);renderLogs();closeModal('item-modal');toast(current?'아이템 정보를 수정했어요.':'새 옷이 내 옷장에 추가됐어요.');}
+ async function saveItem(event){event.preventDefault();const current=itemById($('#item-id').value);const name=$('#item-name').value.trim();if(!name){toast('아이템 이름을 입력해주세요.');return}const photosChanged=Boolean(tempItemImage)||tempItemAdditionalImages.some(src=>!additionalImages(current).includes(src));const category=$('#item-category').value,length=category.slice(6);const item={id:current?.id||id('item'),name,brand:$('#item-brand').value.trim(),cat:validOuterLength(length)?'outer':category,...(validOuterLength(length)?{outerLength:length}:{}),color:$('#item-color').value,season:$('#item-season').value,formality:$('#item-formality').value,image:tempItemImage||current?.image||'',additionalImages:[...tempItemAdditionalImages],photoLabels:[...tempItemPhotoLabels],sourceUrl:photosChanged?'':sourceUrl(current?.sourceUrl),photoStatus:photosChanged?'unverified':current?.photoStatus||'unverified',photoSourceName:photosChanged?'직접 추가한 사진 · 출처 미확인':current?.photoSourceName||'',photoNote:photosChanged?'':current?.photoNote||'',...aiPhotoFields(tempItemImage?null:current),isDemo:false};try{await dbReq('items','put',item)}catch(e){console.warn(e);toast('저장소 공간을 확인해주세요.');return}if(current){items=items.map(i=>i.id===item.id?item:i)}else{items.unshift(item)}renderCloset();renderFeatured();renderRecommendations(true);renderLogs();closeModal('item-modal');toast(current?'아이템 정보를 수정했어요.':'새 옷이 내 옷장에 추가됐어요.');}
  async function deleteItem(itemId){const item=itemById(itemId);if(!item||!confirm(`“${item.name}” 아이템을 삭제할까요?\n기존 착장 기록은 유지되지만 제품 연결은 사라집니다.`))return;await hidePublishedItem(itemId);await dbReq('items','delete',itemId);items=items.filter(i=>i.id!==itemId);closeModal('item-modal');renderCloset();renderFeatured();renderRecommendations(true);renderLogs();toast('아이템을 삭제했어요.')}
  function openLogModal(ids=[]){preselectedIds=ids;tempLogImage=null;$('#log-form').reset();$('#log-id').value='';$('#log-date').value=$today();$('#log-destination').value=$('#stylist-destination').selectedOptions?.[0]?.textContent||'';$('#log-photo-preview').innerHTML='<span>＋ 착장 사진 올리기</span><small>사진이 없으면 사용한 옷의 이미지가 표시됩니다.</small>';$('#log-item-choices').innerHTML=items.map(item=>`<label class="${preselectedIds.includes(item.id)?'selected':''}"><input type="checkbox" value="${S(item.id)}" ${preselectedIds.includes(item.id)?'checked':''} aria-label="${S(item.name)}"/>${itemImage(item)?`<img loading="lazy" src="${S(itemImage(item))}" alt="${S(item.name)}"/>`:'<span class="board-photo-pending">상품 사진 확인 필요</span>'}<span>${S(item.name)}</span></label>`).join('');openModal('log-modal')}
  async function buildOutfitBoard(itemIds){
@@ -214,8 +250,9 @@
   return rules;
  }
  function makeRecommendations(){
+  if(recommendationMode==='trend'&&trendLibrary.length)return curatedRecommendations(trendLibrary);
   if(recommendationMode==='reference'&&referenceEditLibrary.length)return referenceEditRecommendations();
-  if(recommendationMode==='curated'&&curatedLibrary.length)return curatedRecommendations();
+  if(recommendationMode==='curated'&&curatedLibrary.length)return curatedRecommendations(curatedEngine.select(curatedLibrary,curatedSeason,curatedGroup));
   const c=getContext(),own=ownedItems(items);if(!own.length)return [];
   const cool=c.temperature===null?c.season!=='summer':c.temperature<=22;
   const cats=[...(cool||['formal','office'].includes(c.purpose)?['outer']:[]),'top','bottom','shoes','bag','eyewear','accessory'];
@@ -305,10 +342,44 @@
   return `<div class="own-outfit-board" aria-label="등록한 내 옷으로 구성한 코디">${pieces.join('')}</div>`;
  }
  function renderRecommendations(rebuild=true){
+  const allMode=recommendationMode==='all-looks'&&allLooksView;
+  const allPanel=$('#all-looks');
+  if(allPanel)allPanel.hidden=!allMode;
+  const fittingMode=recommendationMode==='photo-fitting'&&photoFitting;
+  const fittingPanel=$('#photo-fitting');
+  if(fittingPanel)fittingPanel.hidden=!fittingMode;
+  $('#outfit-results').hidden=Boolean(allMode||fittingMode);
+  if(fittingMode){
+   $('.styling-workspace').classList.add('show-curated');
+   $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.recommendationMode==='photo-fitting')));
+   $('#curated-groups').hidden=true;$('#curated-seasons').hidden=true;
+   const modeNote=$('.model-mode-note');if(modeNote)modeNote.hidden=true;
+   $('#results-desc').textContent='분류별로 한 아이템을 골라보세요. 제작된 조합은 선택 즉시 AI 모델컷을 보여드려요.';
+   $('#results-count').textContent='';
+   photoFitting.render();
+   return;
+  }
+  if(allMode){
+   $('.styling-workspace').classList.add('show-curated');
+   $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.recommendationMode==='all-looks')));
+   $('#curated-groups').hidden=true;$('#curated-seasons').hidden=true;
+   const modeNote=$('.model-mode-note');if(modeNote)modeNote.hidden=true;
+   $('#results-desc').textContent='내 옷으로 가능한 조합을 네 가지 구성으로 살펴보세요.';
+   $('#results-count').textContent='';
+   allLooksView.render();
+   return;
+  }
+  const legacyModeNote=$('.model-mode-note:not(#trend-source)');if(legacyModeNote)legacyModeNote.hidden=false;
   if(rebuild||!recommendations.length)recommendations=makeRecommendations();
   $('#outfit-results').classList.remove('reference-results');
-  $('.styling-workspace').classList.toggle('show-curated',recommendationMode==='curated'&&curatedLibrary.length>0||recommendationMode==='reference'&&referenceEditLibrary.length>0);
-  $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.recommendationMode===recommendationMode)));
+  const trendActive=recommendationMode==='trend'&&trendLibrary.length>0;
+  $('.styling-workspace').classList.toggle('show-curated',trendActive||recommendationMode==='curated'&&curatedLibrary.length>0||recommendationMode==='reference'&&referenceEditLibrary.length>0);
+  $('#trend-source').hidden=!trendActive;
+  $$('#recommendation-modes [data-recommendation-mode]').forEach(button=>{
+   button.setAttribute('aria-pressed',String(button.dataset.recommendationMode===recommendationMode));
+   if(button.dataset.recommendationMode==='trend')button.hidden=!trendLibrary.length;
+  });
+  if(trendActive){renderTrendRecommendations();renderFeatured();return}
   if(recommendationMode==='reference'&&referenceEditLibrary.length){renderReferenceEdit();renderFeatured();return}
   if(recommendationMode==='curated'&&curatedLibrary.length){renderCuratedRecommendations();renderFeatured();return}
   $('#curated-groups').hidden=true;$('#curated-seasons').hidden=true;$('#outfit-results').classList.remove('curated-results');
@@ -327,11 +398,11 @@
   return Promise.all(list.map(async item=>({...item,image:await portable(item.image),additionalImages:await Promise.all(additionalImages(item).map(portable))})));
  }
  async function exportBackup(){try{const portable=await portableBackupItems(ownedItems(items));const json=JSON.stringify({version:2,createdAt:new Date().toISOString(),app:'MY FIT',imagePolicy:'ai_edited_representative_with_originals',items:portable,logs},null,2);const blob=new Blob([json],{type:'application/json'});const url=URL.createObjectURL(blob);const anchor=document.createElement('a');anchor.href=url;anchor.download=`myfit-backup-${$today()}.json`;document.body.appendChild(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('옷장과 기록을 JSON 파일로 백업했어요.')}catch(error){console.warn('Backup photo read failed');toast('사진을 모두 읽지 못했어요. 인터넷 연결 후 백업을 다시 시도해 주세요.')}}
- async function importBackup(file){if(!file)return;if(file.size>35*1024*1024){toast('백업 파일이 너무 큽니다.');return}try{const data=JSON.parse(await file.text());if(data.app!=='MY FIT'||!Array.isArray(data.items)||!Array.isArray(data.logs))throw new Error('올바른 MY FIT 백업이 아닙니다.');if(!confirm(`옷 ${data.items.length}개, 착장 기록 ${data.logs.length}개를 가져올까요? 현재 같은 ID의 항목은 덮어씁니다.`))return;for(const o of data.items){if(!o.id||!o.name||!categories[o.cat]||Boolean(o.isDemo))continue;hiddenPublishedIds.delete(String(o.id));const entry={id:String(o.id).slice(0,90),name:String(o.name).slice(0,50),brand:String(o.brand||'').slice(0,40),cat:o.cat,color:colors[o.color]?o.color:'other',season:['all','spring','summer','fall','winter'].includes(o.season)?o.season:'all',formality:['casual','smart','formal'].includes(o.formality)?o.formality:'casual',image:safeImg(o.image),additionalImages:additionalImages(o),photoLabels:Array.isArray(o.photoLabels)?o.photoLabels.slice(0,9).map(label=>String(label).slice(0,24)):[],sourceUrl:sourceUrl(o.sourceUrl),photoStatus:['brand','retailer','reference','pending'].includes(o.photoStatus)?o.photoStatus:'unverified',photoSourceName:String(o.photoSourceName||'').slice(0,90),photoNote:String(o.photoNote||'').slice(0,300),...aiPhotoFields(o),isDemo:Boolean(o.isDemo)};await dbReq('items','put',entry)}await dbReq('meta','put',{id:'published-closet-hidden',itemIds:[...hiddenPublishedIds]});for(const o of data.logs){if(!o.id||!/^\d{4}-\d{2}-\d{2}$/.test(o.date||''))continue;await dbReq('logs','put',{id:String(o.id).slice(0,90),date:o.date,destination:String(o.destination||'').slice(0,50),note:String(o.note||'').slice(0,240),itemIds:Array.isArray(o.itemIds)?o.itemIds.filter(x=>typeof x==='string').slice(0,20):[],photo:safeImg(o.photo)})}items=mergePublishedItems(await dbReq('items','getAll'));logs=await dbReq('logs','getAll');renderEverything();toast('백업 데이터를 가져왔어요.')}catch(error){console.warn('Import error',error);toast(`가져오기 실패: ${error.message||'파일 형식을 확인하세요.'}`)}}
+ async function importBackup(file){if(!file)return;if(file.size>35*1024*1024){toast('백업 파일이 너무 큽니다.');return}try{const data=JSON.parse(await file.text());if(data.app!=='MY FIT'||!Array.isArray(data.items)||!Array.isArray(data.logs))throw new Error('올바른 MY FIT 백업이 아닙니다.');if(!confirm(`옷 ${data.items.length}개, 착장 기록 ${data.logs.length}개를 가져올까요? 현재 같은 ID의 항목은 덮어씁니다.`))return;for(const o of data.items){const entry=normalizeItem(o);if(!entry)continue;hiddenPublishedIds.delete(entry.id);await dbReq('items','put',entry)}await dbReq('meta','put',{id:'published-closet-hidden',itemIds:[...hiddenPublishedIds]});for(const o of data.logs){if(!o.id||!/^\d{4}-\d{2}-\d{2}$/.test(o.date||''))continue;await dbReq('logs','put',{id:String(o.id).slice(0,90),date:o.date,destination:String(o.destination||'').slice(0,50),note:String(o.note||'').slice(0,240),itemIds:Array.isArray(o.itemIds)?o.itemIds.filter(x=>typeof x==='string').slice(0,20):[],photo:safeImg(o.photo)})}items=mergePublishedItems(await dbReq('items','getAll'));logs=await dbReq('logs','getAll');renderEverything();toast('백업 데이터를 가져왔어요.')}catch(error){console.warn('Import error',error);toast(`가져오기 실패: ${error.message||'파일 형식을 확인하세요.'}`)}}
  let publishedItems = [], hiddenPublishedIds = new Set(), publishedStatus = 'loading';
  function normalizeItem(o){
   if(!o||!o.id||!o.name||!categories[o.cat]||o.cat==='all'||o.isDemo)return null;
-  return {id:String(o.id).slice(0,90),name:String(o.name).slice(0,50),brand:String(o.brand||'').slice(0,40),cat:o.cat,color:colors[o.color]?o.color:'other',season:['all','spring','summer','fall','winter'].includes(o.season)?o.season:'all',formality:['casual','smart','formal'].includes(o.formality)?o.formality:'casual',image:safeImg(o.image),additionalImages:additionalImages(o),photoLabels:Array.isArray(o.photoLabels)?o.photoLabels.slice(0,9).map(label=>String(label).slice(0,24)):[],sourceUrl:sourceUrl(o.sourceUrl),photoStatus:['brand','retailer','reference','pending'].includes(o.photoStatus)?o.photoStatus:'unverified',photoSourceName:String(o.photoSourceName||'').slice(0,90),photoNote:String(o.photoNote||'').slice(0,300),...aiPhotoFields(o),isDemo:false};
+  return {id:String(o.id).slice(0,90),name:String(o.name).slice(0,50),brand:String(o.brand||'').slice(0,40),cat:o.cat,...(o.cat==='outer'&&validOuterLength(o.outerLength)?{outerLength:o.outerLength}:{}),color:colors[o.color]?o.color:'other',season:['all','spring','summer','fall','winter'].includes(o.season)?o.season:'all',formality:['casual','smart','formal'].includes(o.formality)?o.formality:'casual',image:safeImg(o.image),additionalImages:additionalImages(o),photoLabels:Array.isArray(o.photoLabels)?o.photoLabels.slice(0,9).map(label=>String(label).slice(0,24)):[],sourceUrl:sourceUrl(o.sourceUrl),photoStatus:['brand','retailer','reference','pending'].includes(o.photoStatus)?o.photoStatus:'unverified',photoSourceName:String(o.photoSourceName||'').slice(0,90),photoNote:String(o.photoNote||'').slice(0,300),...aiPhotoFields(o),isDemo:false};
  }
  // Refresh published media only when the device still has the exact original photo.
  // A locally uploaded replacement photo and all locally edited item fields take precedence.
@@ -394,11 +465,11 @@
    const group=event.target.closest('[data-curated-group]');if(group){curatedGroup=group.dataset.curatedGroup;renderRecommendations(true);return}
    const room=event.target.closest('[data-room-category]');if(room){activeClosetFilter=room.dataset.roomCategory;$('#closet-search').value='';renderCloset();$('#closet-filters').scrollIntoView({behavior:'smooth',block:'start'});return}
    const curatedPhoto=event.target.closest('[data-open-curated]');if(curatedPhoto){openCuratedLook(curatedPhoto.dataset.openCurated);return}
-   const mode=event.target.closest('[data-recommendation-mode]');if(mode){recommendationMode=['reference','curated','more','model'].includes(mode.dataset.recommendationMode)?mode.dataset.recommendationMode:'reference';renderRecommendations(true);return}
+   const mode=event.target.closest('[data-recommendation-mode]');if(mode){recommendationMode=['trend','reference','curated','more','model','all-looks','photo-fitting'].includes(mode.dataset.recommendationMode)?mode.dataset.recommendationMode:'reference';renderRecommendations(true);return}
    const model=event.target.closest('[data-open-model]');if(model){openModelLook(model.dataset.openModel);return}
    const nextRef=event.target.closest('[data-next-reference]');if(nextRef){const rec=recommendations[Number(nextRef.dataset.nextReference)];if(rec?.referenceMatches?.length){const key=rec.items.map(i=>i.id).join('|');if(referenceIndexes.size>64)referenceIndexes.clear();referenceIndexes.set(key,((referenceIndexes.get(key)||0)+1)%rec.referenceMatches.length);nextRef.closest('.reference-match').outerHTML=referencePanel(rec);$(`[data-next-reference="${rec.number-1}"]`)?.focus()}return}
    const route=event.target.closest('[data-route]');if(route){navigate(route.dataset.route);return}
-   const filter=event.target.closest('[data-filter]');if(filter){if(filter.dataset.filterScope==='home-filters')activeHomeFilter=filter.dataset.filter;else activeClosetFilter=filter.dataset.filter;renderCloset();return}
+   const filter=event.target.closest('[data-filter]');if(filter){if(filter.dataset.filterScope==='home-filters')activeHomeFilter=filter.dataset.filter;else activeClosetFilter=filter.dataset.filter;renderCloset();document.getElementById(filter.dataset.filterScope)?.querySelector(`[data-filter="${filter.dataset.filter}"]`)?.focus();return}
    const viewItem=event.target.closest('[data-view-item]');if(viewItem){openItemDetail(viewItem.dataset.viewItem,Number(viewItem.dataset.viewPhoto||0));return}
    const photo=event.target.closest('[data-item-photo]');if(photo){changeItemPhoto(Number(photo.dataset.itemPhoto));return}
    const removePhoto=event.target.closest('[data-remove-item-photo]');if(removePhoto){const index=Number(removePhoto.dataset.removeItemPhoto);tempItemAdditionalImages.splice(index,1);tempItemPhotoLabels.splice(index+1,1);renderAdditionalPhotos();return}
@@ -466,6 +537,29 @@
    }
   };window.dispatchEvent(new Event('myfit-ready'));
  }
- async function init(){registerActions();const referencesReady=Promise.all([loadStyleReferences(),loadModelLooks(),loadCuratedLooks(),loadReferenceEdit()]);await loadData();await loadPublishedCloset();await referencesReady;roomEditor=window.MyFitRoom?.mount({getItems:()=>ownedItems(items),image:itemImage,variants:item=>modelEngine?.variants(item)||[item],photos:itemPhotos,notify:toast,closeModal});renderEverything();exposeShopBridge();showRoute(location.hash.slice(1)||'shop');}
+ async function init(){registerActions();const referencesReady=Promise.all([loadStyleReferences(),loadModelLooks(),loadCuratedLooks(),loadReferenceEdit()]);await loadData();await loadPublishedCloset();await referencesReady;if(recommendationMode==='trend'&&!trendLibrary.length)recommendationMode=referenceEditLibrary.length?'reference':curatedLibrary.length?'curated':'model';roomEditor=window.MyFitRoom?.mount({getItems:()=>ownedItems(items),image:itemImage,variants:item=>modelEngine?.variants(item)||[item],photos:itemPhotos,notify:toast,closeModal});
+  allLooksView=window.MyFitAllLooksView?.mount($('#all-looks'),{
+   getItems:()=>ownedItems(items),outerLength,variants:item=>modelEngine?.variants(item)||[item],
+   image:lookImage,name:lookName,photoIndex:item=>Math.max(0,itemPhotos(item).findIndex(p=>p.src===lookImage(item))),escape:S,notify:toast,
+  });
+  if(modelEngine)photoFitting=window.MyFitPhotoFitting?.mount($('#photo-fitting'),{
+   getItems:()=>ownedItems(items),variants:item=>modelEngine?.variants(item)||[item],
+   identity:modelEngine.identity,image:lookImage,name:lookName,escape:S,announce:toast,
+   existingPhoto:pieces=>{
+    const wear=pieces.filter(item=>item.cat!=='fragrance');
+    const rowFits=row=>row.image&&!failedModelImages.has(row.id)&&row.pieces.length===wear.length&&row.pieces.every(p=>wear.some(item=>item.id===p.id&&(item.lookView||'')===(p.viewLabel||'')));
+    const owned=ownedItems(items);
+    for(const row of curatedLibrary.filter(rowFits)){
+     const match=curatedEngine.resolve(row,owned,modelEngine);if(match?.image)return match.image;
+    }
+    for(const row of referenceEditLibrary.filter(rowFits)){
+     const match=referenceEditEngine.resolve(row,owned,modelEngine,curatedEngine);if(match?.image)return match.image;
+    }
+    return '';
+   },
+  });
+  if(allLooksView&&new URLSearchParams(location.search).get('looks')==='all')recommendationMode='all-looks';
+  if(photoFitting&&new URLSearchParams(location.search).get('looks')==='fitting')recommendationMode='photo-fitting';
+  renderEverything();exposeShopBridge();showRoute(location.hash.slice(1)||'shop');}
  init().catch(error=>{console.error(error);toast('화면을 준비하는 중 문제가 발생했어요. 페이지를 다시 열어주세요.')});
 })();

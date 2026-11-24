@@ -1,0 +1,21 @@
+MY FIT architecture codec provenance
+
+The browser add-ons and codec builds in this folder were taken from the pinned
+Three.js 0.180.0 npm package, examples/jsm. The imports of Three.js and add-on
+dependencies were changed to sibling paths so that they run under GitHub Pages.
+
+Three.js add-ons: DRACOLoader.js, KTX2Loader.js, WorkerPool.js, ColorSpaces.js,
+Reflector.js. License: MIT, supplied in THREE-LICENSE.txt.
+https://github.com/mrdoob/three.js/tree/r180/examples/jsm
+
+Draco decoder wasm and its JavaScript wrapper: Google Draco, Apache-2.0.
+Copyright 2016 Google Inc. The Apache-2.0 license text is supplied in
+BASIS-APACHE-2.txt and also applies to this decoder distribution.
+https://github.com/google/draco
+
+Basis Universal transcoder wasm and wrapper: Binomial LLC, Apache-2.0.
+License text supplied in BASIS-APACHE-2.txt.
+https://github.com/BinomialLLC/basis_universal
+
+KTX parse and ZSTD decoder retain the notices in their upstream Three.js
+distribution files.
