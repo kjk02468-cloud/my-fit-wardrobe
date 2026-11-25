@@ -442,27 +442,65 @@ function updateMirrors() {                                      // 같은 칸(�
 const BD = META.backdrops;                                   // { day: dataURL, night: dataURL, day_aspect, night_aspect }
 const texLoader = new THREE.TextureLoader();
 const bdTex = { day: texLoader.load(BD.day), night: texLoader.load(BD.night) };
-for (const k in bdTex) bdTex[k].colorSpace = THREE.SRGBColorSpace;
-const bdMat = new THREE.MeshBasicMaterial({ map: bdTex.night, toneMapped: false, fog: false });
-const backdrop = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), bdMat);
-backdrop.rotation.y = Math.PI / 2;                                    // 서쪽 쇼윈도 밖, 매장을 바라봄
+for (const k in bdTex) { bdTex[k].colorSpace = THREE.SRGBColorSpace; bdTex[k].anisotropy = 8; }
+// 매장을 한 바퀴 감싸는 불투명 원통 1개(반지름 34 m). 낮·밤 사진을 셰이더에서 섞는다.
+//  - 유리(투과 재질)는 불투명 물체만 비쳐 보이므로 반투명 겹치기 대신 한 재질에서 섞음
+//  - 가로: 서쪽 중심에 원본, 양옆은 거울처럼 이어 붙임 / 세로: 사진 밖은 가장자리 색을 늘려 끝이 안 보임
+const PANO_R = 34, COPY_DEG = { day: 100, night: 64 };
+const panoP = k => { const rad = THREE.MathUtils.degToRad(COPY_DEG[k]), h = PANO_R * rad / BD[k + '_aspect']; return new THREE.Vector4(rad, 2.2 - (BD[k + '_horizon'] - .5) * h, h, 0); };
+const panoMat = new THREE.ShaderMaterial({
+  side: THREE.BackSide, fog: false, toneMapped: false,
+  uniforms: { dayMap: { value: bdTex.day }, nightMap: { value: bdTex.night }, w: { value: 0 }, dayTint: { value: new THREE.Color(1, 1, 1) }, nightGain: { value: .92 },
+              dayP: { value: panoP('day') }, nightP: { value: panoP('night') } },
+  vertexShader: 'varying vec3 vP; void main(){ vP = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+  fragmentShader: `uniform sampler2D dayMap, nightMap; uniform float w, nightGain; uniform vec3 dayTint; uniform vec4 dayP, nightP; varying vec3 vP;
+    float mir(float u){ float m = mod(u, 2.0); return m > 1.0 ? 2.0 - m : m; }
+    vec3 samp(sampler2D m, vec4 P, float d){
+      vec2 uv = vec2(mir(.5 - d / P.x), (vP.y - (P.y - P.z * .5)) / P.z);
+      float vc = clamp(uv.y, .003, .997); vec3 c = texture2D(m, vec2(uv.x, vc)).rgb;
+      float o = max(-uv.y, uv.y - 1.0);                                   // 사진 위·아래 바깥: 흐린 가장자리 색으로 부드럽게
+      if (o > 0.0) { vec3 b = vec3(0.0); for (int i = -6; i <= 6; i++) b += texture2D(m, vec2(mir(uv.x + float(i) * .05), clamp(vc + (uv.y < 0.0 ? .04 : -.04), .0, 1.0))).rgb;   // 가로 13점 평균 → 줄무늬 없음
+        c = mix(c, b / 13.0, smoothstep(0.0, .07, o)); }
+      return c;
+    }
+    void main(){
+      float th = atan(vP.x, vP.z); float d = th + 1.5707963; d = atan(sin(d), cos(d));    // 서쪽(-x) 기준 각도
+      vec3 col = w < .5 ? samp(dayMap, dayP, d) * dayTint * mix(1.0, .3, w * 2.0)          // 낮 → 어두워짐
+                        : samp(nightMap, nightP, d) * nightGain * mix(.3, 1.0, (w - .5) * 2.0);   // → 밤이 밝아짐
+      gl_FragColor = vec4(col, 1.0);
+      #include <colorspace_fragment>
+    }`,
+});
+const backdrop = new THREE.Mesh(new THREE.CylinderGeometry(PANO_R, PANO_R, 140, 128, 1, true), panoMat);
+backdrop.position.set(D / 2, 0, W / 2); backdrop.renderOrder = -2;
 const TOD = {
-  day:   { bg: 0xc9d8e6, fog: [0xc9d8e6, 30, 70], hemi: [0xdfe9f5, 0x6d6457, .55], sky: [0xfff4e2, 2.4, [-12, 9, 2]], expo: .9, bd: 1.0, label: '낮 · 한강' },
-  night: { bg: 0x07080c, fog: [0x07080c, 30, 70], hemi: [0x9aa6b8, 0x2a2622, .16], sky: [0xffc46b, .55, [-10, 3, 5]], expo: 1.0, bd: .92, label: '밤 · 부다페스트' },
+  day:   { bg: 0xc9d8e6, hemi: [0xdfe9f5, 0x6d6457, .55], sky: [0xfff4e2, 2.4, [-12, 9, 2]], expo: .9, bd: 1.0, label: '낮 · 한강' },
+  night: { bg: 0x07080c, hemi: [0x9aa6b8, 0x2a2622, .16], sky: [0xffc46b, .55, [-10, 3, 5]], expo: 1.0, bd: .92, label: '밤 · 부다페스트' },
+  dusk:  { bg: 0x6a5a6e, hemi: [0xf0b48a, 0x4a3a33, .35], sky: [0xff9a55, 1.6, [-14, 3, 4]] },  // 전환 중간(노을빛)
 };
-let todMode = 'auto', todNow = null;
-function kstHour() { return +new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', hour: 'numeric', hour12: false }).format(new Date()) % 24; }
+let todMode = 'auto', todW = -1;
+let kstMinutesOverride = null;
+function kstMinutes() { if (kstMinutesOverride != null) return kstMinutesOverride; const f = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date()); const g = k => +f.find(p => p.type === k).value; return (g('hour') % 24) * 60 + g('minute'); }
+function kstHour() { return Math.floor(kstMinutes() / 60); }
+function nightWeight(m) {                                      // 05:30–06:30 밤→낮, 17:30–18:30 낮→밤 (그 사이 30분씩 서서히)
+  if (m >= 390 && m < 1050) return 0; if (m >= 1110 || m < 330) return 1;
+  return m < 600 ? 1 - (m - 330) / 60 : (m - 1050) / 60;
+}
+const _c1 = new THREE.Color(), _c2 = new THREE.Color();
+const mix3 = (a, b, c, w) => { const d = 1 - Math.abs(w * 2 - 1); return w < .5 ? _c1.set(a).lerp(_c2.set(c), d) : _c1.set(b).lerp(_c2.set(c), d); };   // 낮↔밤 사이에 노을색을 거침
 function applyTOD(force) {
-  const k = force || (todMode === 'auto' ? (kstHour() >= 6 && kstHour() < 18 ? 'day' : 'night') : todMode);
-  if (k === todNow && !force) return; todNow = k; const c = TOD[k];
-  scene.background = new THREE.Color(c.bg); scene.fog = new THREE.Fog(...c.fog);
-  hemi.color.set(c.hemi[0]); hemi.groundColor.set(c.hemi[1]); hemi.intensity = c.hemi[2];
-  sky.color.set(c.sky[0]); sky.intensity = c.sky[1]; sky.position.set(...c.sky[2]);
-  renderer.toneMappingExposure = R.exposure * c.expo;
-  bdMat.map = bdTex[k]; bdMat.color.setScalar(c.bd); bdMat.needsUpdate = true;
-  const asp = BD[k + '_aspect'], w = k === 'day' ? 64 : 40, h = w / asp;   // 매장 앞 26 m 거리. 밤은 의사당 전체가 창에 들어오게 작게
-  backdrop.scale.set(w, h, 1); backdrop.position.set(-26, 2.2 - (BD[k + '_horizon'] - .5) * h, W / 2);   // 사진 속 수평선 ≈ 눈높이
-  const b = document.getElementById('tod'); if (b) b.textContent = (todMode === 'auto' ? '자동 · ' : '') + c.label;
+  const w = force ? (force === 'night' ? 1 : 0) : todMode === 'auto' ? nightWeight(kstMinutes()) : todMode === 'night' ? 1 : 0;
+  if (w === todW && !force) return; todW = w;
+  const A = TOD.day, B = TOD.night, C = TOD.dusk;
+  scene.background = mix3(A.bg, B.bg, C.bg, w).clone(); scene.fog = new THREE.Fog(scene.background, 30, 70);
+  hemi.color.copy(mix3(A.hemi[0], B.hemi[0], C.hemi[0], w)); hemi.groundColor.copy(mix3(A.hemi[1], B.hemi[1], C.hemi[1], w)); hemi.intensity = THREE.MathUtils.lerp(A.hemi[2], B.hemi[2], w);
+  sky.color.copy(mix3(A.sky[0], B.sky[0], C.sky[0], w)); sky.intensity = THREE.MathUtils.lerp(A.sky[1], B.sky[1], w) + (1 - Math.abs(w * 2 - 1)) * .6;
+  sky.position.set(...A.sky[2].map((v, i) => THREE.MathUtils.lerp(v, B.sky[2][i], w)));
+  renderer.toneMappingExposure = R.exposure * THREE.MathUtils.lerp(A.expo, B.expo, w);
+  panoMat.uniforms.w.value = w; panoMat.uniforms.nightGain.value = B.bd;
+  panoMat.uniforms.dayTint.value.setScalar(A.bd * (1 - w * .5)).lerp(_c2.set(0xffa070), (1 - Math.abs(w * 2 - 1)) * .45);   // 전환 중엔 낮 사진에 노을빛
+  const lab = w === 0 ? A.label : w === 1 ? B.label : '노을 · 전환 중';
+  const b = document.getElementById('tod'); if (b) b.textContent = (todMode === 'auto' ? '자동 · ' : '') + lab;
 }
 
 // ---------- OOTD 스튜디오(옛 피팅룸 2): 배경지 + 조명 2개 + 삼각대, 4:5 촬영 ----------
@@ -555,7 +593,7 @@ model.traverse(o => {
   else { o.castShadow = true; o.receiveShadow = true; }
 });
 scene.add(buildPodium(), buildArches(), buildZoneB(), buildCeiling(), buildLights(), avatar, backdrop, buildOOTD());
-applyTOD(); setInterval(() => applyTOD(), 60000);
+applyTOD(); setInterval(() => applyTOD(), 30000);
 camera.layers.enable(2);                                      // 레이어 1 = 걷기 중 내 몸(거울에만), 2 = 세워 둔 마네킹(모두에게)
 
 // ---------- camera presets, tween, walk ----------
@@ -705,7 +743,9 @@ function mpTick(now) {
 window.__mpOutfit = () => { if (sock && sock.readyState === 1 && myId) sock.send(JSON.stringify({ t: 'o', outfit })); };
 
 // ---------- UI ----------
-document.getElementById('tod').addEventListener('click', () => { todMode = { auto: 'day', day: 'night', night: 'auto' }[todMode]; todNow = null; applyTOD(); });
+document.getElementById('tod').addEventListener('click', () => { todMode = { auto: 'day', day: 'dusk', dusk: 'night', night: 'auto' }[todMode]; todW = -1; todMode === 'dusk' ? previewDusk() : applyTOD(); });
+function previewDusk() { applyTODAt(1080); }
+function applyTODAt(min) { const m = todMode; todMode = 'auto'; todW = -1; kstMinutesOverride = min; applyTOD(); kstMinutesOverride = null; todMode = m; const b = document.getElementById('tod'); if (b && m === 'dusk') b.textContent = '노을 미리보기'; }
 document.getElementById('ootdBtn').addEventListener('click', e => { setOOTD(!ootdOn); e.currentTarget.setAttribute('aria-pressed', ootdOn); });
 document.getElementById('ootdExit').addEventListener('click', () => { setOOTD(false); document.getElementById('ootdBtn').setAttribute('aria-pressed', false); setView('overview'); });
 document.getElementById('shoot').addEventListener('click', shootOOTD);
@@ -765,7 +805,7 @@ requestAnimationFrame(frame);
 // ---------- hooks for the harness (headless frame capture) ----------
 window.__shot = (k, end, exposure) => { running = false; todMode = 'night'; applyTOD('night'); if (k === 'R_ootd') { avatar.position.set(OO.subject[0], 0, OO.subject[1]); avatar.rotation.y = -Math.PI / 2; } else parkAvatar(); if (exposure) renderer.toneMappingExposure = exposure; setView(k, true, end); updateMirrors(); renderer.render(scene, camera); };
 window.__capture = () => document.body.classList.add('capture');
-window.__dbg = { remotes, mpConnect, setOOTD, shootOOTD, camera, controls, applyTOD, kstHour, walk, blocked, walkStep, itemMeshes, pick, showTag, avatar, mirrors, outfit, dress, stop: () => { running = false; }, render: () => { updateMirrors(); renderer.render(scene, camera); } };
+window.__dbg = { panoMat, applyTODAt, remotes, mpConnect, setOOTD, shootOOTD, camera, controls, applyTOD, kstHour, walk, blocked, walkStep, itemMeshes, pick, showTag, avatar, mirrors, outfit, dress, stop: () => { running = false; }, render: () => { updateMirrors(); renderer.render(scene, camera); } };
 window.__ready = true;
 }
 </script>
