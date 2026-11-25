@@ -39,6 +39,7 @@ button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
 #hint{position:fixed;left:14px;bottom:86px;font-size:12px;color:var(--mut);background:rgba(20,20,19,.6);padding:6px 10px;max-width:calc(100vw - 28px)}
 #loading{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);font:800 18px Archivo,sans-serif;letter-spacing:.2em}
 #loading[hidden]{display:none}
+#rigNote{position:fixed;left:50%;top:14px;transform:translateX(-50%);padding:6px 12px;background:rgba(20,20,19,.72);border:1px solid var(--line);font-size:12px;color:var(--mut);pointer-events:none;z-index:5}#rigNote[hidden]{display:none}body.capture #rigNote{display:none!important}
 @media(max-width:600px){.rail{flex-wrap:nowrap;overflow-x:auto;left:10px;right:10px;transform:none;justify-content:flex-start;scrollbar-width:none}.rail button{flex:none;padding:0 11px;font-size:13px}.side{top:auto;bottom:80px;right:10px}.side:not([open]){width:auto}.plate{top:10px;left:10px;padding:8px 12px}.plate h1{font-size:18px}#hint{display:none}}
 #tag{position:fixed;z-index:5;pointer-events:none;background:rgba(20,20,19,.9);border:1px solid var(--brass);padding:7px 10px;max-width:250px;font-size:13px;line-height:1.4}
 #tag b{display:block;color:var(--ink)}#tag span{color:var(--mut);font-size:12px}
@@ -81,6 +82,7 @@ body.capture .plate,body.capture .rail,body.capture .side,body.capture #hint,bod
 <body>
 <canvas id="c"></canvas>
 <div id="loading">STRATA</div>
+<div id="rigNote" aria-live="polite">조명 불러오는 중…</div>
 <div class="plate"><h1>STRATA</h1><p>Raw Monument · 12F · 10 × 12 m, 천장고 3.5 m · 참고용 가상 설계 <a id="backLink" href="../" hidden>← MY FIT</a></p></div>
 <details class="side" open>
   <summary>구역 안내</summary>
@@ -486,6 +488,7 @@ const TOD = {
   dusk:  { bg: 0x6a5a6e, hemi: [0xf0b48a, 0x4a3a33, .35], sky: [0xff9a55, 1.6, [-14, 3, 4]] },  // 전환 중간(노을빛)
 };
 let todMode = 'auto', todW = -1;
+const rig = { full: true, list: [], ready: false };   // 조명 2단계 로딩(아래 '빠른 첫 화면' 참고)
 let kstMinutesOverride = null;
 function kstMinutes() { if (kstMinutesOverride != null) return kstMinutesOverride; const f = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date()); const g = k => +f.find(p => p.type === k).value; return (g('hour') % 24) * 60 + g('minute'); }
 function kstHour() { return Math.floor(kstMinutes() / 60); }
@@ -500,7 +503,7 @@ function applyTOD(force) {
   if (w === todW && !force) return; todW = w;
   const A = TOD.day, B = TOD.night, C = TOD.dusk;
   scene.background = mix3(A.bg, B.bg, C.bg, w).clone(); scene.fog = new THREE.Fog(scene.background, 30, 70);
-  hemi.color.copy(mix3(A.hemi[0], B.hemi[0], C.hemi[0], w)); hemi.groundColor.copy(mix3(A.hemi[1], B.hemi[1], C.hemi[1], w)); hemi.intensity = THREE.MathUtils.lerp(A.hemi[2], B.hemi[2], w);
+  hemi.color.copy(mix3(A.hemi[0], B.hemi[0], C.hemi[0], w)); hemi.groundColor.copy(mix3(A.hemi[1], B.hemi[1], C.hemi[1], w)); hemi.intensity = THREE.MathUtils.lerp(A.hemi[2], B.hemi[2], w) * (rig.full ? 1 : 2.4);   // 간이 조명일 땐 밝기 보충
   sky.color.copy(mix3(A.sky[0], B.sky[0], C.sky[0], w)); sky.intensity = THREE.MathUtils.lerp(A.sky[1], B.sky[1], w) + (1 - Math.abs(w * 2 - 1)) * .6;
   sky.position.set(...A.sky[2].map((v, i) => THREE.MathUtils.lerp(v, B.sky[2][i], w)));
   renderer.toneMappingExposure = R.exposure * THREE.MathUtils.lerp(A.expo, B.expo, w);
@@ -662,6 +665,22 @@ model.traverse(o => {
   else { o.castShadow = true; o.receiveShadow = true; }
 });
 scene.add(buildPodium(), buildArches(), buildZoneB(), buildCeiling(), buildLights(), avatar, backdrop, buildOOTD(), buildElevator(), buildLedge());
+// ---------- 빠른 첫 화면: 조명 2단계 로딩 ----------
+// 스포트 16개 + 사각 조명 4개가 모든 재질 셰이더에 들어가면, 인텔 내장 GPU(Windows/D3D)에서 첫 화면 셰이더 준비에 15초가량 걸림(11-25 실측).
+// 그래서 ① 간이 조명(반구·방향·포인트, 그림자 없음)으로 먼저 보여 주고 ② 전체 조명 셰이더를 백그라운드에서 병렬 컴파일한 뒤 ③ 끝나면 전체 조명으로 바꾼다.
+scene.traverse(o => { if (o.isSpotLight || o.isRectAreaLight) rig.list.push({ l: o, p: o.parent }); });
+function setRig(full) { if (rig.full === full) return; rig.full = full; for (const { l, p } of rig.list) full ? p.add(l) : p.remove(l); todW = -1; applyTOD(); }
+const rigNote = document.getElementById('rigNote');
+function finishRig() { if (rig.ready) return; rig.ready = true; setRig(true); if (rigNote) rigNote.hidden = true; }
+function precompileFullRig() {
+  if (rig.ready) return; const was = rig.full; rig.full = false; for (const { l, p } of rig.list) p.add(l);   // 잠깐 전체 조명 상태로
+  let progs = [];
+  try { const mats = renderer.compile(scene, camera); progs = [...mats].map(m => renderer.properties.get(m).currentProgram).filter(Boolean); } catch (e) { progs = []; }
+  for (const { l, p } of rig.list) p.remove(l); rig.full = was;                                             // 다시 간이 조명으로(이번 프레임부터 계속 그림)
+  const t0 = performance.now();
+  (function poll() { if (progs.every(pr => pr.isReady())) return finishRig(); if (performance.now() - t0 > 60000) return finishRig(); setTimeout(poll, 60); })();
+}
+setRig(false);
 applyTOD(); setInterval(() => applyTOD(), 30000);
 camera.layers.enable(2);                                      // 레이어 1 = 걷기 중 내 몸(거울에만), 2 = 세워 둔 마네킹(모두에게)
 
@@ -869,12 +888,13 @@ function frame(now) {
 }
 setView('A_threshold_push', true);
 document.getElementById('loading').hidden = true;
+requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(precompileFullRig, 30)));   // 첫 화면이 뜬 뒤 전체 조명 준비 시작
 requestAnimationFrame(frame);
 
 // ---------- hooks for the harness (headless frame capture) ----------
-window.__shot = (k, end, exposure) => { running = false; todMode = 'night'; applyTOD('night'); if (k === 'R_ootd') { avatar.position.set(OO.subject[0], 0, OO.subject[1]); avatar.rotation.y = -Math.PI / 2; } else parkAvatar(); if (exposure) renderer.toneMappingExposure = exposure; setView(k, true, end); updateMirrors(); renderer.render(scene, camera); };
+window.__shot = (k, end, exposure) => { running = false; finishRig(); todMode = 'night'; applyTOD('night'); if (k === 'R_ootd') { avatar.position.set(OO.subject[0], 0, OO.subject[1]); avatar.rotation.y = -Math.PI / 2; } else parkAvatar(); if (exposure) renderer.toneMappingExposure = exposure; setView(k, true, end); updateMirrors(); renderer.render(scene, camera); };
 window.__capture = () => document.body.classList.add('capture');
-window.__dbg = { panoMat, lift, openLift, applyTODAt, remotes, mpConnect, setOOTD, shootOOTD, camera, controls, applyTOD, kstHour, walk, blocked, walkStep, itemMeshes, pick, showTag, avatar, mirrors, outfit, dress, stop: () => { running = false; }, render: () => { updateMirrors(); renderer.render(scene, camera); } };
+window.__dbg = { panoMat, rig, setRig, finishRig, renderer, scene, lift, openLift, applyTODAt, remotes, mpConnect, setOOTD, shootOOTD, camera, controls, applyTOD, kstHour, walk, blocked, walkStep, itemMeshes, pick, showTag, avatar, mirrors, outfit, dress, stop: () => { running = false; }, render: () => { updateMirrors(); renderer.render(scene, camera); } };
 window.__ready = true;
 }
 </script>
