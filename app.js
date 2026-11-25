@@ -518,6 +518,7 @@
   });
   if(allLooksView&&new URLSearchParams(location.search).get('looks')==='all')recommendationMode='all-looks';
   if(photoFitting&&new URLSearchParams(location.search).get('looks')==='fitting')recommendationMode='photo-fitting';
-  renderEverything();showRoute(location.hash.slice(1)||'home');}
+  renderEverything();showRoute(location.hash.slice(1)||'home');
+  const deepItem=new URLSearchParams(location.search).get('item');if(deepItem&&itemById(deepItem))openItemDetail(deepItem);}   // 3D 쇼룸 '옷장에서 보기' → 해당 옷 상세
  init().catch(error=>{console.error(error);toast('화면을 준비하는 중 문제가 발생했어요. 페이지를 다시 열어주세요.')});
 })();
